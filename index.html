@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undaunted Knowledge Graph</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e4e4e7;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            color: #a1a1aa;
+            margin-top: 0.25rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            gap: 1rem;
+            padding: 1rem;
+            height: calc(100vh - 100px);
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f4f4f5;
+        }
+
+        .filter-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-section label {
+            display: block;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+        }
+
+        .type-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .type-btn {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #e4e4e7;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .type-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .type-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+        }
+
+        .stats {
+            font-size: 0.85rem;
+            color: #a1a1aa;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .graph-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #graph {
+            width: 100%;
+            height: 100%;
+        }
+
+        .details-panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .details-panel h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f4f4f5;
+        }
+
+        .entity-details {
+            font-size: 0.9rem;
+        }
+
+        .entity-type {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .entity-type.PERSON { background: #3b82f6; color: white; }
+        .entity-type.PLACE { background: #10b981; color: white; }
+        .entity-type.EVENT { background: #f59e0b; color: white; }
+        .entity-type.INSTITUTION { background: #8b5cf6; color: white; }
+        .entity-type.COMMUNITY { background: #ec4899; color: white; }
+        .entity-type.CONCEPT { background: #14b8a6; color: white; }
+        .entity-type.TEACHING { background: #f97316; color: white; }
+
+        .detail-row {
+            display: flex;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #a1a1aa;
+            min-width: 100px;
+        }
+
+        .detail-value {
+            color: #e4e4e7;
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .passage {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #e4e4e7;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-box::placeholder {
+            color: #71717a;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .node {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .node:hover {
+            filter: brightness(1.2);
+        }
+
+        .link {
+            stroke-opacity: 0.3;
+        }
+
+        .link:hover {
+            stroke-opacity: 0.6;
+        }
+
+        .zoom-controls {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .zoom-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e7;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .legend {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            color: #a1a1aa;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 500px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Undaunted Knowledge Graph</h1>
+        <p>Interactive exploration of entities from "Undaunted: How the Sixth Lubavitcher Rebbe Saved Russian Jewry"</p>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Filters</h2>
+
+            <div class="filter-section">
+                <label>Search</label>
+                <input type="text" class="search-box" id="searchInput" placeholder="Search entities...">
+            </div>
+
+            <div class="filter-section">
+                <label>Entity Types</label>
+                <div class="type-buttons" id="typeFilters"></div>
+            </div>
+
+            <h2 style="margin-top: 2rem;">Statistics</h2>
+            <div class="stats" id="stats"></div>
+        </div>
+
+        <div class="graph-container">
+            <div id="graph"></div>
+            <div class="zoom-controls">
+                <button class="zoom-btn" onclick="zoomIn()">+</button>
+                <button class="zoom-btn" onclick="zoomOut()">−</button>
+                <button class="zoom-btn" onclick="resetZoom()">⟲</button>
+            </div>
+            <div class="legend" id="legend"></div>
+        </div>
+
+        <div class="details-panel">
+            <h2>Entity Details</h2>
+            <div id="entityDetails">
+                <p style="color: #71717a; font-style: italic;">Click on a node to view details</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Color scheme for node types
+        const typeColors = {
+            PERSON: '#3b82f6',
+            PLACE: '#10b981',
+            EVENT: '#f59e0b',
+            INSTITUTION: '#8b5cf6',
+            COMMUNITY: '#ec4899',
+            CONCEPT: '#14b8a6',
+            TEACHING: '#f97316'
+        };
+
+        let rawData = [];
+        let nodes = [];
+        let links = [];
+        let simulation;
+        let svg, g, zoom;
+        let activeTypes = new Set(Object.keys(typeColors));
+
+        // Load data
+        async function loadData() {
+            try {
+                const response = await fetch('undaunted_data.json');
+                rawData = await response.json();
+                processData();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                // Use sample data if fetch fails
+                rawData = { extractions: [] };
+            }
+        }
+
+        function processData() {
+            const extractions = rawData.extractions || [];
+
+            // Create nodes from extractions
+            const nodeMap = new Map();
+            const idCounter = { person: 0, place: 0, event: 0, institution: 0, community: 0, concept: 0, teaching: 0 };
+
+            extractions.forEach((ex, idx) => {
+                const type = ex.node_type.toLowerCase();
+                const data = ex.extracted_data;
+                const name = data.name_en || data.name || data.title_en || `Entity ${idx}`;
+
+                // Generate unique ID
+                const typeKey = type === 'teaching' ? 'teaching' : type;
+                const id = `${type}_${idCounter[typeKey]++}_${name.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)}`;
+
+                if (!nodeMap.has(id)) {
+                    nodeMap.set(id, {
+                        id: id,
+                        name: name,
+                        type: ex.node_type,
+                        data: data,
+                        passage: ex.passage
+                    });
+                }
+            });
+
+            nodes = Array.from(nodeMap.values());
+
+            // Create links based on relationships
+            links = [];
+            nodes.forEach(node => {
+                const data = node.data;
+
+                // Person -> Place relationships
+                if (data.birth_place) {
+                    const target = nodes.find(n => n.name === data.birth_place || n.data.name_en === data.birth_place);
+                    if (target) links.push({ source: node.id, target: target.id, type: 'birth_place' });
+                }
+
+                // Person -> Institution relationships
+                if (data.roles) {
+                    data.roles.forEach(role => {
+                        if (role.includes('JLI') || role.includes('JEM')) {
+                            const target = nodes.find(n => n.data.institution_type && n.data.name_en && role.includes(n.data.name_en));
+                            if (target) links.push({ source: node.id, target: target.id, type: 'affiliation' });
+                        }
+                    });
+                }
+            });
+
+            initGraph();
+            updateStats();
+            initFilters();
+            initLegend();
+        }
+
+        function initGraph() {
+            const container = document.getElementById('graph');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            svg = d3.select('#graph')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+
+            svg.call(zoom);
+
+            g = svg.append('g');
+
+            // Create force simulation
+            simulation = d3.forceSimulation(nodes)
+                .force('link', d3.forceLink(links).id(d => d.id).distance(100))
+                .force('charge', d3.forceManyBody().strength(-300))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(30));
+
+            // Create links
+            const link = g.append('g')
+                .selectAll('line')
+                .data(links)
+                .join('line')
+                .attr('class', 'link')
+                .attr('stroke', '#ffffff')
+                .attr('stroke-width', 1);
+
+            // Create nodes
+            const node = g.append('g')
+                .selectAll('circle')
+                .data(nodes)
+                .join('circle')
+                .attr('class', 'node')
+                .attr('r', d => getNodeSize(d.type))
+                .attr('fill', d => typeColors[d.type] || '#666')
+                .on('click', showDetails)
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            // Add labels
+            const labels = g.append('g')
+                .selectAll('text')
+                .data(nodes)
+                .join('text')
+                .text(d => d.name.length > 20 ? d.name.substring(0, 20) + '...' : d.name)
+                .attr('font-size', '10px')
+                .attr('fill', '#e4e4e7')
+                .attr('text-anchor', 'middle')
+                .attr('dy', d => getNodeSize(d.type) + 15)
+                .style('pointer-events', 'none');
+
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+
+                node
+                    .attr('cx', d => d.x)
+                    .attr('cy', d => d.y);
+
+                labels
+                    .attr('x', d => d.x)
+                    .attr('y', d => d.y);
+            });
+        }
+
+        function getNodeSize(type) {
+            const sizes = {
+                PERSON: 15,
+                PLACE: 12,
+                EVENT: 10,
+                INSTITUTION: 12,
+                COMMUNITY: 14,
+                CONCEPT: 8,
+                TEACHING: 10
+            };
+            return sizes[type] || 10;
+        }
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        function showDetails(event, d) {
+            const detailsPanel = document.getElementById('entityDetails');
+
+            let html = `<span class="entity-type ${d.type}">${d.type}</span>`;
+            html += `<h3 style="margin-bottom: 1rem; color: #f4f4f5;">${d.name}</h3>`;
+
+            // Display entity data
+            for (const [key, value] of Object.entries(d.data)) {
+                if (key !== 'name' && key !== 'name_en' && value) {
+                    const displayValue = Array.isArray(value) ? value.join(', ') : value;
+                    html += `<div class="detail-row">
+                        <span class="detail-label">${key}:</span>
+                        <span class="detail-value">${displayValue}</span>
+                    </div>`;
+                }
+            }
+
+            if (d.passage) {
+                html += `<div class="passage">"${d.passage}"</div>`;
+            }
+
+            detailsPanel.innerHTML = html;
+        }
+
+        function updateStats() {
+            const stats = {};
+            nodes.forEach(n => {
+                stats[n.type] = (stats[n.type] || 0) + 1;
+            });
+
+            const statsHtml = Object.entries(stats)
+                .sort((a, b) => b[1] - a[1])
+                .map(([type, count]) =>
+                    `<div class="stat-item">
+                        <span>${type}</span>
+                        <span>${count}</span>
+                    </div>`
+                ).join('');
+
+            document.getElementById('stats').innerHTML = statsHtml;
+        }
+
+        function initFilters() {
+            const container = document.getElementById('typeFilters');
+
+            Object.entries(typeColors).forEach(([type, color]) => {
+                const btn = document.createElement('button');
+                btn.className = 'type-btn active';
+                btn.textContent = type;
+                btn.onclick = () => toggleFilter(type, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function toggleFilter(type, btn) {
+            if (activeTypes.has(type)) {
+                if (activeTypes.size > 1) {
+                    activeTypes.delete(type);
+                    btn.classList.remove('active');
+                }
+            } else {
+                activeTypes.add(type);
+                btn.classList.add('active');
+            }
+            updateGraph();
+        }
+
+        function updateGraph() {
+            const filteredNodes = nodes.filter(n => activeTypes.has(n.type));
+            const filteredIds = new Set(filteredNodes.map(n => n.id));
+            const filteredLinks = links.filter(l => filteredIds.has(l.source.id) && filteredIds.has(l.target.id));
+
+            // Update simulation
+            simulation.nodes(filteredNodes);
+            simulation.force('link').links(filteredLinks);
+
+            // Update visual elements
+            const nodeElements = g.selectAll('.node').data(filteredNodes, d => d.id);
+            nodeElements.enter().append('circle')
+                .attr('class', 'node')
+                .attr('r', d => getNodeSize(d.type))
+                .attr('fill', d => typeColors[d.type] || '#666')
+                .on('click', showDetails)
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended))
+                .merge(nodeElements);
+            nodeElements.exit().remove();
+
+            const linkElements = g.select('.link').selectAll('line')
+                .data(filteredLinks);
+            linkElements.enter().append('line')
+                .attr('class', 'link')
+                .attr('stroke', '#ffffff')
+                .merge(linkElements);
+            linkElements.exit().remove();
+
+            const labelElements = g.selectAll('text').data(filteredNodes, d => d.id);
+            labelElements.enter().append('text')
+                .text(d => d.name.length > 20 ? d.name.substring(0, 20) + '...' : d.name)
+                .attr('font-size', '10px')
+                .attr('fill', '#e4e4e7')
+                .attr('text-anchor', 'middle')
+                .attr('dy', d => getNodeSize(d.type) + 15)
+                .style('pointer-events', 'none')
+                .merge(labelElements);
+            labelElements.exit().remove();
+
+            simulation.alpha(1).restart();
+        }
+
+        function initLegend() {
+            const container = document.getElementById('legend');
+
+            Object.entries(typeColors).forEach(([type, color]) => {
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                item.innerHTML = `<div class="legend-color" style="background: ${color}"></div>${type}`;
+                container.appendChild(item);
+            });
+        }
+
+        function zoomIn() {
+            svg.transition().call(zoom.scaleBy, 1.3);
+        }
+
+        function zoomOut() {
+            svg.transition().call(zoom.scaleBy, 0.7);
+        }
+
+        function resetZoom() {
+            svg.transition().call(zoom.transform, d3.zoomIdentity);
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+
+            if (query.length < 2) {
+                g.selectAll('.node').attr('opacity', 1);
+                return;
+            }
+
+            g.selectAll('.node').attr('opacity', d =>
+                d.name.toLowerCase().includes(query) ? 1 : 0.2
+            );
+        });
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>
