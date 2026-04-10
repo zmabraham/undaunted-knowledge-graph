@@ -685,47 +685,51 @@
         }
 
         function processData() {
-            const extractions = rawData.extractions || [];
-            const nodeMap = new Map();
-            const idCounter = { person: 0, place: 0, event: 0, institution: 0, community: 0, concept: 0, teaching: 0 };
-            const linkSet = new Set();
+            try {
+                const extractions = rawData.extractions || [];
+                console.log('processData: Starting with', extractions.length, 'extractions');
 
-            // First pass: create all nodes
-            extractions.forEach((ex, idx) => {
-                const type = ex.node_type.toLowerCase();
-                const data = ex.extracted_data;
-                const name = data.name_en || data.name || data.title_en || `Entity ${idx}`;
+                const nodeMap = new Map();
+                const idCounter = { person: 0, place: 0, event: 0, institution: 0, community: 0, concept: 0, teaching: 0 };
+                const linkSet = new Set();
 
-                const typeKey = type === 'teaching' ? 'teaching' : type;
-                const id = `${type}_${idCounter[typeKey]++}_${name.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)}`;
+                // First pass: create all nodes
+                extractions.forEach((ex, idx) => {
+                    const type = ex.node_type.toLowerCase();
+                    const data = ex.extracted_data;
+                    const name = data.name_en || data.name || data.title_en || `Entity ${idx}`;
 
-                if (!nodeMap.has(id)) {
-                    nodeMap.set(id, {
-                        id: id,
-                        name: name,
-                        type: ex.node_type,
-                        data: data,
-                        passage: ex.passage,
-                        related_entities: []
-                    });
-                }
-            });
+                    const typeKey = type === 'teaching' ? 'teaching' : type;
+                    const id = `${type}_${idCounter[typeKey]++}_${name.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)}`;
 
-            nodes = Array.from(nodeMap.values());
+                    if (!nodeMap.has(id)) {
+                        nodeMap.set(id, {
+                            id: id,
+                            name: name,
+                            type: ex.node_type,
+                            data: data,
+                            passage: ex.passage,
+                            related_entities: []
+                        });
+                    }
+                });
 
-            // Extract events for timeline
-            events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
-            events.sort((a, b) => a.data.year_ce - b.data.year_ce);
-            console.log('Events extracted for timeline:', events.length);
+                nodes = Array.from(nodeMap.values());
+                console.log('processData: Created', nodes.length, 'nodes');
 
-            // Make events accessible from console for debugging
-            window.debugEvents = events;
-            window.debugNodes = nodes;
-            console.log('Debug: Access events via window.debugEvents, nodes via window.debugNodes');
+                // Extract events for timeline
+                events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
+                events.sort((a, b) => a.data.year_ce - b.data.year_ce);
+                console.log('Events extracted for timeline:', events.length);
 
-            updateStatus('Found ' + events.length + ' events<br>' +
-                        'Total nodes: ' + nodes.length + '<br>' +
-                        'Initializing timeline...');
+                // Make events accessible from console for debugging
+                window.debugEvents = events;
+                window.debugNodes = nodes;
+                console.log('Debug: Access events via window.debugEvents, nodes via window.debugNodes');
+
+                updateStatus('Found ' + events.length + ' events<br>' +
+                            'Total nodes: ' + nodes.length + '<br>' +
+                            'Initializing timeline...');
 
             // Second pass: extract relationships from passages
             extractions.forEach((ex, idx) => {
@@ -775,12 +779,16 @@
                 extractSpecificRelationships(mainEntity, nodeMap, linkSet);
             });
 
-            // Initialize views
-            initTimeline();
-            initGraph();
-            updateStats();
-            initFilters();
-            initLegend();
+                // Initialize views
+                initTimeline();
+                initGraph();
+                updateStats();
+                initFilters();
+                initLegend();
+            } catch (error) {
+                console.error('Error in processData:', error);
+                updateStatus('<span style="color: #ef4444;">Error processing data: ' + error.message + '</span>');
+            }
         }
 
         function determineRelationshipType(source, target, passage) {
