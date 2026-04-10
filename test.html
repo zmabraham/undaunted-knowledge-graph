@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test</title>
+</head>
+<body>
+    <h1>Data Loading Test</h1>
+    <div id="output"></div>
+
+    <script>
+        async function test() {
+            const output = document.getElementById('output');
+            output.innerHTML = 'Loading...';
+
+            try {
+                const response = await fetch('undaunted_data.json');
+                output.innerHTML += '<br>Response: ' + response.status;
+
+                const data = await response.json();
+                output.innerHTML += '<br>Extractions: ' + data.extractions.length;
+
+                const events = data.extractions.filter(e => e.node_type === 'EVENT');
+                output.innerHTML += '<br>Events: ' + events.length;
+
+                const dated = events.filter(e => typeof e.extracted_data.year_ce === 'number');
+                output.innerHTML += '<br>Dated events: ' + dated.length;
+
+                output.innerHTML += '<br><br><strong>Sample events:</strong>';
+                dated.slice(0, 5).forEach(e => {
+                    output.innerHTML += '<br>' + e.extracted_data.year_ce + ': ' + e.extracted_data.title_en;
+                });
+            } catch (error) {
+                output.innerHTML += '<br><br><strong>Error:</strong> ' + error.message;
+            }
+        }
+
+        test();
+    </script>
+</body>
+</html>
