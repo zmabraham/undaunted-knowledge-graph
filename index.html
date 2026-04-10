@@ -839,8 +839,10 @@
                 if (target) addLink(entity.id, target.id, 'died_in', linkSet);
             }
 
+            // Handle participants - make sure it's an array
             if (data.participants) {
-                data.participants.forEach(participant => {
+                const participants = Array.isArray(data.participants) ? data.participants : [data.participants];
+                participants.forEach(participant => {
                     const target = nodes.find(n => n.name === participant || n.data.name_en === participant);
                     if (target) addLink(entity.id, target.id, 'participated_with', linkSet);
                 });
@@ -1023,16 +1025,18 @@
             }
 
             // Show participants
-            if (event.data.participants && event.data.participants.length > 0) {
-                html += `<div style="margin-top: 1rem;">
-                    <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Participants</h4>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
-                        ${event.data.participants.map(p => {
-                            const person = nodes.find(n => n.name === p || n.data.name_en === p);
-                            const color = person ? typeColors[person.type] : '#6b7280';
-                            return `<span style="padding: 0.2rem 0.5rem; background: ${color}20; border: 1px solid ${color}40; border-radius: 4px; font-size: 0.75rem; color: ${color};">${p}</span>`;
-                        }).join('')}
-                    </div>
+            if (event.data.participants) {
+                const participants = Array.isArray(event.data.participants) ? event.data.participants : [event.data.participants];
+                if (participants.length > 0) {
+                    html += `<div style="margin-top: 1rem;">
+                        <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Participants</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+                            ${participants.map(p => {
+                                const person = nodes.find(n => n.name === p || n.data.name_en === p);
+                                const color = person ? typeColors[person.type] : '#6b7280';
+                                return `<span style="padding: 0.2rem 0.5rem; background: ${color}20; border: 1px solid ${color}40; border-radius: 4px; font-size: 0.75rem; color: ${color};">${p}</span>`;
+                            }).join('')}
+                        </div>
                 </div>`;
             }
 
