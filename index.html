@@ -636,12 +636,16 @@
         ];
 
         async function loadData() {
+            console.log('Loading data...');
             try {
                 const response = await fetch('undaunted_data.json');
+                console.log('Response received:', response.status);
                 rawData = await response.json();
+                console.log('Data loaded. Extractions:', rawData.extractions?.length || 0);
                 processData();
             } catch (error) {
                 console.error('Error loading data:', error);
+                document.getElementById('timeline').innerHTML = '<div style="padding: 2rem; text-align: center; color: #ef4444;">Error loading data. Please refresh the page.</div>';
                 rawData = { extractions: [] };
                 processData();
             }
@@ -679,6 +683,7 @@
             // Extract events for timeline
             events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
             events.sort((a, b) => a.data.year_ce - b.data.year_ce);
+            console.log('Events extracted for timeline:', events.length);
 
             // Second pass: extract relationships from passages
             extractions.forEach((ex, idx) => {
@@ -809,7 +814,12 @@
 
         function renderTimeline() {
             const content = document.getElementById('timelineContent');
-            if (!content) return;
+            if (!content) {
+                console.error('timelineContent element not found');
+                return;
+            }
+
+            console.log('Rendering timeline with events:', events.length, 'Active eras:', [...activeEras]);
 
             // Filter by era
             let filteredEvents = events;
