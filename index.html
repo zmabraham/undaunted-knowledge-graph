@@ -499,6 +499,19 @@
             border-radius: 2px;
         }
 
+        .loading-spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         .relationships-section {
             margin-top: 1rem;
             padding-top: 1rem;
@@ -584,7 +597,10 @@
         </div>
 
         <div class="main-container">
-            <div id="timeline"></div>
+            <div id="timeline"><div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #a1a1aa;">
+                <div class="loading-spinner"></div>
+                <span style="margin-left: 1rem;">Loading timeline...</span>
+            </div></div>
             <div id="graph"></div>
 
             <div class="zoom-controls" id="zoomControls">
@@ -684,6 +700,11 @@
             events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
             events.sort((a, b) => a.data.year_ce - b.data.year_ce);
             console.log('Events extracted for timeline:', events.length);
+
+            // Make events accessible from console for debugging
+            window.debugEvents = events;
+            window.debugNodes = nodes;
+            console.log('Debug: Access events via window.debugEvents, nodes via window.debugNodes');
 
             // Second pass: extract relationships from passages
             extractions.forEach((ex, idx) => {
