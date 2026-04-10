@@ -580,6 +580,11 @@
 
     <div class="container">
         <div class="sidebar">
+            <h2>Status</h2>
+            <div id="statusPanel" style="font-size: 0.75rem; color: #a1a1aa; margin-bottom: 1rem;">
+                <div>Initializing...</div>
+            </div>
+
             <h2>Filters</h2>
 
             <div class="filter-section">
@@ -651,16 +656,28 @@
             { name: '21st Century', minYear: 2000, maxYear: 2099 }
         ];
 
+        function updateStatus(message) {
+            const panel = document.getElementById('statusPanel');
+            if (panel) panel.innerHTML = message;
+        }
+
         async function loadData() {
             console.log('Loading data...');
+            updateStatus('Loading data...');
+
             try {
                 const response = await fetch('undaunted_data.json');
                 console.log('Response received:', response.status);
+                updateStatus('Response: ' + response.status + '<br>Parsing JSON...');
+
                 rawData = await response.json();
                 console.log('Data loaded. Extractions:', rawData.extractions?.length || 0);
+                updateStatus('Loaded ' + (rawData.extractions?.length || 0) + ' extractions<br>Processing...');
+
                 processData();
             } catch (error) {
                 console.error('Error loading data:', error);
+                updateStatus('<span style="color: #ef4444;">Error: ' + error.message + '</span>');
                 document.getElementById('timeline').innerHTML = '<div style="padding: 2rem; text-align: center; color: #ef4444;">Error loading data. Please refresh the page.</div>';
                 rawData = { extractions: [] };
                 processData();
@@ -705,6 +722,10 @@
             window.debugEvents = events;
             window.debugNodes = nodes;
             console.log('Debug: Access events via window.debugEvents, nodes via window.debugNodes');
+
+            updateStatus('Found ' + events.length + ' events<br>' +
+                        'Total nodes: ' + nodes.length + '<br>' +
+                        'Initializing timeline...');
 
             // Second pass: extract relationships from passages
             extractions.forEach((ex, idx) => {
@@ -827,8 +848,17 @@
         }
 
         function initTimeline() {
+            console.log('initTimeline called');
             const container = document.getElementById('timeline');
+            if (!container) {
+                console.error('Timeline container not found!');
+                updateStatus('<span style="color: #ef4444;">Error: Timeline container not found</span>');
+                return;
+            }
+            console.log('Timeline container found, creating content...');
+
             container.innerHTML = '<div class="timeline-container"><div class="timeline" id="timelineContent"></div></div>';
+            updateStatus('Timeline content created<br>Rendering events...');
 
             renderTimeline();
         }
@@ -837,10 +867,17 @@
             const content = document.getElementById('timelineContent');
             if (!content) {
                 console.error('timelineContent element not found');
+                updateStatus('<span style="color: #ef4444;">Error: timelineContent not found</span>');
                 return;
             }
 
             console.log('Rendering timeline with events:', events.length, 'Active eras:', [...activeEras]);
+
+            if (events.length === 0) {
+                content.innerHTML = '<div style="padding: 2rem; text-align: center; color: #ef4444;">No events found with dates. Check console for details.</div>';
+                updateStatus('<span style="color: #ef4444;">No events found!</span>');
+                return;
+            }
 
             // Filter by era
             let filteredEvents = events;
@@ -929,6 +966,11 @@
             });
 
             content.innerHTML = html;
+
+            // Update status with success message
+            updateStatus('Timeline loaded!<br>Showing ' + filteredEvents.length + ' events<br>' +
+                        'from year ' + filteredEvents[0]?.data.year_ce + ' to ' +
+                        filteredEvents[filteredEvents.length-1]?.data.year_ce);
         }
 
         function showEventDetails(eventId) {
