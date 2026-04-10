@@ -29,6 +29,12 @@
             z-index: 100;
         }
 
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .header h1 {
             font-size: 1.5rem;
             font-weight: 600;
@@ -42,6 +48,31 @@
             font-size: 0.9rem;
             color: #a1a1aa;
             margin-top: 0.25rem;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #e4e4e7;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .view-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .view-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
         }
 
         .container {
@@ -104,27 +135,6 @@
             border-color: transparent;
         }
 
-        .relationship-filters {
-            margin-top: 1rem;
-        }
-
-        .rel-btn {
-            padding: 0.3rem 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.03);
-            color: #a1a1aa;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .rel-btn.active {
-            background: rgba(102, 126, 234, 0.3);
-            border-color: rgba(102, 126, 234, 0.5);
-            color: #e4e4e7;
-        }
-
         .stats {
             font-size: 0.85rem;
             color: #a1a1aa;
@@ -137,7 +147,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .graph-container {
+        .main-container {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
@@ -145,7 +155,7 @@
             position: relative;
         }
 
-        #graph {
+        #timeline, #graph {
             width: 100%;
             height: 100%;
         }
@@ -237,6 +247,186 @@
             border-color: #667eea;
         }
 
+        /* Timeline Styles */
+        .timeline-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .timeline-era {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .era-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .era-header h3 {
+            font-size: 1.1rem;
+            color: #f4f4f5;
+        }
+
+        .era-header span {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+        }
+
+        .timeline-event {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 50%;
+            padding-right: 2rem;
+        }
+
+        .timeline-event:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-event:nth-child(even) {
+            left: 50%;
+            padding-right: 0;
+            padding-left: 2rem;
+            text-align: left;
+        }
+
+        .timeline-event-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #f59e0b;
+            border: 3px solid #1a1a2e;
+            border-radius: 50%;
+            top: 5px;
+            z-index: 1;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .timeline-event:nth-child(odd) .timeline-event-dot {
+            right: -8px;
+        }
+
+        .timeline-event:nth-child(even) .timeline-event-dot {
+            left: -8px;
+        }
+
+        .timeline-event-dot:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .event-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .event-year {
+            font-size: 0.75rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-description {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            line-height: 1.4;
+        }
+
+        .event-participants {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+
+        .participant-tag {
+            padding: 0.2rem 0.5rem;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: #60a5fa;
+        }
+
+        .related-entities {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .related-entities h4 {
+            font-size: 0.75rem;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-entity {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            margin: 0.1rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .related-entity:hover {
+            filter: brightness(1.2);
+        }
+
+        /* Graph view styles */
+        #graph {
+            display: none;
+        }
+
         .node {
             cursor: pointer;
             transition: all 0.2s;
@@ -264,7 +454,7 @@
             position: absolute;
             bottom: 1rem;
             right: 1rem;
-            display: flex;
+            display: none;
             gap: 0.5rem;
         }
 
@@ -290,7 +480,7 @@
             position: absolute;
             bottom: 1rem;
             left: 1rem;
-            display: flex;
+            display: none;
             gap: 0.5rem;
             flex-wrap: wrap;
         }
@@ -333,13 +523,46 @@
                 grid-template-columns: 1fr;
                 grid-template-rows: auto 450px auto;
             }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-event {
+                width: 100%;
+                padding-left: 3rem;
+                padding-right: 0;
+                text-align: left !important;
+            }
+
+            .timeline-event:nth-child(odd),
+            .timeline-event:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-event-dot {
+                left: 12px !important;
+            }
+
+            .era-header {
+                left: 0;
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Undaunted Knowledge Graph</h1>
-        <p>Interactive visualization with relationships from "Undaunted"</p>
+        <div class="header-top">
+            <div>
+                <h1>Undaunted Knowledge Graph</h1>
+                <p>Interactive timeline of events from "Undaunted"</p>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="showTimeline()">Timeline</button>
+                <button class="view-btn" onclick="showGraph()">Graph</button>
+            </div>
+        </div>
     </div>
 
     <div class="container">
@@ -348,28 +571,23 @@
 
             <div class="filter-section">
                 <label>Search</label>
-                <input type="text" class="search-box" id="searchInput" placeholder="Search entities...">
+                <input type="text" class="search-box" id="searchInput" placeholder="Search events...">
             </div>
 
             <div class="filter-section">
-                <label>Entity Types</label>
-                <div class="type-buttons" id="typeFilters"></div>
-            </div>
-
-            <div class="filter-section">
-                <label>Show Relationships</label>
-                <label style="font-weight: normal; font-size: 0.75rem;">
-                    <input type="checkbox" id="showRelationships" checked> Display links
-                </label>
+                <label>Time Period</label>
+                <div class="type-buttons" id="eraFilters"></div>
             </div>
 
             <h2 style="margin-top: 1.5rem;">Statistics</h2>
             <div class="stats" id="stats"></div>
         </div>
 
-        <div class="graph-container">
+        <div class="main-container">
+            <div id="timeline"></div>
             <div id="graph"></div>
-            <div class="zoom-controls">
+
+            <div class="zoom-controls" id="zoomControls">
                 <button class="zoom-btn" onclick="zoomIn()">+</button>
                 <button class="zoom-btn" onclick="zoomOut()">−</button>
                 <button class="zoom-btn" onclick="resetZoom()">⟲</button>
@@ -378,9 +596,9 @@
         </div>
 
         <div class="details-panel">
-            <h2>Entity Details</h2>
+            <h2>Event Details</h2>
             <div id="entityDetails">
-                <p style="color: #71717a; font-style: italic; font-size: 0.85rem;">Click on a node to view details and relationships</p>
+                <p style="color: #71717a; font-style: italic; font-size: 0.85rem;">Click on an event to view details and related entities</p>
             </div>
         </div>
     </div>
@@ -399,10 +617,23 @@
         let rawData = [];
         let nodes = [];
         let links = [];
+        let events = [];
         let simulation;
         let svg, g, zoom;
-        let activeTypes = new Set(Object.keys(typeColors));
+        let activeEras = new Set(['all']);
         let linkElements, nodeElements, labelElements, linkLabelElements;
+        let currentView = 'timeline';
+
+        const eras = [
+            { name: 'All', minYear: 0, maxYear: 9999 },
+            { name: '19th Century', minYear: 1800, maxYear: 1899 },
+            { name: 'Early 1900s', minYear: 1900, maxYear: 1920 },
+            { name: '1920-1940', minYear: 1920, maxYear: 1940 },
+            { name: '1940-1960', minYear: 1940, maxYear: 1960 },
+            { name: '1960-1980', minYear: 1960, maxYear: 1980 },
+            { name: '1980-2000', minYear: 1980, maxYear: 2000 },
+            { name: '21st Century', minYear: 2000, maxYear: 2099 }
+        ];
 
         async function loadData() {
             try {
@@ -444,6 +675,10 @@
             });
 
             nodes = Array.from(nodeMap.values());
+
+            // Extract events for timeline
+            events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
+            events.sort((a, b) => a.data.year_ce - b.data.year_ce);
 
             // Second pass: extract relationships from passages
             extractions.forEach((ex, idx) => {
@@ -493,6 +728,8 @@
                 extractSpecificRelationships(mainEntity, nodeMap, linkSet);
             });
 
+            // Initialize views
+            initTimeline();
             initGraph();
             updateStats();
             initFilters();
@@ -503,52 +740,32 @@
             const sourceType = source.type;
             const targetType = target.type;
 
-            // Person -> Person relationships
             if (sourceType === 'PERSON' && targetType === 'PERSON') {
                 if (passage.includes('student of') || passage.includes('taught')) return 'teacher_student';
                 if (passage.includes('son of') || passage.includes('father')) return 'father_son';
                 if (passage.includes('colleague') || passage.includes('fellow')) return 'colleague';
-                if (source.data.roles && source.data.roles.some(r => target.name.includes(r))) return 'same_role';
                 return 'associated';
             }
 
-            // Person -> Place
             if (sourceType === 'PERSON' && targetType === 'PLACE') {
                 if (source.data.birth_place === target.name) return 'born_in';
                 if (source.data.death_place === target.name) return 'died_in';
-                if (passage.includes('lived in') || passage.includes('resided in')) return 'lived_in';
                 return 'connected_to';
             }
 
-            // Person -> Institution
             if (sourceType === 'PERSON' && targetType === 'INSTITUTION') {
-                if (source.data.roles && source.data.roles.some(r => target.data.name_en && r.includes(target.data.name_en))) return 'affiliated_with';
                 if (passage.includes('director of') || passage.includes('led')) return 'led';
                 if (passage.includes('founded')) return 'founder';
                 return 'associated';
             }
 
-            // Person -> Event
             if (sourceType === 'PERSON' && targetType === 'EVENT') {
                 if (passage.includes('participated')) return 'participated_in';
                 return 'connected_to';
             }
 
-            // Person -> Teaching
-            if (sourceType === 'PERSON' && targetType === 'TEACHING') {
-                if (source.data.name_en === target.data.attributed_to_name) return 'authored';
-                if (source.data.name_en === target.data.transmitted_by_name) return 'transmitted';
-                return 'mentioned_in';
-            }
-
-            // Institution -> Place
-            if (sourceType === 'INSTITUTION' && targetType === 'PLACE') {
-                return 'located_in';
-            }
-
-            // Teaching -> Concept
-            if (sourceType === 'TEACHING' && targetType === 'CONCEPT') {
-                return 'illustrates';
+            if (sourceType === 'EVENT' && targetType === 'PERSON') {
+                return 'involved';
             }
 
             return 'related';
@@ -557,33 +774,16 @@
         function extractSpecificRelationships(entity, nodeMap, linkSet) {
             const data = entity.data;
 
-            // Birth place relationship
             if (data.birth_place) {
                 const target = nodes.find(n => n.name === data.birth_place || n.data.name_en === data.birth_place);
                 if (target) addLink(entity.id, target.id, 'born_in', linkSet);
             }
 
-            // Death place relationship
             if (data.death_place) {
                 const target = nodes.find(n => n.name === data.death_place || n.data.name_en === data.death_place);
                 if (target) addLink(entity.id, target.id, 'died_in', linkSet);
             }
 
-            // Concept relationships
-            if (data.concept_ids) {
-                data.concept_ids.forEach(conceptId => {
-                    const target = nodes.find(n => n.id.includes(conceptId) || n.data.name_en === conceptId);
-                    if (target) addLink(entity.id, target.id, 'related_to', linkSet);
-                });
-            }
-
-            // Event relationships
-            if (data.event_id) {
-                const target = nodes.find(n => n.id.includes(data.event_id) || n.data.title_en === data.event_id);
-                if (target) addLink(entity.id, target.id, 'connected_to', linkSet);
-            }
-
-            // Participant relationships
             if (data.participants) {
                 data.participants.forEach(participant => {
                     const target = nodes.find(n => n.name === participant || n.data.name_en === participant);
@@ -594,10 +794,196 @@
 
         function addLink(sourceId, targetId, type, linkSet) {
             const linkId = `${sourceId}-${targetId}-${type}`;
-            if (!linkSet.has(linkId) {
+            if (!linkSet.has(linkId)) {
                 linkSet.add(linkId);
                 links.push({ source: sourceId, target: targetId, type: type, id: linkId });
             }
+        }
+
+        function initTimeline() {
+            const container = document.getElementById('timeline');
+            container.innerHTML = '<div class="timeline-container"><div class="timeline" id="timelineContent"></div></div>';
+
+            renderTimeline();
+        }
+
+        function renderTimeline() {
+            const content = document.getElementById('timelineContent');
+            if (!content) return;
+
+            // Filter by era
+            let filteredEvents = events;
+            if (!activeEras.has('all')) {
+                filteredEvents = events.filter(e => {
+                    const year = e.data.year_ce;
+                    return [...activeEras].some(era => {
+                        const eraData = eras.find(e => e.name === era);
+                        return eraData && year >= eraData.minYear && year <= eraData.maxYear;
+                    });
+                });
+            }
+
+            // Group events by era
+            const groupedEvents = {};
+            filteredEvents.forEach(event => {
+                const year = event.data.year_ce;
+                let eraName = 'Other';
+
+                if (year < 1900) eraName = '19th Century';
+                else if (year < 1920) eraName = 'Early 1900s';
+                else if (year < 1940) eraName = '1920-1940';
+                else if (year < 1960) eraName = '1940-1960';
+                else if (year < 1980) eraName = '1960-1980';
+                else if (year < 2000) eraName = '1980-2000';
+                else eraName = '21st Century';
+
+                if (!groupedEvents[eraName]) groupedEvents[eraName] = [];
+                groupedEvents[eraName].push(event);
+            });
+
+            let html = '';
+
+            Object.entries(groupedEvents).forEach(([eraName, eraEvents]) => {
+                const eraData = eras.find(e => e.name === eraName);
+
+                html += `<div class="timeline-era">
+                    <div class="era-header">
+                        <h3>${eraName}</h3>
+                        <span>${eraEvents.length} events</span>
+                    </div>
+                `;
+
+                eraEvents.forEach((event, idx) => {
+                    const year = event.data.year_ce;
+                    const title = event.data.title_en || event.name;
+                    const description = event.data.description || '';
+                    const participants = event.data.participants || [];
+                    const hebrewDate = event.data.date_hebrew || '';
+
+                    // Find related entities
+                    const relatedLinks = links.filter(l => l.source.id === event.id || l.target.id === event.id);
+                    const relatedEntityIds = relatedLinks.map(l =>
+                        l.source.id === event.id ? l.target.id : l.source.id
+                    );
+
+                    html += `
+                        <div class="timeline-event">
+                            <div class="timeline-event-dot" onclick="showEventDetails('${event.id}')"></div>
+                            <div class="event-card" onclick="showEventDetails('${event.id}')">
+                                <div class="event-year">${year}${hebrewDate ? ' • ' + hebrewDate : ''}</div>
+                                <div class="event-title">${title}</div>
+                                ${description ? `<div class="event-description">${description}</div>` : ''}
+                                ${participants.length > 0 ? `
+                                    <div class="event-participants">
+                                        ${participants.map(p => `<span class="participant-tag">${p}</span>`).join('')}
+                                    </div>
+                                ` : ''}
+                                ${relatedEntityIds.length > 0 ? `
+                                    <div class="related-entities">
+                                        <h4>Connected to ${relatedEntityIds.length} entities</h4>
+                                        ${relatedEntityIds.slice(0, 3).map(id => {
+                                            const entity = nodes.find(n => n.id === id);
+                                            if (!entity) return '';
+                                            return `<span class="related-entity" style="background: ${typeColors[entity.type]}40; border-color: ${typeColors[entity.type]}60; color: ${typeColors[entity.type]}">${entity.name}</span>`;
+                                        }).join('')}
+                                        ${relatedEntityIds.length > 3 ? `<span style="font-size: 0.7rem; color: #71717a;">+${relatedEntityIds.length - 3} more</span>` : ''}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+            });
+
+            content.innerHTML = html;
+        }
+
+        function showEventDetails(eventId) {
+            const event = nodes.find(n => n.id === eventId);
+            if (!event) return;
+
+            const detailsPanel = document.getElementById('entityDetails');
+
+            let html = `<span class="entity-type EVENT">EVENT</span>`;
+            html += `<h3 style="margin-bottom: 0.75rem; color: #f4f4f5; font-size: 1.1rem;">${event.data.title_en || event.name}</h3>`;
+
+            // Display event data
+            if (event.data.year_ce) {
+                html += `<div class="detail-row">
+                    <span class="detail-label">Year:</span>
+                    <span class="detail-value">${event.data.year_ce}</span>
+                </div>`;
+            }
+            if (event.data.date_hebrew) {
+                html += `<div class="detail-row">
+                    <span class="detail-label">Hebrew Date:</span>
+                    <span class="detail-value">${event.data.date_hebrew}</span>
+                </div>`;
+            }
+            if (event.data.event_type) {
+                html += `<div class="detail-row">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">${event.data.event_type}</span>
+                </div>`;
+            }
+            if (event.data.description) {
+                html += `<div class="detail-row">
+                    <span class="detail-label">Description:</span>
+                    <span class="detail-value">${event.data.description}</span>
+                </div>`;
+            }
+            if (event.data.place) {
+                html += `<div class="detail-row">
+                    <span class="detail-label">Place:</span>
+                    <span class="detail-value">${event.data.place}</span>
+                </div>`;
+            }
+
+            // Show participants
+            if (event.data.participants && event.data.participants.length > 0) {
+                html += `<div style="margin-top: 1rem;">
+                    <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Participants</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+                        ${event.data.participants.map(p => {
+                            const person = nodes.find(n => n.name === p || n.data.name_en === p);
+                            const color = person ? typeColors[person.type] : '#6b7280';
+                            return `<span style="padding: 0.2rem 0.5rem; background: ${color}20; border: 1px solid ${color}40; border-radius: 4px; font-size: 0.75rem; color: ${color};">${p}</span>`;
+                        }).join('')}
+                    </div>
+                </div>`;
+            }
+
+            // Show relationships
+            const relatedLinks = links.filter(l => l.source.id === event.id || l.target.id === event.id);
+            if (relatedLinks.length > 0) {
+                html += `<div class="relationships-section">
+                    <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Related Entities (${relatedLinks.length})</h4>`;
+
+                relatedLinks.slice(0, 8).forEach(link => {
+                    const relatedId = link.source.id === event.id ? link.target.id : link.source.id;
+                    const relatedNode = nodes.find(n => n.id === relatedId);
+                    if (relatedNode) {
+                        html += `<div class="relationship-item">
+                            <span class="rel-type">${link.type}:</span>
+                            <span style="color: ${typeColors[relatedNode.type]}">${relatedNode.name}</span>
+                            <span style="color: #71717a; font-size: 0.7rem;">(${relatedNode.type})</span>
+                        </div>`;
+                    }
+                });
+
+                if (relatedLinks.length > 8) {
+                    html += `<div style="color: #71717a; font-size: 0.75rem; font-style: italic;">...and ${relatedLinks.length - 8} more</div>`;
+                }
+                html += `</div>`;
+            }
+
+            if (event.passage) {
+                html += `<div class="passage">"${event.passage.substring(0, 300)}..."</div>`;
+            }
+
+            detailsPanel.innerHTML = html;
         }
 
         function initGraph() {
@@ -621,24 +1007,22 @@
             g = svg.append('g');
 
             simulation = d3.forceSimulation(nodes)
-                .force('link', d3.forceLink(links).id(d => d.id).distance(d => getLinkDistance(d.type)))
-                .force('charge', d3.forceManyBody().strength(d => getNodeCharge(d.type)))
+                .force('link', d3.forceLink(links).id(d => d.id).distance(80))
+                .force('charge', d3.forceManyBody().strength(-150))
                 .force('center', d3.forceCenter(width / 2, height / 2))
-                .force('collision', d3.forceCollide().radius(d => getNodeSize(d.type) + 5));
+                .force('collision', d3.forceCollide().radius(15));
 
-            // Create links group (behind nodes)
+            // Create links group
             const linkGroup = g.append('g').attr('class', 'links');
 
-            // Create links
             linkElements = linkGroup.selectAll('line')
                 .data(links)
                 .join('line')
                 .attr('class', 'link')
-                .attr('stroke', d => getLinkColor(d.type))
-                .attr('stroke-width', d => getLinkWidth(d.type))
+                .attr('stroke', '#666')
+                .attr('stroke-width', 1.5)
                 .attr('stroke-opacity', 0.3);
 
-            // Add link labels
             linkLabelElements = linkGroup.selectAll('text')
                 .data(links)
                 .join('text')
@@ -647,10 +1031,8 @@
                 .attr('font-size', '8px')
                 .attr('fill', '#71717a')
                 .attr('text-anchor', 'middle')
-                .style('opacity', 0)
-                .style('pointer-events', 'none');
+                .style('opacity', 0);
 
-            // Create nodes
             nodeElements = g.append('g')
                 .selectAll('circle')
                 .data(nodes)
@@ -660,18 +1042,17 @@
                 .attr('fill', d => typeColors[d.type] || '#666')
                 .attr('stroke', '#fff')
                 .attr('stroke-width', 2)
-                .on('click', showDetails)
+                .on('click', showGraphDetails)
                 .call(d3.drag()
                     .on('start', dragstarted)
                     .on('drag', dragged)
                     .on('end', dragended));
 
-            // Add labels
             labelElements = g.append('g')
                 .selectAll('text')
                 .data(nodes)
                 .join('text')
-                .text(d => d.name.length > 18 ? d.name.substring(0, 18) + '...' : d.name)
+                .text(d => d.name.length > 15 ? d.name.substring(0, 15) + '...' : d.name)
                 .attr('font-size', '9px')
                 .attr('fill', '#e4e4e7')
                 .attr('text-anchor', 'middle')
@@ -700,42 +1081,12 @@
         }
 
         function getNodeSize(type) {
-            const sizes = { PERSON: 14, PLACE: 11, EVENT: 9, INSTITUTION: 11, COMMUNITY: 13, CONCEPT: 7, TEACHING: 9 };
+            const sizes = { PERSON: 12, PLACE: 10, EVENT: 8, INSTITUTION: 10, COMMUNITY: 11, CONCEPT: 6, TEACHING: 8 };
             return sizes[type] || 10;
         }
 
-        function getNodeCharge(type) {
-            const charges = { PERSON: -200, PLACE: -150, EVENT: -100, INSTITUTION: -150, COMMUNITY: -180, CONCEPT: -80, TEACHING: -120 };
-            return charges[type] || -100;
-        }
-
-        function getLinkDistance(type) {
-            const distances = {
-                born_in: 80, died_in: 80, lived_in: 100, affiliated_with: 70,
-                teacher_student: 60, father_son: 50, colleague: 70,
-                participated_in: 90, authored: 50, transmitted: 50,
-                located_in: 120, illustrates: 70, connected_to: 100,
-                related: 90
-            };
-            return distances[type] || 80;
-        }
-
-        function getLinkColor(type) {
-            const colors = {
-                born_in: '#10b981', died_in: '#ef4444', lived_in: '#3b82f6',
-                affiliated_with: '#8b5cf6', teacher_student: '#f59e0b',
-                father_son: '#ec4899', colleague: '#6366f1',
-                participated_in: '#f97316', authored: '#14b8a6',
-                transmitted: '#8b5cf6', located_in: '#10b981',
-                illustrates: '#f59e0b', connected_to: '#6b7280',
-                related: '#4b5563'
-            };
-            return colors[type] || '#666';
-        }
-
-        function getLinkWidth(type) {
-            const widths = { teacher_student: 2.5, father_son: 2, affiliated_with: 2 };
-            return widths[type] || 1.5;
+        function showGraphDetails(event, d) {
+            showEventDetails(d.id);
         }
 
         function dragstarted(event, d) {
@@ -755,82 +1106,38 @@
             d.fy = null;
         }
 
-        function showDetails(event, d) {
-            const detailsPanel = document.getElementById('entityDetails');
-
-            let html = `<span class="entity-type ${d.type}">${d.type}</span>`;
-            html += `<h3 style="margin-bottom: 0.75rem; color: #f4f4f5; font-size: 1.1rem;">${d.name}</h3>`;
-
-            // Display entity data
-            for (const [key, value] of Object.entries(d.data)) {
-                if (key !== 'name' && key !== 'name_en' && key !== 'passage' && value) {
-                    const displayValue = Array.isArray(value) ? value.join(', ') : value;
-                    html += `<div class="detail-row">
-                        <span class="detail-label">${formatKey(key)}:</span>
-                        <span class="detail-value">${displayValue}</span>
-                    </div>`;
-                }
-            }
-
-            // Show relationships
-            if (d.related_entities && d.related_entities.length > 0) {
-                html += `<div class="relationships-section">
-                    <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Connected To (${d.related_entities.length})</h4>`;
-
-                    // Get connected nodes
-                    d.related_entities.slice(0, 5).forEach(relatedId => {
-                        const relatedNode = nodes.find(n => n.id === relatedId);
-                        if (relatedNode) {
-                            // Find the relationship type
-                            const link = links.find(l =>
-                                (l.source.id === d.id && l.target.id === relatedId) ||
-                                (l.target.id === d.id && l.source.id === relatedId)
-                            );
-
-                            html += `<div class="relationship-item">
-                                <span class="rel-type">${link ? link.type : 'related'}:</span>
-                                <span style="color: ${typeColors[relatedNode.type]}">${relatedNode.name}</span>
-                            </div>`;
-                        }
-                    });
-
-                    if (d.related_entities.length > 5) {
-                        html += `<div style="color: #71717a; font-size: 0.75rem; font-style: italic;">...and ${d.related_entities.length - 5} more</div>`;
-                    }
-                </div>`;
-            }
-
-            if (d.passage) {
-                html += `<div class="passage">"${d.passage.substring(0, 200)}..."</div>`;
-            }
-
-            detailsPanel.innerHTML = html;
+        function showTimeline() {
+            currentView = 'timeline';
+            document.getElementById('timeline').style.display = 'block';
+            document.getElementById('graph').style.display = 'none';
+            document.getElementById('zoomControls').style.display = 'none';
+            document.getElementById('legend').style.display = 'none';
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.view-btn:nth-child(1)').classList.add('active');
         }
 
-        function formatKey(key) {
-            return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        function showGraph() {
+            currentView = 'graph';
+            document.getElementById('timeline').style.display = 'none';
+            document.getElementById('graph').style.display = 'block';
+            document.getElementById('zoomControls').style.display = 'flex';
+            document.getElementById('legend').style.display = 'flex';
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.view-btn:nth-child(2)').classList.add('active');
         }
 
         function updateStats() {
-            const stats = { nodes: {}, links: {} };
+            const stats = { nodes: {} };
 
             nodes.forEach(n => {
                 stats.nodes[n.type] = (stats.nodes[n.type] || 0) + 1;
             });
 
-            links.forEach(l => {
-                stats.links[l.type] = (stats.links[l.type] || 0) + 1;
-            });
-
-            let html = '<div class="stat-item"><span>Entities</span><span>' + nodes.length + '</span></div>';
+            let html = '<div class="stat-item"><span>Total Events</span><span>' + events.length + '</span></div>';
+            html += '<div class="stat-item"><span>Time Span</span><span>' + (events[0]?.data.year_ce || '?') + '–' + (events[events.length-1]?.data.year_ce || '?') + '</span></div>';
+            html += '<div class="stat-item" style="margin-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem;"><span>All Entities</span><span>' + nodes.length + '</span></div>';
 
             Object.entries(stats.nodes).sort((a, b) => b[1] - a[1]).forEach(([type, count]) => {
-                html += `<div class="stat-item"><span>${type}</span><span>${count}</span></div>`;
-            });
-
-            html += '<div class="stat-item" style="margin-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem;"><span>Relationships</span><span>' + links.length + '</span></div>';
-
-            Object.entries(stats.links).sort((a, b) => b[1] - a[1]).forEach(([type, count]) => {
                 html += `<div class="stat-item"><span>${type}</span><span>${count}</span></div>`;
             });
 
@@ -838,102 +1145,58 @@
         }
 
         function initFilters() {
-            const container = document.getElementById('typeFilters');
+            const container = document.getElementById('eraFilters');
 
-            Object.entries(typeColors).forEach(([type, color]) => {
+            eras.forEach(era => {
                 const btn = document.createElement('button');
                 btn.className = 'type-btn active';
-                btn.textContent = type;
-                btn.onclick = () => toggleFilter(type, btn);
+                btn.textContent = era.name;
+                btn.onclick = () => toggleEra(era.name, btn);
                 container.appendChild(btn);
             });
 
-            // Relationship toggle
-            document.getElementById('showRelationships').addEventListener('change', updateGraph);
-        }
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
 
-        function toggleFilter(type, btn) {
-            if (activeTypes.has(type)) {
-                if (activeTypes.size > 1) {
-                    activeTypes.delete(type);
-                    btn.classList.remove('active');
+                if (query.length < 2) {
+                    document.querySelectorAll('.event-card').forEach(el => el.style.opacity = '1');
+                    return;
                 }
-            } else {
-                activeTypes.add(type);
-                btn.classList.add('active');
-            }
-            updateGraph();
+
+                document.querySelectorAll('.event-card').forEach(el => {
+                    el.style.opacity = el.textContent.toLowerCase().includes(query) ? '1' : '0.3';
+                });
+            });
         }
 
-        function updateGraph() {
-            const showRel = document.getElementById('showRelationships').checked;
+        function toggleEra(era, btn) {
+            if (era === 'All') {
+                activeEras.clear();
+                activeEras.add('all');
+                document.querySelectorAll('#eraFilters .type-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else {
+                activeEras.delete('all');
+                document.querySelector('#eraFilters .type-btn:first-child').classList.remove('active');
 
-            const filteredNodes = nodes.filter(n => activeTypes.has(n.type));
-            const filteredIds = new Set(filteredNodes.map(n => n.id));
+                if (activeEras.has(era)) {
+                    if (activeEras.size > 1) {
+                        activeEras.delete(era);
+                        btn.classList.remove('active');
+                    }
+                } else {
+                    activeEras.add(era);
+                    btn.classList.add('active');
+                }
 
-            const filteredLinks = showRel ? links.filter(l => filteredIds.has(l.source.id) && filteredIds.has(l.target.id)) : [];
-            const filteredLinkSet = new Set(filteredLinks.map(l => l.id));
+                if (activeEras.size === 0) {
+                    activeEras.add('all');
+                    document.querySelector('#eraFilters .type-btn:first-child').classList.add('active');
+                }
+            }
 
-            // Update simulation
-            simulation.nodes(filteredNodes);
-            simulation.force('link').links(filteredLinks);
-
-            // Update links
-            linkElements = g.select('.links').selectAll('line')
-                .data(filteredLinks, d => d.id);
-            linkElements.enter().append('line')
-                .attr('class', 'link')
-                .attr('stroke', d => getLinkColor(d.type))
-                .attr('stroke-width', d => getLinkWidth(d.type))
-                .attr('stroke-opacity', 0.3)
-                .merge(linkElements);
-            linkElements.exit().remove();
-
-            // Update link labels
-            linkLabelElements = g.select('.links').selectAll('text')
-                .data(filteredLinks, d => d.id);
-            linkLabelElements.enter().append('text')
-                .attr('class', 'link-label')
-                .text(d => d.type)
-                .attr('font-size', '8px')
-                .attr('fill', '#71717a')
-                .attr('text-anchor', 'middle')
-                .style('opacity', 0)
-                .style('pointer-events', 'none')
-                .merge(linkLabelElements);
-            linkLabelElements.exit().remove();
-
-            // Update nodes
-            nodeElements = g.selectAll('.node')
-                .data(filteredNodes, d => d.id);
-            nodeElements.enter().append('circle')
-                .attr('class', 'node')
-                .attr('r', d => getNodeSize(d.type))
-                .attr('fill', d => typeColors[d.type] || '#666')
-                .attr('stroke', '#fff')
-                .attr('stroke-width', 2)
-                .on('click', showDetails)
-                .call(d3.drag()
-                    .on('start', dragstarted)
-                    .on('drag', dragged)
-                    .on('end', dragended))
-                .merge(nodeElements);
-            nodeElements.exit().remove();
-
-            // Update labels
-            labelElements = g.selectAll('text')
-                .data(filteredNodes, d => d.id);
-            labelElements.enter().append('text')
-                .text(d => d.name.length > 18 ? d.name.substring(0, 18) + '...' : d.name)
-                .attr('font-size', '9px')
-                .attr('fill', '#e4e4e7')
-                .attr('text-anchor', 'middle')
-                .attr('dy', d => getNodeSize(d.type) + 12)
-                .style('pointer-events', 'none')
-                .merge(labelElements);
-            labelElements.exit().remove();
-
-            simulation.alpha(1).restart();
+            renderTimeline();
         }
 
         function initLegend() {
@@ -958,20 +1221,6 @@
         function resetZoom() {
             svg.transition().call(zoom.transform, d3.zoomIdentity);
         }
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-
-            if (query.length < 2) {
-                g.selectAll('.node').attr('opacity', 1);
-                return;
-            }
-
-            g.selectAll('.node').attr('opacity', d =>
-                d.name.toLowerCase().includes(query) ? 1 : 0.2
-            );
-        });
 
         // Initialize
         loadData();
