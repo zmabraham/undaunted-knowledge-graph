@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undaunted - Proportional Timeline (1880-1950)</title>
+    <title>Undaunted - Complete Timeline (1880-1950)</title>
     <style>
         * {
             margin: 0;
@@ -241,7 +241,7 @@
 <body>
     <div class="header">
         <h1>Undaunted - Proportional Timeline</h1>
-        <p>All 48 Major Events (1880-1950) • Spacing reflects actual time gaps</p>
+        <p>All Major Events (1880-1950) • Spacing reflects actual time gaps</p>
     </div>
 
     <div class="stats" id="stats">Loading...</div>
@@ -259,7 +259,7 @@
             const stats = document.getElementById('stats');
 
             try {
-                const response = await fetch('undaunted_data_full.json');
+                const response = await fetch('undaunted_complete.json');
                 const data = await response.json();
 
                 const extractions = data.extractions || [];
