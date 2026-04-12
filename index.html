@@ -52,9 +52,7 @@
         }
 
         .timeline-wrapper {
-            display: flex;
             position: relative;
-            min-height: 4000px;
         }
 
         .timeline-track {
@@ -81,7 +79,7 @@
 
         .event-card {
             position: absolute;
-            width: 45%;
+            width: 42%;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
@@ -91,25 +89,25 @@
         }
 
         .event-card.left {
-            right: 52%;
+            right: 54%;
+            text-align: right;
         }
 
         .event-card.right {
-            left: 52%;
+            left: 54%;
         }
 
         .event-card::before {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 1.5rem;
             width: 2rem;
             height: 2px;
-            background: linear-gradient(to right, #667eea, transparent);
+            background: #667eea;
         }
 
         .event-card.left::before {
             right: -2rem;
-            background: linear-gradient(to left, #667eea, transparent);
         }
 
         .event-card.right::before {
@@ -119,6 +117,7 @@
         .event-card:hover {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(102, 126, 234, 0.3);
+            z-index: 100;
         }
 
         .event-year {
@@ -147,7 +146,7 @@
         }
 
         .event-card:hover .event-desc {
-            max-height: 300px;
+            max-height: 500px;
             opacity: 1;
         }
 
@@ -157,6 +156,10 @@
             font-size: 0.7rem;
             color: #52525b;
             transform: translateX(-50%);
+            padding: 4px 8px;
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 4px;
+            white-space: nowrap;
         }
 
         .loading {
@@ -180,19 +183,15 @@
         }
 
         @media (max-width: 768px) {
-            .timeline-wrapper {
-                min-height: 3000px;
-            }
-
             .event-card {
                 width: 90%;
                 left: 5% !important;
                 right: auto !important;
+                text-align: left !important;
             }
 
             .event-card::before {
                 left: -2rem !important;
-                background: linear-gradient(to left, #667eea, transparent) !important;
             }
 
             .timeline-track {
@@ -266,8 +265,38 @@
                 // Update stats
                 stats.innerHTML = `<strong>${events.length}</strong> major events from <strong>${events[0].data.year_ce}</strong> to <strong>${events[events.length - 1].data.year_ce}</strong> (${totalYears} years)`;
 
+                // Calculate positions and prevent overlaps
+                const minCardHeight = 100; // Minimum space between cards
+                const calculatedPositions = [];
+
+                events.forEach((event, index) => {
+                    const year = event.data.year_ce;
+                    const proportionalPosition = ((year - startYear) / totalYears) * 100;
+
+                    calculatedPositions.push({
+                        event: event,
+                        index: index,
+                        proportionalPosition: proportionalPosition,
+                        finalPosition: proportionalPosition
+                    });
+                });
+
+                // Adjust positions to prevent overlaps
+                calculatedPositions.sort((a, b) => a.proportionalPosition - b.proportionalPosition);
+
+                for (let i = 1; i < calculatedPositions.length; i++) {
+                    const current = calculatedPositions[i];
+                    const previous = calculatedPositions[i - 1];
+
+                    const minPosition = previous.finalPosition + (minCardHeight / 40); // Approximate percentage
+
+                    if (current.finalPosition < minPosition) {
+                        current.finalPosition = minPosition;
+                    }
+                }
+
                 // Create vertical timeline
-                let eventsHtml = '<div class="timeline-container"><div class="timeline-wrapper"><div class="timeline-track"></div>';
+                let eventsHtml = '<div class="timeline-container"><div class="timeline-wrapper" style="padding-bottom: 100px;"><div class="timeline-track"></div>';
 
                 // Add era markers
                 for (let y = 1880; y <= 1950; y += 10) {
@@ -275,15 +304,16 @@
                     eventsHtml += `<div class="era-markers" style="top: ${position}%; margin-top: -10px;">${y}</div>`;
                 }
 
-                // Add events
+                // Add events in chronological order
                 events.forEach((event, index) => {
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
                     const dateDetail = event.data.date_detail || '';
 
-                    // Calculate position (0-100%) based on year
-                    const position = ((year - startYear) / totalYears) * 100;
+                    // Find the calculated position for this event
+                    const positionData = calculatedPositions.find(p => p.index === index);
+                    const position = positionData ? positionData.finalPosition : 0;
 
                     // Alternate left/right
                     const side = index % 2 === 0 ? 'left' : 'right';
