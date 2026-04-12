@@ -448,6 +448,8 @@
 
             // Create a map from year to final position for era markers
             const yearToPosition = new Map();
+
+            // Store original proportional positions for era markers
             calculatedPositions.forEach(p => {
                 if (!yearToPosition.has(p.year)) {
                     yearToPosition.set(p.year, p.pixels);
@@ -478,7 +480,7 @@
                         current.pixels = previous.pixels + 60;
                     }
 
-                    // Update year position map with final position
+                    // Update year position map with final position (for key events only)
                     yearToPosition.set(current.year, current.pixels);
                 }
             }
@@ -496,7 +498,8 @@
                 let pixels = (y - startYear) * pixelsPerYear;
 
                 // For zoomed in view, use actual event position if available at this decade mark
-                if (currentZoomLevel === 'in' && yearToPosition.has(y)) {
+                // For zoomed out view, also check if there's a key event at this year
+                if (yearToPosition.has(y)) {
                     pixels = yearToPosition.get(y);
                 }
 
