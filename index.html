@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undaunted - Complete Timeline</title>
+    <title>Undaunted - Proportional Timeline (1880-1950)</title>
     <style>
         * {
             margin: 0;
@@ -21,11 +21,11 @@
 
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .header h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -35,163 +35,126 @@
         .header p {
             color: #a1a1aa;
             margin-top: 0.5rem;
+            font-size: 0.9rem;
         }
 
         .stats {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #a1a1aa;
-            font-size: 0.9rem;
-        }
-
-        .stats strong {
-            color: #667eea;
-        }
-
-        .legend {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
             font-size: 0.85rem;
         }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #a1a1aa;
-        }
-
-        .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .legend-dot.confirmed {
-            background: #f59e0b;
-        }
-
-        .legend-dot.estimated {
-            background: #8b5cf6;
-        }
-
         .timeline-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            padding: 2rem 0;
         }
 
-        .timeline-container::before {
-            content: '';
+        .timeline-track {
+            position: relative;
+            height: 300px;
+            margin: 3rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-line {
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-            border-radius: 2px;
+            top: 50%;
+            left: 3%;
+            right: 3%;
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            transform: translateY(-50%);
         }
 
         .timeline-event {
-            position: relative;
-            margin-bottom: 2.5rem;
-            width: 50%;
-            padding: 0 2rem;
-        }
-
-        .timeline-event:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-event:nth-child(even) {
-            left: 50%;
-            text-align: left;
-        }
-
-        .timeline-event-dot {
             position: absolute;
-            width: 16px;
-            height: 16px;
-            border: 3px solid #1a1a2e;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            top: 5px;
-            z-index: 1;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .timeline-event-dot.confirmed {
             background: #f59e0b;
-        }
-
-        .timeline-event-dot.estimated {
-            background: #8b5cf6;
-        }
-
-        .timeline-event:nth-child(odd) .timeline-event-dot {
-            right: -8px;
-        }
-
-        .timeline-event:nth-child(even) .timeline-event-dot {
-            left: -8px;
-        }
-
-        .timeline-event-dot:hover {
-            transform: scale(1.3);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
-        }
-
-        .event-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1.25rem;
-            cursor: pointer;
+            border: 3px solid #1a1a2e;
             transition: all 0.2s;
         }
 
-        .event-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(102, 126, 234, 0.5);
-            transform: translateY(-2px);
+        .timeline-event:hover .timeline-dot {
+            transform: scale(1.5);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
         }
 
-        .event-year {
-            font-size: 0.8rem;
+        .timeline-event:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(30, 30, 50, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            min-width: 200px;
+            max-width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .tooltip-year {
+            font-size: 0.75rem;
             color: #667eea;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .event-year.estimated {
-            color: #8b5cf6;
-        }
-
-        .event-title {
-            font-size: 1rem;
+        .tooltip-title {
+            font-size: 0.9rem;
             font-weight: 600;
             color: #f4f4f5;
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
-        .event-description {
-            font-size: 0.85rem;
+        .tooltip-desc {
+            font-size: 0.75rem;
             color: #a1a1aa;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
-        .estimated-badge {
-            display: inline-block;
-            background: rgba(139, 92, 246, 0.2);
-            color: #a78bfa;
+        .era-markers {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3%;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #71717a;
+        }
+
+        .decade-markers {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3%;
+            margin-top: 1rem;
             font-size: 0.7rem;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
+            color: #52525b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 0.5rem;
         }
 
         .loading {
@@ -214,47 +177,74 @@
             to { transform: rotate(360deg); }
         }
 
+        .event-list {
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event-list h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #f4f4f5;
+        }
+
+        .event-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .event-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .event-item-year {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-item-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-item-desc {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
-            .timeline-container::before {
-                left: 20px;
+            .timeline-track {
+                height: 200px;
             }
 
-            .timeline-event {
-                width: 100%;
-                padding-left: 3rem;
-                padding-right: 0;
-                text-align: left !important;
-            }
-
-            .timeline-event:nth-child(odd),
-            .timeline-event:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-event-dot {
-                left: 12px !important;
+            .tooltip {
+                min-width: 150px;
+                max-width: 200px;
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Undaunted - Complete Timeline</h1>
-        <p>All 78 Events from the Book</p>
+        <h1>Undaunted - Proportional Timeline</h1>
+        <p>All 48 Major Events (1880-1950) • Spacing reflects actual time gaps</p>
     </div>
 
     <div class="stats" id="stats">Loading...</div>
-
-    <div class="legend">
-        <div class="legend-item">
-            <div class="legend-dot confirmed"></div>
-            <span>Confirmed Date</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-dot estimated"></div>
-            <span>Estimated Date</span>
-        </div>
-    </div>
 
     <div id="app">
         <div class="loading">
@@ -276,27 +266,21 @@
                 const nodeMap = new Map();
 
                 // Create unique nodes
-                extractions.forEach((ex, idx) => {
-                    const type = ex.node_type.toLowerCase();
+                extractions.forEach((ex) => {
                     const extractedData = ex.extracted_data;
-                    const name = extractedData.name_en || extractedData.name || extractedData.title_en || `Entity ${idx}`;
+                    const name = extractedData.title_en || extractedData.name_en || extractedData.name || 'Event';
+                    const key = name;
 
-                    const key = name + type;
                     if (!nodeMap.has(key)) {
                         nodeMap.set(key, {
                             name: name,
-                            type: ex.node_type,
-                            data: extractedData,
-                            passage: ex.passage
+                            data: extractedData
                         });
                     }
                 });
 
-                const nodes = Array.from(nodeMap.values());
-
-                // Get ALL events (with dates)
-                const events = nodes
-                    .filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number')
+                const events = Array.from(nodeMap.values())
+                    .filter(e => typeof e.data.year_ce === 'number')
                     .sort((a, b) => a.data.year_ce - b.data.year_ce);
 
                 if (events.length === 0) {
@@ -304,40 +288,86 @@
                     return;
                 }
 
-                // Count confirmed vs estimated
-                const confirmed = events.filter(e => !e.data.estimated).length;
-                const estimated = events.filter(e => e.data.estimated).length;
+                const startYear = 1880;
+                const endYear = 1950;
+                const totalYears = endYear - startYear;
 
                 // Update stats
-                stats.innerHTML = `<strong>${events.length}</strong> events (${confirmed} confirmed, ${estimated} estimated) from ` +
-                    events[0].data.year_ce + ' to ' + events[events.length - 1].data.year_ce;
+                stats.innerHTML = `<strong>${events.length}</strong> major events from <strong>${events[0].data.year_ce}</strong> to <strong>${events[events.length - 1].data.year_ce}</strong> (${totalYears} years)`;
 
-                // Render timeline
-                let html = '<div class="timeline-container">';
+                // Create proportional timeline
+                let eventsHtml = '<div class="timeline-container"><div class="timeline-track"><div class="timeline-line"></div>';
 
                 events.forEach(event => {
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
                     const hebrewDate = event.data.date_hebrew || '';
-                    const isEstimated = event.data.estimated || false;
 
-                    html += `
-                        <div class="timeline-event">
-                            <div class="timeline-event-dot ${isEstimated ? 'estimated' : 'confirmed'}"></div>
-                            <div class="event-card">
-                                <div class="event-year ${isEstimated ? 'estimated' : ''}">
-                                    ${year}${hebrewDate ? ' • ' + hebrewDate : ''}${isEstimated ? '<span class="estimated-badge">Estimated</span>' : ''}
-                                </div>
-                                <div class="event-title">${title}</div>
-                                ${description ? `<div class="event-description">${description}</div>` : ''}
+                    // Calculate position (0-100%) based on year
+                    const position = ((year - startYear) / totalYears) * 100;
+
+                    // Determine vertical position (alternating top/bottom)
+                    const index = events.indexOf(event);
+                    const isTop = index % 2 === 0;
+                    const verticalPos = isTop ? '25%' : '75%';
+
+                    eventsHtml += `
+                        <div class="timeline-event" style="left: ${position}%; top: ${verticalPos};">
+                            <div class="timeline-dot"></div>
+                            <div class="tooltip">
+                                <div class="tooltip-year">${year}${hebrewDate ? ' • ' + hebrewDate : ''}</div>
+                                <div class="tooltip-title">${title}</div>
+                                ${description ? `<div class="tooltip-desc">${description.substring(0, 150)}${description.length > 150 ? '...' : ''}</div>` : ''}
                             </div>
                         </div>
                     `;
                 });
 
-                html += '</div>';
-                app.innerHTML = html;
+                eventsHtml += '</div>';
+
+                // Era markers
+                eventsHtml += '<div class="era-markers">';
+                eventsHtml += '<span>1880</span>';
+                eventsHtml += '<span>1890</span>';
+                eventsHtml += '<span>1900</span>';
+                eventsHtml += '<span>1910</span>';
+                eventsHtml += '<span>1920</span>';
+                eventsHtml += '<span>1930</span>';
+                eventsHtml += '<span>1940</span>';
+                eventsHtml += '<span>1950</span>';
+                eventsHtml += '</div>';
+
+                // Decade markers
+                eventsHtml += '<div class="decade-markers">';
+                for (let y = 1880; y <= 1950; y += 10) {
+                    eventsHtml += `<span>${y}</span>`;
+                }
+                eventsHtml += '</div>';
+
+                eventsHtml += '</div>';
+
+                // Add event list below
+                eventsHtml += '<div class="event-list"><h2>All Events</h2>';
+
+                events.forEach(event => {
+                    const year = event.data.year_ce;
+                    const title = event.data.title_en || event.name;
+                    const description = event.data.description || '';
+                    const hebrewDate = event.data.date_hebrew || '';
+
+                    eventsHtml += `
+                        <div class="event-item">
+                            <div class="event-item-year">${year}${hebrewDate ? ' • ' + hebrewDate : ''}</div>
+                            <div class="event-item-title">${title}</div>
+                            ${description ? `<div class="event-item-desc">${description}</div>` : ''}
+                        </div>
+                    `;
+                });
+
+                eventsHtml += '</div>';
+
+                app.innerHTML = eventsHtml;
 
             } catch (error) {
                 app.innerHTML = '<div class="loading" style="color: #ef4444;">Error loading timeline: ' + error.message + '</div>';
