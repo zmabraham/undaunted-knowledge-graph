@@ -302,7 +302,7 @@
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
-                    const hebrewDate = event.data.date_hebrew || '';
+                    const hebrewDate = event.data.date_detail || '';
 
                     // Calculate position (0-100%) based on year
                     const position = ((year - startYear) / totalYears) * 100;
@@ -354,7 +354,7 @@
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
-                    const hebrewDate = event.data.date_hebrew || '';
+                    const hebrewDate = event.data.date_detail || '';
 
                     eventsHtml += `
                         <div class="event-item">
