@@ -205,8 +205,6 @@
         /* Tooltip for zoomed out view */
         .dot-tooltip {
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             background: rgba(30, 30, 50, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
@@ -219,6 +217,20 @@
             pointer-events: none;
             backdrop-filter: blur(10px);
             z-index: 1000;
+        }
+
+        .zoomed-out .timeline-dot:nth-child(odd) .dot-tooltip {
+            left: 100%;
+            margin-left: 15px;
+            transform: translateY(-50%);
+            top: 50% !important;
+        }
+
+        .zoomed-out .timeline-dot:nth-child(even) .dot-tooltip {
+            right: 100%;
+            margin-right: 15px;
+            transform: translateY(-50%);
+            top: 50% !important;
         }
 
         .timeline-dot:hover .dot-tooltip {
@@ -432,7 +444,7 @@
             // Sort by position for overlap detection
             calculatedPositions.sort((a, b) => a.pixels - b.pixels);
 
-            // Adjust positions to prevent overlap (only for zoomed in view)
+            // Adjust positions to prevent overlap
             if (currentZoomLevel === 'in') {
                 for (let i = 1; i < calculatedPositions.length; i++) {
                     const current = calculatedPositions[i];
@@ -440,6 +452,17 @@
 
                     if (current.pixels - previous.pixels < cardHeight) {
                         current.pixels = previous.pixels + cardHeight;
+                    }
+                }
+            } else {
+                // For zoomed out, prevent overlap only for key events
+                const keyPositions = calculatedPositions.filter(p => p.isKeyEvent);
+                for (let i = 1; i < keyPositions.length; i++) {
+                    const current = keyPositions[i];
+                    const previous = keyPositions[i - 1];
+
+                    if (current.pixels - previous.pixels < 60) {
+                        current.pixels = previous.pixels + 60;
                     }
                 }
             }
