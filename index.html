@@ -267,11 +267,10 @@
                 stats.innerHTML = `<strong>${events.length}</strong> major events from <strong>${events[0].data.year_ce}</strong> to <strong>${events[events.length - 1].data.year_ce}</strong> (${totalYears} years)`;
 
                 // Calculate pixel positions with proper spacing
-                const pixelsPerYear = 20; // 20 pixels per year for dense layout
+                const pixelsPerYear = 25; // 25 pixels per year for true proportionality
                 const minCardSpacing = 55; // Minimum pixels between cards
-                const timelineHeight = totalYears * pixelsPerYear;
 
-                // Calculate positions
+                // Calculate positions maintaining true proportionality
                 const calculatedPositions = events.map((event, index) => {
                     const year = event.data.year_ce;
                     const proportionalPixels = (year - startYear) * pixelsPerYear;
@@ -283,26 +282,32 @@
                     };
                 });
 
-                // Adjust positions to prevent overlaps while maintaining proportionality
-                calculatedPositions.sort((a, b) => a.pixels - b.pixels);
-
-                for (let i = 1; i < calculatedPositions.length; i++) {
-                    const current = calculatedPositions[i];
-                    const previous = calculatedPositions[i - 1];
-
-                    const minPixels = previous.pixels + minCardSpacing;
-
-                    if (current.pixels < minPixels) {
-                        // Shift this event and all subsequent events
-                        const shift = minPixels - current.pixels;
-                        for (let j = i; j < calculatedPositions.length; j++) {
-                            calculatedPositions[j].pixels += shift;
-                        }
+                // Group events by position to handle overlaps
+                const positionGroups = new Map();
+                calculatedPositions.forEach(pos => {
+                    const groupKey = Math.floor(pos.pixels / minCardSpacing);
+                    if (!positionGroups.has(groupKey)) {
+                        positionGroups.set(groupKey, []);
                     }
-                }
+                    positionGroups.get(groupKey).push(pos);
+                });
+
+                // Adjust positions within groups to prevent overlap
+                positionGroups.forEach((group) => {
+                    if (group.length > 1) {
+                        // Multiple events at same position - spread them vertically
+                        const totalHeight = (group.length - 1) * minCardSpacing;
+                        group.forEach((item, idx) => {
+                            item.pixels += idx * minCardSpacing;
+                        });
+                    }
+                });
 
                 // Calculate final timeline height
-                const finalTimelineHeight = Math.max(timelineHeight, calculatedPositions[calculatedPositions.length - 1].pixels + 200);
+                const finalTimelineHeight = Math.max(
+                    totalYears * pixelsPerYear,
+                    Math.max(...calculatedPositions.map(p => p.pixels)) + 200
+                );
 
                 // Create vertical timeline
                 let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
