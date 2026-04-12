@@ -46,34 +46,32 @@
         }
 
         .timeline-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-wrapper {
+            display: flex;
+            position: relative;
+            min-height: 4000px;
         }
 
         .timeline-track {
-            position: relative;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .timeline-line {
             position: absolute;
-            top: 50%;
-            left: 2%;
-            right: 2%;
-            height: 2px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            transform: translateY(-50%);
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
         }
 
         .timeline-dot {
             position: absolute;
-            top: 50%;
-            width: 10px;
-            height: 10px;
+            left: 50%;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: #f59e0b;
             border: 3px solid #1a1a2e;
@@ -81,31 +79,41 @@
             z-index: 10;
         }
 
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1rem;
-        }
-
         .event-card {
+            position: absolute;
+            width: 45%;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 1rem;
             transition: all 0.2s;
             cursor: pointer;
-            position: relative;
+        }
+
+        .event-card.left {
+            right: 52%;
+        }
+
+        .event-card.right {
+            left: 52%;
         }
 
         .event-card::before {
             content: '';
             position: absolute;
-            top: -2rem;
-            left: 50%;
-            width: 2px;
-            height: 2rem;
-            background: linear-gradient(to top, #667eea, transparent);
-            transform: translateX(-50%);
+            top: 50%;
+            width: 2rem;
+            height: 2px;
+            background: linear-gradient(to right, #667eea, transparent);
+        }
+
+        .event-card.left::before {
+            right: -2rem;
+            background: linear-gradient(to left, #667eea, transparent);
+        }
+
+        .event-card.right::before {
+            left: -2rem;
         }
 
         .event-card:hover {
@@ -121,7 +129,7 @@
         }
 
         .event-title {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #f4f4f5;
             line-height: 1.3;
@@ -131,7 +139,7 @@
             font-size: 0.75rem;
             color: #a1a1aa;
             line-height: 1.4;
-            margin-top: 0.75rem;
+            margin-top: 0.5rem;
             max-height: 0;
             overflow: hidden;
             opacity: 0;
@@ -139,17 +147,16 @@
         }
 
         .event-card:hover .event-desc {
-            max-height: 500px;
+            max-height: 300px;
             opacity: 1;
         }
 
         .era-markers {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2%;
-            margin-bottom: 2rem;
+            position: absolute;
+            left: 50%;
             font-size: 0.7rem;
             color: #52525b;
+            transform: translateX(-50%);
         }
 
         .loading {
@@ -173,8 +180,31 @@
         }
 
         @media (max-width: 768px) {
-            .events-grid {
-                grid-template-columns: 1fr;
+            .timeline-wrapper {
+                min-height: 3000px;
+            }
+
+            .event-card {
+                width: 90%;
+                left: 5% !important;
+                right: auto !important;
+            }
+
+            .event-card::before {
+                left: -2rem !important;
+                background: linear-gradient(to left, #667eea, transparent) !important;
+            }
+
+            .timeline-track {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+
+            .era-markers {
+                left: 0;
             }
         }
     </style>
@@ -236,37 +266,31 @@
                 // Update stats
                 stats.innerHTML = `<strong>${events.length}</strong> major events from <strong>${events[0].data.year_ce}</strong> to <strong>${events[events.length - 1].data.year_ce}</strong> (${totalYears} years)`;
 
-                // Create timeline
-                let eventsHtml = '<div class="timeline-container"><div class="timeline-track"><div class="timeline-line"></div>';
+                // Create vertical timeline
+                let eventsHtml = '<div class="timeline-container"><div class="timeline-wrapper"><div class="timeline-track"></div>';
 
-                // Add dots to timeline
-                events.forEach(event => {
-                    const year = event.data.year_ce;
-                    const position = 2 + ((year - startYear) / totalYears) * 96;
-                    eventsHtml += `<div class="timeline-dot" style="left: ${position}%;"></div>`;
-                });
-
-                eventsHtml += '</div>';
-
-                // Era markers
-                eventsHtml += '<div class="era-markers">';
+                // Add era markers
                 for (let y = 1880; y <= 1950; y += 10) {
-                    const pos = 2 + ((y - startYear) / totalYears) * 96;
-                    eventsHtml += `<span style="position: absolute; left: ${pos}%; transform: translateX(-50%);">${y}</span>`;
+                    const position = ((y - startYear) / totalYears) * 100;
+                    eventsHtml += `<div class="era-markers" style="top: ${position}%; margin-top: -10px;">${y}</div>`;
                 }
-                eventsHtml += '</div>';
 
-                // Events grid
-                eventsHtml += '<div class="events-grid">';
-
-                events.forEach(event => {
+                // Add events
+                events.forEach((event, index) => {
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
                     const dateDetail = event.data.date_detail || '';
 
+                    // Calculate position (0-100%) based on year
+                    const position = ((year - startYear) / totalYears) * 100;
+
+                    // Alternate left/right
+                    const side = index % 2 === 0 ? 'left' : 'right';
+
                     eventsHtml += `
-                        <div class="event-card">
+                        <div class="timeline-dot" style="top: ${position}%;"></div>
+                        <div class="event-card ${side}" style="top: ${position}%; transform: translateY(-50%);">
                             <div class="event-year">${year}${dateDetail ? ' • ' + dateDetail : ''}</div>
                             <div class="event-title">${title}</div>
                             ${description ? `<div class="event-desc">${description}</div>` : ''}
