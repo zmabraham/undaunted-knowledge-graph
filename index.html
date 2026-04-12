@@ -38,33 +38,6 @@
             font-size: 0.9rem;
         }
 
-        .zoom-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .zoom-btn {
-            background: rgba(102, 126, 234, 0.2);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            color: #e4e4e7;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.85rem;
-        }
-
-        .zoom-btn:hover {
-            background: rgba(102, 126, 234, 0.3);
-        }
-
-        .zoom-btn.active {
-            background: rgba(102, 126, 234, 0.5);
-            border-color: rgba(102, 126, 234, 0.5);
-        }
-
         .stats {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -188,21 +161,7 @@
             opacity: 1;
         }
 
-        /* Zoomed out styles */
-        .zoomed-out .event-card {
-            display: none;
-        }
-
-        .zoomed-out .event-card.key-event {
-            display: block;
-        }
-
-        .zoomed-out .timeline-wrapper {
-            height: calc(100vh - 200px) !important;
-            max-height: 600px;
-        }
-
-        /* Tooltip for zoomed out view */
+        /* Tooltip for dots */
         .dot-tooltip {
             position: absolute;
             background: rgba(30, 30, 50, 0.95);
@@ -219,14 +178,14 @@
             z-index: 1000;
         }
 
-        .zoomed-out .timeline-dot:nth-child(odd) .dot-tooltip {
+        .timeline-dot:nth-child(odd) .dot-tooltip {
             left: 100%;
             margin-left: 15px;
             transform: translateY(-50%);
             top: 50% !important;
         }
 
-        .zoomed-out .timeline-dot:nth-child(even) .dot-tooltip {
+        .timeline-dot:nth-child(even) .dot-tooltip {
             right: 100%;
             margin-right: 15px;
             transform: translateY(-50%);
@@ -262,15 +221,17 @@
         .era-markers {
             position: absolute;
             left: 50%;
-            font-size: 0.7rem;
-            color: #a1a1aa;
-            font-weight: 600;
+            font-size: 1rem;
+            color: #f4f4f5;
+            font-weight: 700;
             transform: translateX(-50%);
-            padding: 4px 8px;
-            background: rgba(26, 26, 46, 0.8);
-            border-radius: 4px;
+            padding: 6px 12px;
+            background: rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 6px;
             white-space: nowrap;
             z-index: 20;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
         }
 
         .loading {
@@ -324,11 +285,6 @@
         <h1>Undaunted Timeline</h1>
     </div>
 
-    <div class="zoom-controls">
-        <button class="zoom-btn" id="zoomOutBtn" onclick="setZoomLevel('out')">Zoom Out</button>
-        <button class="zoom-btn active" id="zoomInBtn" onclick="setZoomLevel('in')">Zoom In</button>
-    </div>
-
     <div class="stats" id="stats">Loading...</div>
 
     <div id="app">
@@ -339,23 +295,7 @@
     </div>
 
     <script>
-        let currentZoomLevel = 'in';
         let allEvents = [];
-
-        function setZoomLevel(level) {
-            currentZoomLevel = level;
-            const app = document.getElementById('app');
-
-            // Update button states
-            document.getElementById('zoomOutBtn').classList.toggle('active', level === 'out');
-            document.getElementById('zoomInBtn').classList.toggle('active', level === 'in');
-
-            // Update container class
-            app.classList.toggle('zoomed-out', level === 'out');
-
-            // Re-render timeline
-            renderTimeline();
-        }
 
         async function loadTimeline() {
             try {
@@ -402,93 +342,41 @@
             const startYear = 1880;
             const endYear = 1950;
             const totalYears = endYear - startYear;
+            const pixelsPerYear = 25;
+            const cardHeight = 50;
+            const timelineHeight = totalYears * pixelsPerYear;
 
             // Update stats
             stats.innerHTML = `<strong>${allEvents.length}</strong> major events from <strong>${allEvents[0].data.year_ce}</strong> to <strong>${allEvents[allEvents.length - 1].data.year_ce}</strong> (${totalYears} years)`;
-
-            // Define key events for zoomed out view (major milestones)
-            const keyEventTitles = [
-                'Birth of Yosef Yitzchak Schneersohn',
-                'Passing of Rabbi Shmuel (Maharash)',
-                'Rashab Accepts Leadership',
-                'Opening of Tomchei Temimim',
-                'Passing of the Rashab',
-                'Rayatz Accepts Leadership',
-                'Arrest and Death Sentence',
-                'Release from Exile',
-                'Departure from Russia',
-                'US Visas Granted',
-                'Opening of American Yeshivah',
-                'Purchase of 770 Eastern Parkway',
-                'Passing of the Rayatz',
-                'Funeral of the Rayatz'
-            ];
-
-            const pixelsPerYear = currentZoomLevel === 'out' ? 10 : 25;
-            const cardHeight = currentZoomLevel === 'out' ? 30 : 50;
-            const timelineHeight = totalYears * pixelsPerYear;
 
             // Calculate positions
             const calculatedPositions = allEvents.map((event, index) => {
                 const year = event.data.year_ce;
                 const proportionalPixels = (year - startYear) * pixelsPerYear;
-                const isKeyEvent = keyEventTitles.includes(event.data.title_en || event.name);
 
                 return {
                     event: event,
                     index: index,
                     pixels: proportionalPixels,
-                    year: year,
-                    isKeyEvent: isKeyEvent
+                    year: year
                 };
             });
 
             // Sort by position for overlap detection
             calculatedPositions.sort((a, b) => a.pixels - b.pixels);
 
-            // Create a map from year to final position for era markers
-            const yearToPosition = new Map();
-
-            // Store original proportional positions for era markers
-            calculatedPositions.forEach(p => {
-                if (!yearToPosition.has(p.year)) {
-                    yearToPosition.set(p.year, p.pixels);
-                }
-            });
-
             // Adjust positions to prevent overlap
-            if (currentZoomLevel === 'in') {
-                for (let i = 1; i < calculatedPositions.length; i++) {
-                    const current = calculatedPositions[i];
-                    const previous = calculatedPositions[i - 1];
+            for (let i = 1; i < calculatedPositions.length; i++) {
+                const current = calculatedPositions[i];
+                const previous = calculatedPositions[i - 1];
 
-                    if (current.pixels - previous.pixels < cardHeight) {
-                        current.pixels = previous.pixels + cardHeight;
-                    }
-
-                    // Update year position map with final position
-                    yearToPosition.set(current.year, current.pixels);
-                }
-            } else {
-                // For zoomed out, prevent overlap only for key events
-                const keyPositions = calculatedPositions.filter(p => p.isKeyEvent);
-                for (let i = 1; i < keyPositions.length; i++) {
-                    const current = keyPositions[i];
-                    const previous = keyPositions[i - 1];
-
-                    if (current.pixels - previous.pixels < 60) {
-                        current.pixels = previous.pixels + 60;
-                    }
-
-                    // Update year position map with final position (for key events only)
-                    yearToPosition.set(current.year, current.pixels);
+                if (current.pixels - previous.pixels < cardHeight) {
+                    current.pixels = previous.pixels + cardHeight;
                 }
             }
 
             // Calculate final timeline height
-            const finalTimelineHeight = currentZoomLevel === 'out'
-                ? timelineHeight
-                : Math.max(timelineHeight, calculatedPositions[calculatedPositions.length - 1].pixels + 200);
+            const finalTimelineHeight = Math.max(timelineHeight, calculatedPositions[calculatedPositions.length - 1].pixels + 200);
 
             // Create vertical timeline
             let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
@@ -496,18 +384,17 @@
             // Add era markers (positioned proportionally at decade marks)
             for (let y = 1880; y <= 1950; y += 10) {
                 const pixels = (y - startYear) * pixelsPerYear;
-                eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -10px;">${y}</div>`;
+                eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -12px;">${y}</div>`;
             }
 
             // Sort calculatedPositions back by original index for consistent rendering
             calculatedPositions.sort((a, b) => a.index - b.index);
 
             // Add events in chronological order
-            calculatedPositions.forEach((positionData, renderIndex) => {
+            calculatedPositions.forEach((positionData) => {
                 const event = positionData.event;
                 const year = positionData.year;
                 const topPixels = positionData.pixels;
-                const isKeyEvent = positionData.isKeyEvent;
 
                 const title = event.data.title_en || event.name;
                 const description = event.data.description || '';
@@ -516,15 +403,8 @@
                 // Alternate left/right based on original index
                 const side = positionData.index % 2 === 0 ? 'left' : 'right';
 
-                // For zoomed out view, cards appear below dots without vertical centering
-                const cardStyle = currentZoomLevel === 'out'
-                    ? `top: ${topPixels + 10}px;`
-                    : `top: ${topPixels}px; transform: translateY(-50%);`;
-
-                // For zoomed out view, cards appear below dots without vertical centering
-                const cardStyle = currentZoomLevel === 'out'
-                    ? `top: ${topPixels + 10}px;`
-                    : `top: ${topPixels}px; transform: translateY(-50%);`;
+                // Center cards vertically on their dot
+                const cardStyle = `top: ${topPixels}px; transform: translateY(-50%);`;
 
                 eventsHtml += `
                     <div class="timeline-dot" style="top: ${topPixels}px;">
@@ -534,7 +414,7 @@
                             ${description ? `<div class="dot-tooltip-desc">${description.substring(0, 100)}${description.length > 100 ? '...' : ''}</div>` : ''}
                         </div>
                     </div>
-                    <div class="event-card ${side} ${isKeyEvent ? 'key-event' : ''}" style="${cardStyle}">
+                    <div class="event-card ${side}" style="${cardStyle}">
                         <div class="event-year">${year}${dateDetail ? ' • ' + dateDetail : ''}</div>
                         <div class="event-title">${title}</div>
                         ${description ? `<div class="event-desc">${description}</div>` : ''}
@@ -545,7 +425,6 @@
             eventsHtml += '</div></div>';
 
             app.innerHTML = eventsHtml;
-            app.classList.toggle('zoomed-out', currentZoomLevel === 'out');
         }
 
         loadTimeline();
