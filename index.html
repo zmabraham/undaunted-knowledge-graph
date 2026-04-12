@@ -268,7 +268,7 @@
 
                 // Calculate pixel positions with proper spacing
                 const pixelsPerYear = 25; // 25 pixels per year for true proportionality
-                const minCardSpacing = 55; // Minimum pixels between cards
+                const cardHeight = 50; // Approximate card height
 
                 // Calculate positions maintaining true proportionality
                 const calculatedPositions = events.map((event, index) => {
@@ -282,31 +282,24 @@
                     };
                 });
 
-                // Group events by position to handle overlaps
-                const positionGroups = new Map();
-                calculatedPositions.forEach(pos => {
-                    const groupKey = Math.floor(pos.pixels / minCardSpacing);
-                    if (!positionGroups.has(groupKey)) {
-                        positionGroups.set(groupKey, []);
-                    }
-                    positionGroups.get(groupKey).push(pos);
-                });
+                // Sort by position for overlap detection
+                calculatedPositions.sort((a, b) => a.pixels - b.pixels);
 
-                // Adjust positions within groups to prevent overlap
-                positionGroups.forEach((group) => {
-                    if (group.length > 1) {
-                        // Multiple events at same position - spread them vertically
-                        const totalHeight = (group.length - 1) * minCardSpacing;
-                        group.forEach((item, idx) => {
-                            item.pixels += idx * minCardSpacing;
-                        });
+                // Adjust positions to prevent overlap
+                for (let i = 1; i < calculatedPositions.length; i++) {
+                    const current = calculatedPositions[i];
+                    const previous = calculatedPositions[i - 1];
+
+                    if (current.pixels - previous.pixels < cardHeight) {
+                        // Events would overlap - spread current event down
+                        current.pixels = previous.pixels + cardHeight;
                     }
-                });
+                }
 
                 // Calculate final timeline height
                 const finalTimelineHeight = Math.max(
                     totalYears * pixelsPerYear,
-                    Math.max(...calculatedPositions.map(p => p.pixels)) + 200
+                    calculatedPositions[calculatedPositions.length - 1].pixels + 200
                 );
 
                 // Create vertical timeline
