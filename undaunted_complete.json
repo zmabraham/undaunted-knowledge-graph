@@ -1,1162 +1,1934 @@
 {
   "extractions": [
     {
-      "year_ce": 1880,
-      "date_detail": "June 30, 1880 (12 Tamuz 5640)",
-      "title": "Birth of Yosef Yitzchak Schneersohn",
-      "description": "Rabbi Yosef Yitzchak Schneersohn (the Rayatz) is born in Lubavitch. At his circumcision, his grandfather predicts he will grow up to be a Rebbe."
-    },
-    {
-      "year_ce": 1881,
-      "date_detail": "1881",
-      "title": "Assassination of Alexander II",
-      "description": "Czar Alexander II of Russia is assassinated. Alexander III rolls back reforms and increases oppression of Russian Jews."
-    },
-    {
-      "year_ce": 1881,
-      "date_detail": "October 24, 1881 (17 Tishrei 5642)",
-      "title": "Birth of Nechama Dina Schneersohn",
-      "description": "Nechama Dina Schneersohn, the future wife of the Rayatz, is born in Kishinev."
-    },
-    {
-      "year_ce": 1882,
-      "date_detail": "1882",
-      "title": "Institution of the May Laws",
-      "description": "Czar Alexander III institutes the May Laws, heavily restricting Jewish residency, economic growth, and education."
-    },
-    {
-      "year_ce": 1882,
-      "date_detail": "1882",
-      "title": "BILU Settlement Begins",
-      "description": "The early Russian Zionist group BILU sends its first settlers to Eretz Yisrael."
-    },
-    {
-      "year_ce": 1882,
-      "date_detail": "Erev Rosh HaShanah 1882",
-      "title": "Rabbi Shmuel Predicts His Passing",
-      "description": "Rabbi Shmuel implies to his wife that his passing is imminent, telling her he will 'rise up thirty-two steps in a spiritual way'."
-    },
-    {
-      "year_ce": 1882,
-      "date_detail": "October 1882",
-      "title": "Passing of Rabbi Shmuel (Maharash)",
-      "description": "Three days after Yom Kippur, Rabbi Shmuel passes away in Lubavitch at age forty-eight."
-    },
-    {
-      "year_ce": 1882,
-      "date_detail": "Late 1882",
-      "title": "Leadership Conclave in Lubavitch",
-      "description": "Chabad elders convene and implore the Rebbe's sons to assume leadership. They initially refuse but consent to recite maamarim privately."
-    },
-    {
-      "year_ce": 1882,
-      "date_detail": "1882 (Approximate)",
-      "title": "Wedding of Uncle Mendel",
-      "description": "Two-year-old Yosef Yitzchak watches his uncle Mendel's wedding. During mourning, his mother brings him to his father's study where he is moved by intense praying."
-    },
-    {
-      "year_ce": 1884,
-      "date_detail": "1884",
-      "title": "Rashab Returns from Medical Treatment",
-      "description": "The Rashab returns to Lubavitch after seeking medical treatment, so changed that young Yosef Yitzchak doesn't recognize him."
-    },
-    {
-      "year_ce": 1884,
-      "date_detail": "1884",
-      "title": "Beginning of Education",
-      "description": "At age four, Yosef Yitzchak begins formal education under Rabbi Yekusiel Aizik."
-    },
-    {
-      "year_ce": 1884,
-      "date_detail": "1884",
-      "title": "Rashbatz Relocates to Bulharkov",
-      "description": "Rabbi Shmuel Betzalel Sheftel (the Rashbatz), future teacher of the Rayatz, relocates to Bulharkov."
-    },
-    {
-      "year_ce": 1885,
-      "date_detail": "Fall 1885",
-      "title": "Move to Yalta for Medical Treatment",
-      "description": "Five-year-old Yosef Yitzchak travels with parents to Yalta for six months, taught by Rabbi Schneur Zalman Slonim."
-    },
-    {
-      "year_ce": 1886,
-      "date_detail": "Spring 1886",
-      "title": "Lag BaOmer Gathering in Kharkiv",
-      "description": "During a large crowded dinner where the Rashab delivers a maamar, Yosef Yitzchak notices his mother crying and informs his father."
-    },
-    {
-      "year_ce": 1887,
-      "date_detail": "1887",
-      "title": "Studies with Rabbi Shimshon Begin",
-      "description": "At age seven, Yosef Yitzchak begins studying with Rabbi Shimshon, memorizing two orders of Mishnah."
-    },
-    {
-      "year_ce": 1887,
-      "date_detail": "1887-1889",
-      "title": "Period of Loneliness",
-      "description": "The Rashab and wife frequently seek medical treatment. Yosef Yitzchak finds solace with elderly Chasidim and begins recording chasidic lore."
-    },
-    {
-      "year_ce": 1888,
-      "date_detail": "1888",
-      "title": "Writing of the Ethical Will",
-      "description": "The Rashab writes an ethical will at age twenty-seven outlining how his wife should educate their son if he were to pass away."
-    },
-    {
-      "year_ce": 1888,
-      "date_detail": "1888",
-      "title": "Passing of Samuel Polyakov",
-      "description": "Samuel Polyakov, the 'rail king of Russia,' passes away."
-    },
-    {
-      "year_ce": 1889,
-      "date_detail": "Summer 1889 (5649)",
-      "title": "Rashab Returns to Lubavitch",
-      "description": "The Rashab and wife return to Lubavitch. Nine-year-old Yosef Yitzchak feels renewed maturity and begins facing his father during maamarim."
-    },
-    {
-      "year_ce": 1890,
-      "date_detail": "1890",
-      "title": "Rashab Begins Yechidut",
-      "description": "The Rashab officially begins to receive Chasidim for yechidut (private meetings)."
-    },
-    {
-      "year_ce": 1890,
-      "date_detail": "1890",
-      "title": "Rashab Spends Full Year at Home",
-      "description": "For the first time in years, the Rashab spends the entire year at home in Lubavitch."
-    },
-    {
-      "year_ce": 1890,
-      "date_detail": "December 1890",
-      "title": "Yosef Yitzchak's Prayer at the Ohel",
-      "description": "The ten-year-old sneaks out in a snowstorm to the Ohel to pray for his father's recovery. The fever miraculously breaks."
-    },
-    {
-      "year_ce": 1891,
-      "date_detail": "April 1891",
-      "title": "Rashab's Illness (Pneumonia)",
-      "description": "The Rashab contracts pneumonia and is dangerously ill for six weeks, asking Yosef Yitzchak to stay by his side."
-    },
-    {
-      "year_ce": 1891,
-      "date_detail": "Late June 1891",
-      "title": "Yarmarka and Arrest",
-      "description": "During the yarmarka, Yosef Yitzchak operates a microloan fund. After defending a butcher, he is wrongfully arrested but released."
-    },
-    {
-      "year_ce": 1891,
-      "date_detail": "1891",
-      "title": "Establishment of Loan Fund",
-      "description": "Yosef Yitzchak establishes a loan fund for local merchants."
-    },
-    {
-      "year_ce": 1891,
-      "date_detail": "1891",
-      "title": "Rashab Studies with Son",
-      "description": "The Rashab formally begins studying chasidic philosophy with Yosef Yitzchak."
-    },
-    {
-      "year_ce": 1892,
-      "date_detail": "1892",
-      "title": "Passing of Max Lilienthal",
-      "description": "Max Lilienthal, German Enlightenment activist who attempted to secularize Jewish education in Russia, passes away."
-    },
-    {
-      "year_ce": 1893,
-      "date_detail": "June 26, 1893",
-      "title": "Bar Mitzvah of Yosef Yitzchak",
-      "description": "Yosef Yitzchak celebrates his bar mitzvah, memorizing three maamarim and reciting the third by heart at a gathering."
-    },
-    {
-      "year_ce": 1893,
-      "date_detail": "On Rosh HaShanah 1893",
-      "title": "Rashab Accepts Leadership",
-      "description": "The Rashab fully accepts the position of Rebbe, taking his father's seat near the holy ark after eleven years."
-    },
-    {
-      "year_ce": 1893,
-      "date_detail": "Following Rosh HaShanah 1893",
-      "title": "Appointment of Rashbatz as Teacher",
-      "description": "The Rashab appoints Rabbi Shmuel Betzalel Sheftel as Yosef Yitzchak's dedicated teacher."
-    },
-    {
-      "year_ce": 1893,
-      "date_detail": "1893",
-      "title": "Raza Relocates to Vitebsk",
-      "description": "Rabbi Zalman Aharon (the Raza) relocates from Lubavitch to Vitebsk, deferring leadership to his younger brother."
-    },
-    {
-      "year_ce": 1894,
-      "date_detail": "1894",
-      "title": "Death of Alexander III",
-      "description": "Czar Alexander III dies and is succeeded by Nicholas II, who continues oppressive anti-Jewish policies."
-    },
-    {
-      "year_ce": 1895,
-      "date_detail": "Summer 1895",
-      "title": "Summer Mentoring in Bolivke",
-      "description": "The Rashab travels to Bolivke, dedicating time to his fifteen-year-old son's development."
-    },
-    {
-      "year_ce": 1895,
-      "date_detail": "Yosef Yitzchak's 15th Birthday 1895",
-      "title": "The Akedah - Sacred Covenant",
-      "description": "The Rashab takes Yosef Yitzchak to the Ohel, transferring responsibility of working for the public good."
-    },
-    {
-      "year_ce": 1895,
-      "date_detail": "1895",
-      "title": "Rayatz Begins Communal Work",
-      "description": "From that day forward, Yosef Yitzchak formally begins community work as his father's personal secretary."
-    },
-    {
-      "year_ce": 1895,
-      "date_detail": "1895",
-      "title": "Conference of Jewish Leaders in Kovno",
-      "description": "At just fifteen, the Rayatz is dispatched to Kovno to represent his father at a conference of Jewish religious leaders."
-    },
-    {
-      "year_ce": 1896,
-      "date_detail": "June 1896",
-      "title": "Engagement of the Rayatz and Nechama Dina",
-      "description": "The Rayatz becomes engaged to Nechama Dina Schneersohn in Bolivke."
-    },
-    {
-      "year_ce": 1896,
-      "date_detail": "1896",
-      "title": "Rashab's Illness and Recovery",
-      "description": "The Rashab falls severely ill and travels to Moscow, receiving a bleak prognosis but recovers and lives another twenty-four years."
-    },
-    {
-      "year_ce": 1897,
-      "date_detail": "1897",
-      "title": "Mordechai Ben Hillel Visits Lubavitch",
-      "description": "Enlightenment activist Mordechai Ben Hillel visits and opens a secular school with 130 students despite the Rashab's opposition."
-    },
-    {
-      "year_ce": 1897,
-      "date_detail": "August 22, 1897 (13 Elul)",
-      "title": "Wedding of the Rayatz and Nechama Dina",
-      "description": "The chuppah takes place on Friday afternoon in the courtyard of the main synagogue in Lubavitch."
-    },
-    {
-      "year_ce": 1897,
-      "date_detail": "September 12, 1897 (15 Elul)",
-      "title": "Announcement of Tomchei Temimim",
-      "description": "At the wedding reception, the Rashab announces his revolutionary plan to open a yeshivah integrating Talmud and chasidic philosophy."
-    },
-    {
-      "year_ce": 1897,
-      "date_detail": "September 15, 1897 (18 Elul)",
-      "title": "Opening of Tomchei Temimim",
-      "description": "Studies officially begin for the first group of yeshivah students under Rabbi Shmuel Gronem."
-    },
-    {
-      "year_ce": 1898,
-      "date_detail": "Fall 1898",
-      "title": "Students Return from Zembin",
-      "description": "Yeshivah students return from Zembin for the High Holidays, impressing visiting Chasidim with their transformation."
-    },
-    {
-      "year_ce": 1898,
-      "date_detail": "September 11, 1898 (24 Elul)",
-      "title": "Appointment as Yeshivah Director",
-      "description": "Eighteen-year-old Yosef Yitzchak is appointed executive director of the yeshivah and begins fundraising."
-    },
-    {
-      "year_ce": 1898,
-      "date_detail": "Simchat Torah 1898",
-      "title": "Naming of Yeshivas Tomchei Temimim",
-      "description": "The Rashab officially names the new institution and declares its students will be titled temimim."
-    },
-    {
-      "year_ce": 1899,
-      "date_detail": "Summer 1899",
-      "title": "Visit to Moscow",
-      "description": "The Rayatz visits Moscow, where Eliezer Polyakov shares a story about his brother Samuel receiving a blessing for wealth."
-    },
-    {
-      "year_ce": 1900,
-      "date_detail": "1900",
-      "title": "JCA Pledges 1 Million Francs",
-      "description": "The Jewish Colonial Association pledges 1 million francs to support Enlightenment schools. The Rashab organizes opposition."
-    },
-    {
-      "year_ce": 1900,
-      "date_detail": "Simchat Torah 1900",
-      "title": "Mission Statement at Simchat Torah",
-      "description": "The Rashab compares students to King David's soldiers, charging them with disseminating Chasidism to the broader world."
-    },
-    {
-      "year_ce": 1900,
-      "date_detail": "1900",
-      "title": "Successful Lobbying Against Second JCA Allocation",
-      "description": "The Rashab and Rayatz organize lobbying that successfully blocks a second allocation of 600,000 francs."
-    },
-    {
-      "year_ce": 1900,
-      "date_detail": "1900",
-      "title": "Conclusion of Formal Studies",
-      "description": "The Rayatz concludes his formal studies with the Rashbatz."
-    },
-    {
-      "year_ce": 1901,
-      "date_detail": "1901",
-      "title": "Opening of Dubrovno Textile Mill",
-      "description": "The Rayatz opens a textile mill in Dubrovno providing Shabbat-observant employment for 2000 Jews."
-    },
-    {
-      "year_ce": 1902,
-      "date_detail": "1902",
-      "title": "Travel to St. Petersburg",
-      "description": "The Rayatz travels to St. Petersburg for communal matters."
-    },
-    {
-      "year_ce": 1902,
-      "date_detail": "1902",
-      "title": "Second Arrest",
-      "description": "The Rayatz is arrested for the second time due to accusations by teachers at the secular school in Lubavitch."
-    },
-    {
-      "year_ce": 1904,
-      "date_detail": "1904",
-      "title": "Russo-Japanese War Begins",
-      "description": "War breaks out between Japan and Russia, leading to enlistment of thousands of Jewish soldiers."
-    },
-    {
-      "year_ce": 1904,
-      "date_detail": "1904",
-      "title": "Library Collection Efforts",
-      "description": "At age twenty-four, the Rayatz writes to relatives in Jerusalem asking them to search for rare books and manuscripts."
-    },
-    {
-      "year_ce": 1905,
-      "date_detail": "1905",
-      "title": "Matzah for Soldiers Initiative",
-      "description": "The Rashab launches an initiative to provide matzah and Passover supplies to Jewish soldiers on the Far East front."
-    },
-    {
-      "year_ce": 1905,
-      "date_detail": "Summer 1905",
-      "title": "Covert Meeting in St. Petersburg",
-      "description": "The Rayatz participates in a covert meeting of prominent rabbinic leaders to create strategy against Russian pogroms."
-    },
-    {
-      "year_ce": 1905,
-      "date_detail": "1905",
-      "title": "Diplomatic Mission to Western Europe",
-      "description": "The Rayatz is sent to Western Europe to persuade statesmen and bankers to apply economic pressure on Russia."
-    },
-    {
-      "year_ce": 1906,
-      "date_detail": "March 1906",
-      "title": "Poalei Tzion Attack on Yeshivah",
-      "description": "Members of Poalei Tzion march into the yeshivah. Days later, 200 return with weapons, throw stones, and shoot at the yeshivah."
-    },
-    {
-      "year_ce": 1906,
-      "date_detail": "Summer 1906 (Approximate)",
-      "title": "Raid on Rashab's Summer Home",
-      "description": "Poalei Tzion raids the Rashab's summer home in Bolivke, brandishing revolvers while the Rayatz's daughters are present."
-    },
-    {
-      "year_ce": 1906,
-      "date_detail": "December 1906",
-      "title": "Arrest for Riots Investigation",
-      "description": "The Rayatz is investigated and arrested due to the riots in Lubavitch, though he proves they were not part of the yeshivah."
-    },
-    {
-      "year_ce": 1906,
-      "date_detail": "1906",
-      "title": "Arrest in St. Petersburg",
-      "description": "The Rayatz is arrested in St. Petersburg due to efforts to exempt rabbis from military service."
-    },
-    {
-      "year_ce": 1908,
-      "date_detail": "1908",
-      "title": "Purchase of Beit Romano",
-      "description": "The Rashab successfully purchases Beit Romano, a large property in Hebron, laying foundation to establish Toras Emes."
-    },
-    {
-      "year_ce": 1908,
-      "date_detail": "October 1908",
-      "title": "Confidential Rabbinic Meeting",
-      "description": "The Rashab organizes a confidential meeting of allied rabbis to strategize for upcoming elections and a national rabbinic conference."
-    },
-    {
-      "year_ce": 1909,
-      "date_detail": "May 1909",
-      "title": "Pre-Conference Meeting in Vilna",
-      "description": "Twenty-five leading rabbis convene in Vilna. The Rayatz serves as secretary."
-    },
-    {
-      "year_ce": 1909,
-      "date_detail": "1909",
-      "title": "Travel to Germany",
-      "description": "The Rayatz travels to Germany to confer with Jewish communal leaders."
-    },
-    {
-      "year_ce": 1910,
-      "date_detail": "1910",
-      "title": "Lubavitch Population",
-      "description": "The town of Lubavitch has 3,376 residents, including 2,325 Jews."
-    },
-    {
-      "year_ce": 1910,
-      "date_detail": "1910",
-      "title": "National Rabbinical Conference",
-      "description": "A national Rabbinical Conference is held in St. Petersburg. The Rayatz assists his father throughout."
-    },
-    {
-      "year_ce": 1910,
-      "date_detail": "1910",
-      "title": "Imprisonment Regarding Military Exemptions",
-      "description": "The Rayatz is imprisoned in St. Petersburg for efforts to exempt young men from military service."
-    },
-    {
-      "year_ce": 1910,
-      "date_detail": "1910",
-      "title": "Passing of Rabbi Yitzchak Dovber of Liadi",
-      "description": "Rabbi Yitzchak Dovber of Liadi passes away."
-    },
-    {
-      "year_ce": 1911,
-      "date_detail": "1911",
-      "title": "Students Sent to Hebron",
-      "description": "The Rashab sends a group of outstanding students, led by Rabbi Zalman Havlin, to establish Toras Emes in Hebron."
-    },
-    {
-      "year_ce": 1911,
-      "date_detail": "1911",
-      "title": "Toras Emes Purpose Letter",
-      "description": "The Rayatz outlines the purpose of the Hebron yeshivah in a letter to Rabbi Havlin."
-    },
-    {
-      "year_ce": 1911,
-      "date_detail": "1911",
-      "title": "First of Four Arrests (1911-1916)",
-      "description": "The Rayatz experiences the first of four arrests that would occur between 1911 and 1916."
-    },
-    {
-      "year_ce": 1912,
-      "date_detail": "1912",
-      "title": "Founding of World Agudath Israel",
-      "description": "World Agudath Israel is established at a conference in Katowice, Poland."
-    },
-    {
-      "year_ce": 1912,
-      "date_detail": "1912",
-      "title": "Founding of Young Israel Movement",
-      "description": "The Young Israel movement is founded."
-    },
-    {
-      "year_ce": 1912,
-      "date_detail": "1912",
-      "title": "Synagogue in Kobe, Japan",
-      "description": "A synagogue is established by the small Jewish community in Kobe, Japan."
-    },
-    {
-      "year_ce": 1913,
-      "date_detail": "1913",
-      "title": "Beilis Affair Begins",
-      "description": "The Beilis affair begins, accusing Mendel Beilis of ritual murder in Kiev."
-    },
-    {
-      "year_ce": 1913,
-      "date_detail": "1913",
-      "title": "Dispatching Oscar Gruzenberg",
-      "description": "The Rashab dispatches the Rayatz to enlist prominent attorney Oscar Gruzenberg for Beilis's defense."
-    },
-    {
-      "year_ce": 1913,
-      "date_detail": "1913",
-      "title": "Appointment of Rabbi Dr. Yosef Hertz",
-      "description": "Rabbi Dr. Yosef Hertz is appointed the chief rabbi of Britain."
-    },
-    {
-      "year_ce": 1914,
-      "date_detail": "1914",
-      "title": "World War I Begins",
-      "description": "World War I breaks out, and Germany declares war on Russia."
-    },
-    {
-      "year_ce": 1914,
-      "date_detail": "1914",
-      "title": "Passing of Rebbetzin Rivkah",
-      "description": "The Rebbe Rayatz's grandmother, Rebbetzin Rivkah Schneersohn, passes away."
-    },
-    {
-      "year_ce": 1914,
-      "date_detail": "1914",
-      "title": "Founding of Mizrachi",
-      "description": "The religious Zionist organization Mizrachi is launched."
-    },
-    {
-      "year_ce": 1914,
-      "date_detail": "1914",
-      "title": "Establishment of the JDC",
-      "description": "The American Joint Distribution Committee is established to help Jews overseas."
-    },
-    {
-      "year_ce": 1914,
-      "date_detail": "1914",
-      "title": "Released Time Program Begins",
-      "description": "The Released Time program for religious instruction begins in Indiana."
-    },
-    {
-      "year_ce": 1914,
-      "date_detail": "1914",
-      "title": "Henry Morgenthau Visits Hebron",
-      "description": "Henry Morgenthau, the Jewish US ambassador to the Turkish Empire, is permitted to visit the Tomb of the Patriarchs."
-    },
-    {
-      "year_ce": 1915,
-      "date_detail": "1915",
-      "title": "Germany Invades Russia",
-      "description": "Germany invades Russia."
-    },
-    {
-      "year_ce": 1915,
-      "date_detail": "Late October 1915",
-      "title": "Departure from Lubavitch",
-      "description": "The Rashab and Rayatz depart Lubavitch with their families due to the advancing German army, ending 102 years of Chabad in Lubavitch."
-    },
-    {
-      "year_ce": 1916,
-      "date_detail": "1916",
-      "title": "Second Imprisonment in St. Petersburg",
-      "description": "The Rayatz is imprisoned in St. Petersburg a second time regarding military exemptions."
-    },
-    {
-      "year_ce": 1916,
-      "date_detail": "1916",
-      "title": "Establishment of Yeshivah in Kutaisi",
-      "description": "Jewish community leaders in Kutaisi ask the Rashab for help, and he dispatches rabbis to establish a yeshivah for Sephardic Jews."
-    },
-    {
-      "year_ce": 1917,
-      "date_detail": "1917",
-      "title": "Bolshevik Revolution",
-      "description": "The Bolshevik Revolution takes place in Russia. Czar Nicholas II abdicates and is eventually executed, ending the Pale of Settlement."
-    },
-    {
-      "year_ce": 1917,
-      "date_detail": "1917",
-      "title": "Establishment of Yevesektzia",
-      "description": "The Yevesektzia (Jewish section of Communist Party) is established to combat religious tradition."
-    },
-    {
-      "year_ce": 1917,
-      "date_detail": "1917",
-      "title": "Establishment of Cheka",
-      "description": "The Communist government establishes the Cheka secret police."
-    },
-    {
-      "year_ce": 1918,
-      "date_detail": "1918",
-      "title": "Simon Yakovshvili Arrives in Rostov",
-      "description": "Simon Yakovshvili stops in Rostov for Rosh HaShanah, meets the Rashab, and decides to stay to study Torah."
-    },
-    {
-      "year_ce": 1918,
-      "date_detail": "1918",
-      "title": "Agricultural Colonies Conference",
-      "description": "Semyon Dimenstein advocates settling Jews in agricultural colonies during conferences."
-    },
-    {
-      "year_ce": 1918,
-      "date_detail": "1918",
-      "title": "Founding of Yeshivah Torah Vodaath",
-      "description": "Yeshivah Torah Vodaath is founded in Williamsburg, Brooklyn."
-    },
-    {
-      "year_ce": 1919,
-      "date_detail": "1919",
-      "title": "Grigory Lulov Joins Cheka",
-      "description": "Grigory Lulov joins the Cheka secret police."
-    },
-    {
-      "year_ce": 1919,
-      "date_detail": "June 1919",
-      "title": "Jewish Educational Council Conference",
-      "description": "The Yevesektzia holds a conference in Moscow, establishing the First Jewish Educational Council which bans Hebrew and Bible from schools."
-    },
-    {
-      "year_ce": 1919,
-      "date_detail": "1919",
-      "title": "Founding of Hebrew Theological College Chicago",
-      "description": "The Hebrew Theological College is founded in Chicago."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "January 1920",
-      "title": "Bolsheviks Take Control of Rostov",
-      "description": "Bolsheviks take control of Rostov, prompting the Rashab to curtail public activities."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "Late February 1920",
-      "title": "Prediction of 'Dark Clouds'",
-      "description": "The Rashab summons the Rayatz, predicting 'dark clouds' for 22 years under Communism, prophesying the regime's eventual collapse."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "March (Purim) 1920",
-      "title": "Purim Farbrengen During Police Visit",
-      "description": "A farbrengen at the Rashab's home is interrupted by Bolshevik police; the officers leave after the Rashab delivers a maamar."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "March 1920",
-      "title": "Rashab Falls Ill with Typhoid",
-      "description": "Shortly after Purim, the Rashab falls ill with typhoid."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "March 21, 1920 (2 Nisan)",
-      "title": "Passing of the Rashab",
-      "description": "The Rashab passes away in Rostov at the age of 59."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "March 1920",
-      "title": "Rayatz Accepts Leadership",
-      "description": "The Rayatz accepts the position of the Sixth Lubavitcher Rebbe, reciting a maamar to Chasidim."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "July 1920",
-      "title": "Arrest by Cheka",
-      "description": "The Rayatz is arrested by Cheka officers, interrogated about Judaism, and subsequently released."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "Winter 1920",
-      "title": "Relocation to Rostov",
-      "description": "Yeshivas Tomchei Temimim relocates from Kremenchuk to Rostov due to extreme famine."
-    },
-    {
-      "year_ce": 1920,
-      "date_detail": "November 1920",
-      "title": "Typhus Epidemic in Rostov",
-      "description": "A typhus epidemic intensifies in Rostov, causing the Rebbe, his mother, and daughters to fall ill."
-    },
-    {
-      "year_ce": 1921,
-      "date_detail": "February 1921",
-      "title": "Show Trial Against Yeshivah",
-      "description": "The Yevesektzia stages a show trial against the Lubavitch yeshivah in Rostov, demanding its closure."
-    },
-    {
-      "year_ce": 1921,
-      "date_detail": "June 1921",
-      "title": "Wedding of Chana Gurary",
-      "description": "The Rebbe's oldest daughter, Chana, marries Rabbi Shmaryahu Gurary in Rostov."
-    },
-    {
-      "year_ce": 1921,
-      "date_detail": "1921",
-      "title": "Warsaw Branch Opens",
-      "description": "News arrives of a new branch of the yeshivah opening in Warsaw."
-    },
-    {
-      "year_ce": 1922,
-      "date_detail": "Summer 1922",
-      "title": "Relocation to Poltava",
-      "description": "To escape famine and scrutiny, Yeshivah Tomchei Temimim relocates to Poltava."
-    },
-    {
-      "year_ce": 1922,
-      "date_detail": "1922",
-      "title": "Rabbinical Committee Established",
-      "description": "The Rebbe establishes the Rabbinical Committee to advocate for religious rights under Soviet law."
-    },
-    {
-      "year_ce": 1923,
-      "date_detail": "Summer 1923",
-      "title": "Ramash Meets Chaya Mushka",
-      "description": "The Ramash meets his future wife, Chaya Mushka, for the first time in Kislovodsk."
-    },
-    {
-      "year_ce": 1923,
-      "date_detail": "November (19 Kislev) 1923",
-      "title": "Call for Emissaries",
-      "description": "The Rebbe asks for volunteers to act as emissaries to establish secret places of Jewish study across the country."
-    },
-    {
-      "year_ce": 1924,
-      "date_detail": "Winter 1924",
-      "title": "Secret Covenant",
-      "description": "In Moscow, the Rebbe formalizes a 'secret covenant' with nine trusted Chasidim, swearing an oath of self-sacrifice for Jewish education."
-    },
-    {
-      "year_ce": 1924,
-      "date_detail": "May 1924",
-      "title": "Flight to Leningrad",
-      "description": "Facing imminent threat of arrest, the Rebbe is forced to flee Rostov and relocates to Leningrad."
-    },
-    {
-      "year_ce": 1924,
-      "date_detail": "1924",
-      "title": "Founding of Agudas Chassidei Chabad in US",
-      "description": "Agudas Chassidei Chabad is established in the United States."
-    },
-    {
-      "year_ce": 1925,
-      "date_detail": "Summer 1925",
-      "title": "Opposition to National Conference",
-      "description": "Lev Gurewicz attempts to enlist the Rebbe to support a national conference. The Rebbe opposes it as a Yevesektzia-backed plot."
-    },
-    {
-      "year_ce": 1925,
-      "date_detail": "1925",
-      "title": "Library Acquisition",
-      "description": "The Rebbe acquires a massive private library collection containing thousands of rare volumes."
-    },
-    {
-      "year_ce": 1926,
-      "date_detail": "1926",
-      "title": "Underground Network Success",
-      "description": "A confidential JDC report reveals 15,000 children are being educated in secret schools."
-    },
-    {
-      "year_ce": 1926,
-      "date_detail": "October 1926",
-      "title": "Rabbinical Conference in Korosten",
-      "description": "A rabbinical conference occurs in Korosten. The Rebbe sends an emissary to steer the agenda toward tradition."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "February 1927",
-      "title": "Narrow Escape from GPU Agents",
-      "description": "The Rebbe narrowly evades Yevesektzia agents on a train and in his hotel, saved by a sympathetic GPU official."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "February 1927",
-      "title": "Arrest of Secretary",
-      "description": "The Rebbe's secretary, Rabbi Elchonon Morozov, is arrested and jailed."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "March (Purim) 1927",
-      "title": "Fiery Farbrengen",
-      "description": "The Rebbe leads a fiery farbrengen, urging Chasidim to defy the government and be willing to cast themselves into flames."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "June 15, 1927",
-      "title": "Arrest and Death Sentence",
-      "description": "Just after midnight, the Rebbe is arrested by GPU officers and taken to Shpalerka prison, sentenced to death by firing squad."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "June-July 1927",
-      "title": "International Outcry and Commutation",
-      "description": "Massive international outcry forces the Soviets to commute his sentence to three-year exile in Kostroma."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "July 12, 1927 (12 Tamuz)",
-      "title": "Release from Exile",
-      "description": "The Rebbe is informed of his release from exile and returns to Leningrad two days later."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "Summer/Fall 1927",
-      "title": "Hiding in Malakhovka",
-      "description": "The Rebbe hides in Malakhovka outside Moscow while exit visas are secured."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "October (Simchat Torah) 1927",
-      "title": "Final Holiday in Russia",
-      "description": "The Rebbe celebrates his final holiday in Russia, surrounded by thousands of weeping Chasidim."
-    },
-    {
-      "year_ce": 1927,
-      "date_detail": "October 21, 1927",
-      "title": "Departure from Russia",
-      "description": "The Rebbe departs Russia by train with his historic library, arriving to a hero's welcome in Riga."
-    },
-    {
-      "year_ce": 1928,
-      "date_detail": "Summer 1928",
-      "title": "First Maamar in Exile",
-      "description": "The Rebbe publishes his first maamar since leaving Russia, printed in Yiddish to broaden dissemination."
-    },
-    {
-      "year_ce": 1928,
-      "date_detail": "November 27, 1928 (14 Kislev)",
-      "title": "Royal Wedding",
-      "description": "The 'Royal Wedding' of the Rebbe's daughter Chaya Mushka to the Ramash takes place at the yeshivah in Warsaw."
-    },
-    {
-      "year_ce": 1929,
-      "date_detail": "Early 1929",
-      "title": "Matzah Shipping Campaign",
-      "description": "The Rebbe orchestrates an international campaign to ship 140,000 kilos of matzah into the Soviet Union."
-    },
-    {
-      "year_ce": 1929,
-      "date_detail": "July 1929",
-      "title": "Journey to Eretz Yisrael",
-      "description": "The Rebbe embarks on a year-long journey, first traveling to Eretz Yisrael."
-    },
-    {
-      "year_ce": 1929,
-      "date_detail": "August 1929",
-      "title": "Visit to Jerusalem and Hebron",
-      "description": "He visits Jerusalem, meets Chief Rabbis Kook and Sonnenfeld, visits Hebron and Me'arat HaMakhpelah."
-    },
-    {
-      "year_ce": 1929,
-      "date_detail": "September 17, 1929",
-      "title": "Arrival in New York Harbor",
-      "description": "The Rebbe arrives in New York Harbor to a crowd of thousands."
-    },
-    {
-      "year_ce": 1929,
-      "date_detail": "Fall 1929",
-      "title": "Declaration: America is No Different",
-      "description": "Celebrating the High Holidays in Brooklyn, he declares his transformative vision: 'America iz nisht aderesh'."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "January 1930",
-      "title": "Meeting with Justice Brandeis",
-      "description": "The Rebbe travels to Washington to meet with Supreme Court Justice Louis Brandeis about aiding Soviet Jews."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "February 1930",
-      "title": "Arrest of Correspondents",
-      "description": "Sixteen Jewish leaders are arrested in Minsk for corresponding with the Rebbe."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "May 1930",
-      "title": "Visit to St. Louis",
-      "description": "The Rebbe visits St. Louis, Missouri, where thousands welcome him and he inspires a mikveh campaign."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "July 1930",
-      "title": "Meeting with President Hoover",
-      "description": "The Rebbe meets with US President Herbert Hoover at the White House."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "July 17, 1930",
-      "title": "Departure from the US",
-      "description": "The Rebbe departs the US for Europe."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "August-September 1930",
-      "title": "Recuperation in Marienbad",
-      "description": "The Rebbe recovers in Marienbad, meeting with the Belzer and Gerrer Rebbes."
-    },
-    {
-      "year_ce": 1930,
-      "date_detail": "Autumn 1930",
-      "title": "Opposition to Communist Youth Club",
-      "description": "The Rebbe confronts members of a Communist youth club plotting to disrupt Simchat Torah."
-    },
-    {
-      "year_ce": 1931,
-      "date_detail": "February-March 1931",
-      "title": "Visit to Rakshik",
-      "description": "The Rebbe visits Rakshik, Lithuania, to give local Chasidim an opportunity to visit him."
-    },
-    {
-      "year_ce": 1931,
-      "date_detail": "Summer 1931",
-      "title": "Visit to Warsaw",
-      "description": "The Rebbe travels to Warsaw to survey the yeshivah and meets with students from Lodz and Vilnius."
-    },
-    {
-      "year_ce": 1932,
-      "date_detail": "January 1932",
-      "title": "Letter to the Ramash",
-      "description": "The Rebbe writes a lengthy letter to the Ramash detailing Chabad's intellectual and spiritual focus."
-    },
-    {
-      "year_ce": 1932,
-      "date_detail": "June 14, 1932",
-      "title": "Wedding of Sheina Schneersohn",
-      "description": "The Rebbe celebrates the marriage of his youngest daughter Sheina to Rabbi Mendel Horenstein."
-    },
-    {
-      "year_ce": 1933,
-      "date_detail": "January-March 1933",
-      "title": "Medical Treatment in Berlin",
-      "description": "The Rebbe spends two months in Berlin for medical care, accompanied by the Ramash."
-    },
-    {
-      "year_ce": 1933,
-      "date_detail": "Spring 1933",
-      "title": "Ramash and Chaya Mushka Flee Berlin",
-      "description": "Fleeing the Nazi threat, the Ramash and Chaya Mushka leave Berlin and resettle in Paris."
-    },
-    {
-      "year_ce": 1933,
-      "date_detail": "September 1933",
-      "title": "Permanent Relocation to Warsaw",
-      "description": "After securing Latvian citizenship, the Rebbe permanently relocates to Warsaw, Poland."
-    },
-    {
-      "year_ce": 1933,
-      "date_detail": "Late 1933",
-      "title": "Emissary to New York",
-      "description": "Rabbi Yitzchak Horowitz arrives in New York as the Rebbe's emissary to strengthen Chabad in America."
-    },
-    {
-      "year_ce": 1934,
-      "date_detail": "1934",
-      "title": "School Reform in Latvia",
-      "description": "Rabbi Chaim Mordechai Aizek Hodakov is appointed chief inspector and begins reforming the curriculum."
-    },
-    {
-      "year_ce": 1934,
-      "date_detail": "November 13, 1934",
-      "title": "MS Diagnosis",
-      "description": "Seeking treatment for illness, the Rebbe travels to Vienna where Dr. Max Gerson diagnoses multiple sclerosis."
-    },
-    {
-      "year_ce": 1935,
-      "date_detail": "September 19, 1935",
-      "title": "Relocation to Otwock",
-      "description": "Due to health needs, the Rebbe relocates permanently to Otwock, Poland."
-    },
-    {
-      "year_ce": 1935,
-      "date_detail": "1935",
-      "title": "Founding of Achot Hatemimim",
-      "description": "The journal Hatomim is founded and the women's organization is created."
-    },
-    {
-      "year_ce": 1936,
-      "date_detail": "1936",
-      "title": "Raid on Package Smuggling Operation",
-      "description": "Latvian police arrest four Chabad Chasidim running the Rebbe's covert package-smuggling operation."
-    },
-    {
-      "year_ce": 1937,
-      "date_detail": "August 1937",
-      "title": "Arrest of Simon Yakovshvili",
-      "description": "Simon Yakovshvili is arrested by secret police, tortured, and sentenced to death before commutation."
-    },
-    {
-      "year_ce": 1938,
-      "date_detail": "March 1938",
-      "title": "Departure from Austria",
-      "description": "The Rebbe departs Austria for Paris just three days before Germany annexes Austria."
-    },
-    {
-      "year_ce": 1938,
-      "date_detail": "1938",
-      "title": "US Students Enroll",
-      "description": "Students from the US begin enrolling in the Rebbe's yeshivah in Otwock."
-    },
-    {
-      "year_ce": 1938,
-      "date_detail": "1938",
-      "title": "Execution of Elchonon Morozov",
-      "description": "The Rebbe's secretary is captured and executed by firing squad."
-    },
-    {
-      "year_ce": 1939,
-      "date_detail": "September 1, 1939",
-      "title": "Germany Invades Poland",
-      "description": "Germany invades Poland and World War II begins. Otwock is bombed."
-    },
-    {
-      "year_ce": 1939,
-      "date_detail": "September 5, 1939",
-      "title": "Evacuation to Warsaw",
-      "description": "The Rebbe and family are evacuated to Warsaw in a Latvian Embassy vehicle."
-    },
-    {
-      "year_ce": 1939,
-      "date_detail": "December 18, 1939",
-      "title": "Escape to Riga",
-      "description": "Admiral Wilhelm Canaris rescues the Rebbe and family; they arrive safely in Riga."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "February 13, 1940",
-      "title": "US Visas Granted",
-      "description": "The US Consulate in Riga issues visas to the Rebbe and his entourage."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "March 4, 1940 (24 Adar Alef)",
-      "title": "Departure from Riga",
-      "description": "The Rebbe departs Riga by plane to Stockholm."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "March 7, 1940 (27 Adar Alef)",
-      "title": "Boarding the SS Drottningholm",
-      "description": "The Rebbe boards the SS Drottningholm in Gothenburg, Sweden."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "March 18-19, 1940",
-      "title": "Arrival in New York Harbor",
-      "description": "The Drottningholm arrives in New York Harbor. The Rebbe famously declares 'America iz nisht aderesh'."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "March 19, 1940 (9 Adar Bet)",
-      "title": "Opening of American Yeshivah",
-      "description": "The day after arrival, the Rebbe announces the opening of Yeshivas Tomchei Temimim in America."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "April 1940",
-      "title": "Released Time Program Approved",
-      "description": "NY Governor signs statute approving the Released Time program. The Rebbe immediately harnesses this."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "August 16, 1940 (12 Av)",
-      "title": "Purchase of 770 Eastern Parkway",
-      "description": "Agudas Chassidei Chabad purchases 770 Eastern Parkway as the Rebbe's permanent residence."
-    },
-    {
-      "year_ce": 1940,
-      "date_detail": "September 1940",
-      "title": "Move into 770",
-      "description": "The Rebbe moves into his permanent headquarters at 770 Eastern Parkway in Crown Heights."
-    },
-    {
-      "year_ce": 1941,
-      "date_detail": "June 12, 1941",
-      "title": "Ramash and Chaya Mushka Flee Paris",
-      "description": "After fleeing Paris to Vichy, they board a ship in Lisbon."
-    },
-    {
-      "year_ce": 1941,
-      "date_detail": "June 23, 1941",
-      "title": "Safe Arrival in New York",
-      "description": "The Ramash and Chaya Mushka arrive safely in New York."
-    },
-    {
-      "year_ce": 1941,
-      "date_detail": "December 7, 1941",
-      "title": "Pearl Harbor Attack",
-      "description": "As Pearl Harbor is attacked, Rabbi Mottel Altein is traveling by train to establish a Hebrew school."
-    },
-    {
-      "year_ce": 1942,
-      "date_detail": "March 1943",
-      "title": "Anguished Letter about Holocaust",
-      "description": "The Rebbe writes an anguished letter lamenting the silence regarding the Holocaust."
-    },
-    {
-      "year_ce": 1942,
-      "date_detail": "September 13, 1942",
-      "title": "Murder of Sheina Horenstein",
-      "description": "The Rebbe's youngest daughter is murdered in the Treblinka death camp."
-    },
-    {
-      "year_ce": 1942,
-      "date_detail": "November 5, 1942",
-      "title": "Murder of Mendel Horenstein",
-      "description": "The Rebbe's son-in-law is murdered in Treblinka."
-    },
-    {
-      "year_ce": 1943,
-      "date_detail": "December 12, 1943",
-      "title": "Montreal Yeshivah Building Dedicated",
-      "description": "A dedicated building is purchased for the growing Chabad yeshivah in Montreal."
-    },
-    {
-      "year_ce": 1944,
-      "date_detail": "1944",
-      "title": "Passing of Ramash's Father",
-      "description": "The Ramash's father, Rabbi Levi Yitzchak Schneerson, passes away in exile in Kazakhstan."
-    },
-    {
-      "year_ce": 1944,
-      "date_detail": "November 12, 1944",
-      "title": "Heart Attack After Riga Report",
-      "description": "The Rebbe suffers a heart attack after receiving a report on the Nazi massacre of Jews in Riga."
-    },
-    {
-      "year_ce": 1945,
-      "date_detail": "September 1945",
-      "title": "Relief Office in Paris",
-      "description": "A Chabad relief office is established in Paris to assist refugees."
-    },
-    {
-      "year_ce": 1946,
-      "date_detail": "April/May 1946",
-      "title": "The Great Escape Begins",
-      "description": "Chabad Chasidim begin secretly crossing the border from Lvov to Poland using forged Polish passports."
-    },
-    {
-      "year_ce": 1946,
-      "date_detail": "Summer 1946",
-      "title": "Reunion with Mother",
-      "description": "The Ramash travels to Paris to reunite with his mother after 20 years of separation."
-    },
-    {
-      "year_ce": 1946,
-      "date_detail": "December 2, 1946",
-      "title": "Massive Transport Crosses Border",
-      "description": "A massive transport of 232 Chasidim successfully crosses the Russian border. The Rebbe senses their crossing spiritually."
-    },
-    {
-      "year_ce": 1947,
-      "date_detail": "Early 1947",
-      "title": "End of Great Escape",
-      "description": "The Great Escape ends when Soviet authorities arrest escape organizers in Lvov."
-    },
-    {
-      "year_ce": 1948,
-      "date_detail": "1948",
-      "title": "Founding of Kfar Chabad",
-      "description": "Following the establishment of the State of Israel, the Rebbe directs the founding of Kfar Chabad."
-    },
-    {
-      "year_ce": 1949,
-      "date_detail": "January 1949",
-      "title": "Israel's First Elections",
-      "description": "Israel holds its first elections. The Rebbe instructs Chasidim to participate and vote."
-    },
-    {
-      "year_ce": 1949,
-      "date_detail": "March 17, 1949 (Adar 5709)",
-      "title": "US Citizenship Granted",
-      "description": "The Rebbe and his family are granted US citizenship at 770 Eastern Parkway."
-    },
-    {
-      "year_ce": 1949,
-      "date_detail": "October 1949",
-      "title": "Plan for North African Education",
-      "description": "The Rebbe meets with Yitzchak Levy to plan sending teachers to North Africa."
-    },
-    {
-      "year_ce": 1950,
-      "date_detail": "January 1950",
-      "title": "Final Active Period",
-      "description": "In days leading up to his passing, the Rebbe is highly active, dispatching letters globally and holding yechidut."
-    },
-    {
-      "year_ce": 1950,
-      "date_detail": "January 28, 1950 (10 Shevat 5710)",
-      "title": "Passing of the Rayatz",
-      "description": "At 7:45 a.m. on Shabbat morning, the Rebbe suffers a final heart attack and passes away at 7:50 a.m."
-    },
-    {
-      "year_ce": 1950,
-      "date_detail": "January 29, 1950 (11 Shevat 5710)",
-      "title": "Funeral of the Rayatz",
-      "description": "Thousands crowd Eastern Parkway for the Rebbe's funeral. He is interred at Old Montefiore Cemetery in Queens."
+      "extracted_data": {
+        "year_ce": 1880,
+        "date_detail": "June 30, 1880 (12 Tamuz 5640)",
+        "title_en": "Birth of Yosef Yitzchak Schneersohn",
+        "description": "Rabbi Yosef Yitzchak Schneersohn (the Rayatz) is born in Lubavitch. At his circumcision, his grandfather predicts he will grow up to be a Rebbe."
+      },
+      "node_type": "EVENT",
+      "passage": "Birth of Yosef Yitzchak Schneersohn"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1881,
+        "date_detail": "1881",
+        "title_en": "Assassination of Alexander II",
+        "description": "Czar Alexander II of Russia is assassinated. Alexander III rolls back reforms and increases oppression of Russian Jews."
+      },
+      "node_type": "EVENT",
+      "passage": "Assassination of Alexander II"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1881,
+        "date_detail": "October 24, 1881 (17 Tishrei 5642)",
+        "title_en": "Birth of Nechama Dina Schneersohn",
+        "description": "Nechama Dina Schneersohn, the future wife of the Rayatz, is born in Kishinev."
+      },
+      "node_type": "EVENT",
+      "passage": "Birth of Nechama Dina Schneersohn"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1882,
+        "date_detail": "1882",
+        "title_en": "Institution of the May Laws",
+        "description": "Czar Alexander III institutes the May Laws, heavily restricting Jewish residency, economic growth, and education."
+      },
+      "node_type": "EVENT",
+      "passage": "Institution of the May Laws"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1882,
+        "date_detail": "1882",
+        "title_en": "BILU Settlement Begins",
+        "description": "The early Russian Zionist group BILU sends its first settlers to Eretz Yisrael."
+      },
+      "node_type": "EVENT",
+      "passage": "BILU Settlement Begins"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1882,
+        "date_detail": "Erev Rosh HaShanah 1882",
+        "title_en": "Rabbi Shmuel Predicts His Passing",
+        "description": "Rabbi Shmuel implies to his wife that his passing is imminent, telling her he will 'rise up thirty-two steps in a spiritual way'."
+      },
+      "node_type": "EVENT",
+      "passage": "Rabbi Shmuel Predicts His Passing"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1882,
+        "date_detail": "October 1882",
+        "title_en": "Passing of Rabbi Shmuel (Maharash)",
+        "description": "Three days after Yom Kippur, Rabbi Shmuel passes away in Lubavitch at age forty-eight."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of Rabbi Shmuel (Maharash)"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1882,
+        "date_detail": "Late 1882",
+        "title_en": "Leadership Conclave in Lubavitch",
+        "description": "Chabad elders convene and implore the Rebbe's sons to assume leadership. They initially refuse but consent to recite maamarim privately."
+      },
+      "node_type": "EVENT",
+      "passage": "Leadership Conclave in Lubavitch"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1882,
+        "date_detail": "1882 (Approximate)",
+        "title_en": "Wedding of Uncle Mendel",
+        "description": "Two-year-old Yosef Yitzchak watches his uncle Mendel's wedding. During mourning, his mother brings him to his father's study where he is moved by intense praying."
+      },
+      "node_type": "EVENT",
+      "passage": "Wedding of Uncle Mendel"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1884,
+        "date_detail": "1884",
+        "title_en": "Rashab Returns from Medical Treatment",
+        "description": "The Rashab returns to Lubavitch after seeking medical treatment, so changed that young Yosef Yitzchak doesn't recognize him."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Returns from Medical Treatment"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1884,
+        "date_detail": "1884",
+        "title_en": "Beginning of Education",
+        "description": "At age four, Yosef Yitzchak begins formal education under Rabbi Yekusiel Aizik."
+      },
+      "node_type": "EVENT",
+      "passage": "Beginning of Education"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1884,
+        "date_detail": "1884",
+        "title_en": "Rashbatz Relocates to Bulharkov",
+        "description": "Rabbi Shmuel Betzalel Sheftel (the Rashbatz), future teacher of the Rayatz, relocates to Bulharkov."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashbatz Relocates to Bulharkov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1885,
+        "date_detail": "Fall 1885",
+        "title_en": "Move to Yalta for Medical Treatment",
+        "description": "Five-year-old Yosef Yitzchak travels with parents to Yalta for six months, taught by Rabbi Schneur Zalman Slonim."
+      },
+      "node_type": "EVENT",
+      "passage": "Move to Yalta for Medical Treatment"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1886,
+        "date_detail": "Spring 1886",
+        "title_en": "Lag BaOmer Gathering in Kharkiv",
+        "description": "During a large crowded dinner where the Rashab delivers a maamar, Yosef Yitzchak notices his mother crying and informs his father."
+      },
+      "node_type": "EVENT",
+      "passage": "Lag BaOmer Gathering in Kharkiv"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1887,
+        "date_detail": "1887",
+        "title_en": "Studies with Rabbi Shimshon Begin",
+        "description": "At age seven, Yosef Yitzchak begins studying with Rabbi Shimshon, memorizing two orders of Mishnah."
+      },
+      "node_type": "EVENT",
+      "passage": "Studies with Rabbi Shimshon Begin"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1887,
+        "date_detail": "1887-1889",
+        "title_en": "Period of Loneliness",
+        "description": "The Rashab and wife frequently seek medical treatment. Yosef Yitzchak finds solace with elderly Chasidim and begins recording chasidic lore."
+      },
+      "node_type": "EVENT",
+      "passage": "Period of Loneliness"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1888,
+        "date_detail": "1888",
+        "title_en": "Writing of the Ethical Will",
+        "description": "The Rashab writes an ethical will at age twenty-seven outlining how his wife should educate their son if he were to pass away."
+      },
+      "node_type": "EVENT",
+      "passage": "Writing of the Ethical Will"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1888,
+        "date_detail": "1888",
+        "title_en": "Passing of Samuel Polyakov",
+        "description": "Samuel Polyakov, the 'rail king of Russia,' passes away."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of Samuel Polyakov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1889,
+        "date_detail": "Summer 1889 (5649)",
+        "title_en": "Rashab Returns to Lubavitch",
+        "description": "The Rashab and wife return to Lubavitch. Nine-year-old Yosef Yitzchak feels renewed maturity and begins facing his father during maamarim."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Returns to Lubavitch"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1890,
+        "date_detail": "1890",
+        "title_en": "Rashab Begins Yechidut",
+        "description": "The Rashab officially begins to receive Chasidim for yechidut (private meetings)."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Begins Yechidut"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1890,
+        "date_detail": "1890",
+        "title_en": "Rashab Spends Full Year at Home",
+        "description": "For the first time in years, the Rashab spends the entire year at home in Lubavitch."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Spends Full Year at Home"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1890,
+        "date_detail": "December 1890",
+        "title_en": "Yosef Yitzchak's Prayer at the Ohel",
+        "description": "The ten-year-old sneaks out in a snowstorm to the Ohel to pray for his father's recovery. The fever miraculously breaks."
+      },
+      "node_type": "EVENT",
+      "passage": "Yosef Yitzchak's Prayer at the Ohel"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1891,
+        "date_detail": "April 1891",
+        "title_en": "Rashab's Illness (Pneumonia)",
+        "description": "The Rashab contracts pneumonia and is dangerously ill for six weeks, asking Yosef Yitzchak to stay by his side."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab's Illness (Pneumonia)"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1891,
+        "date_detail": "Late June 1891",
+        "title_en": "Yarmarka and Arrest",
+        "description": "During the yarmarka, Yosef Yitzchak operates a microloan fund. After defending a butcher, he is wrongfully arrested but released."
+      },
+      "node_type": "EVENT",
+      "passage": "Yarmarka and Arrest"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1891,
+        "date_detail": "1891",
+        "title_en": "Establishment of Loan Fund",
+        "description": "Yosef Yitzchak establishes a loan fund for local merchants."
+      },
+      "node_type": "EVENT",
+      "passage": "Establishment of Loan Fund"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1891,
+        "date_detail": "1891",
+        "title_en": "Rashab Studies with Son",
+        "description": "The Rashab formally begins studying chasidic philosophy with Yosef Yitzchak."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Studies with Son"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1892,
+        "date_detail": "1892",
+        "title_en": "Passing of Max Lilienthal",
+        "description": "Max Lilienthal, German Enlightenment activist who attempted to secularize Jewish education in Russia, passes away."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of Max Lilienthal"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1893,
+        "date_detail": "June 26, 1893",
+        "title_en": "Bar Mitzvah of Yosef Yitzchak",
+        "description": "Yosef Yitzchak celebrates his bar mitzvah, memorizing three maamarim and reciting the third by heart at a gathering."
+      },
+      "node_type": "EVENT",
+      "passage": "Bar Mitzvah of Yosef Yitzchak"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1893,
+        "date_detail": "On Rosh HaShanah 1893",
+        "title_en": "Rashab Accepts Leadership",
+        "description": "The Rashab fully accepts the position of Rebbe, taking his father's seat near the holy ark after eleven years."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Accepts Leadership"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1893,
+        "date_detail": "Following Rosh HaShanah 1893",
+        "title_en": "Appointment of Rashbatz as Teacher",
+        "description": "The Rashab appoints Rabbi Shmuel Betzalel Sheftel as Yosef Yitzchak's dedicated teacher."
+      },
+      "node_type": "EVENT",
+      "passage": "Appointment of Rashbatz as Teacher"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1893,
+        "date_detail": "1893",
+        "title_en": "Raza Relocates to Vitebsk",
+        "description": "Rabbi Zalman Aharon (the Raza) relocates from Lubavitch to Vitebsk, deferring leadership to his younger brother."
+      },
+      "node_type": "EVENT",
+      "passage": "Raza Relocates to Vitebsk"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1894,
+        "date_detail": "1894",
+        "title_en": "Death of Alexander III",
+        "description": "Czar Alexander III dies and is succeeded by Nicholas II, who continues oppressive anti-Jewish policies."
+      },
+      "node_type": "EVENT",
+      "passage": "Death of Alexander III"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1895,
+        "date_detail": "Summer 1895",
+        "title_en": "Summer Mentoring in Bolivke",
+        "description": "The Rashab travels to Bolivke, dedicating time to his fifteen-year-old son's development."
+      },
+      "node_type": "EVENT",
+      "passage": "Summer Mentoring in Bolivke"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1895,
+        "date_detail": "Yosef Yitzchak's 15th Birthday 1895",
+        "title_en": "The Akedah - Sacred Covenant",
+        "description": "The Rashab takes Yosef Yitzchak to the Ohel, transferring responsibility of working for the public good."
+      },
+      "node_type": "EVENT",
+      "passage": "The Akedah - Sacred Covenant"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1895,
+        "date_detail": "1895",
+        "title_en": "Rayatz Begins Communal Work",
+        "description": "From that day forward, Yosef Yitzchak formally begins community work as his father's personal secretary."
+      },
+      "node_type": "EVENT",
+      "passage": "Rayatz Begins Communal Work"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1895,
+        "date_detail": "1895",
+        "title_en": "Conference of Jewish Leaders in Kovno",
+        "description": "At just fifteen, the Rayatz is dispatched to Kovno to represent his father at a conference of Jewish religious leaders."
+      },
+      "node_type": "EVENT",
+      "passage": "Conference of Jewish Leaders in Kovno"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1896,
+        "date_detail": "June 1896",
+        "title_en": "Engagement of the Rayatz and Nechama Dina",
+        "description": "The Rayatz becomes engaged to Nechama Dina Schneersohn in Bolivke."
+      },
+      "node_type": "EVENT",
+      "passage": "Engagement of the Rayatz and Nechama Dina"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1896,
+        "date_detail": "1896",
+        "title_en": "Rashab's Illness and Recovery",
+        "description": "The Rashab falls severely ill and travels to Moscow, receiving a bleak prognosis but recovers and lives another twenty-four years."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab's Illness and Recovery"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1897,
+        "date_detail": "1897",
+        "title_en": "Mordechai Ben Hillel Visits Lubavitch",
+        "description": "Enlightenment activist Mordechai Ben Hillel visits and opens a secular school with 130 students despite the Rashab's opposition."
+      },
+      "node_type": "EVENT",
+      "passage": "Mordechai Ben Hillel Visits Lubavitch"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1897,
+        "date_detail": "August 22, 1897 (13 Elul)",
+        "title_en": "Wedding of the Rayatz and Nechama Dina",
+        "description": "The chuppah takes place on Friday afternoon in the courtyard of the main synagogue in Lubavitch."
+      },
+      "node_type": "EVENT",
+      "passage": "Wedding of the Rayatz and Nechama Dina"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1897,
+        "date_detail": "September 12, 1897 (15 Elul)",
+        "title_en": "Announcement of Tomchei Temimim",
+        "description": "At the wedding reception, the Rashab announces his revolutionary plan to open a yeshivah integrating Talmud and chasidic philosophy."
+      },
+      "node_type": "EVENT",
+      "passage": "Announcement of Tomchei Temimim"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1897,
+        "date_detail": "September 15, 1897 (18 Elul)",
+        "title_en": "Opening of Tomchei Temimim",
+        "description": "Studies officially begin for the first group of yeshivah students under Rabbi Shmuel Gronem."
+      },
+      "node_type": "EVENT",
+      "passage": "Opening of Tomchei Temimim"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1898,
+        "date_detail": "Fall 1898",
+        "title_en": "Students Return from Zembin",
+        "description": "Yeshivah students return from Zembin for the High Holidays, impressing visiting Chasidim with their transformation."
+      },
+      "node_type": "EVENT",
+      "passage": "Students Return from Zembin"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1898,
+        "date_detail": "September 11, 1898 (24 Elul)",
+        "title_en": "Appointment as Yeshivah Director",
+        "description": "Eighteen-year-old Yosef Yitzchak is appointed executive director of the yeshivah and begins fundraising."
+      },
+      "node_type": "EVENT",
+      "passage": "Appointment as Yeshivah Director"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1898,
+        "date_detail": "Simchat Torah 1898",
+        "title_en": "Naming of Yeshivas Tomchei Temimim",
+        "description": "The Rashab officially names the new institution and declares its students will be titled temimim."
+      },
+      "node_type": "EVENT",
+      "passage": "Naming of Yeshivas Tomchei Temimim"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1899,
+        "date_detail": "Summer 1899",
+        "title_en": "Visit to Moscow",
+        "description": "The Rayatz visits Moscow, where Eliezer Polyakov shares a story about his brother Samuel receiving a blessing for wealth."
+      },
+      "node_type": "EVENT",
+      "passage": "Visit to Moscow"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1900,
+        "date_detail": "1900",
+        "title_en": "JCA Pledges 1 Million Francs",
+        "description": "The Jewish Colonial Association pledges 1 million francs to support Enlightenment schools. The Rashab organizes opposition."
+      },
+      "node_type": "EVENT",
+      "passage": "JCA Pledges 1 Million Francs"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1900,
+        "date_detail": "Simchat Torah 1900",
+        "title_en": "Mission Statement at Simchat Torah",
+        "description": "The Rashab compares students to King David's soldiers, charging them with disseminating Chasidism to the broader world."
+      },
+      "node_type": "EVENT",
+      "passage": "Mission Statement at Simchat Torah"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1900,
+        "date_detail": "1900",
+        "title_en": "Successful Lobbying Against Second JCA Allocation",
+        "description": "The Rashab and Rayatz organize lobbying that successfully blocks a second allocation of 600,000 francs."
+      },
+      "node_type": "EVENT",
+      "passage": "Successful Lobbying Against Second JCA Allocation"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1900,
+        "date_detail": "1900",
+        "title_en": "Conclusion of Formal Studies",
+        "description": "The Rayatz concludes his formal studies with the Rashbatz."
+      },
+      "node_type": "EVENT",
+      "passage": "Conclusion of Formal Studies"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1901,
+        "date_detail": "1901",
+        "title_en": "Opening of Dubrovno Textile Mill",
+        "description": "The Rayatz opens a textile mill in Dubrovno providing Shabbat-observant employment for 2000 Jews."
+      },
+      "node_type": "EVENT",
+      "passage": "Opening of Dubrovno Textile Mill"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1902,
+        "date_detail": "1902",
+        "title_en": "Travel to St. Petersburg",
+        "description": "The Rayatz travels to St. Petersburg for communal matters."
+      },
+      "node_type": "EVENT",
+      "passage": "Travel to St. Petersburg"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1902,
+        "date_detail": "1902",
+        "title_en": "Second Arrest",
+        "description": "The Rayatz is arrested for the second time due to accusations by teachers at the secular school in Lubavitch."
+      },
+      "node_type": "EVENT",
+      "passage": "Second Arrest"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1904,
+        "date_detail": "1904",
+        "title_en": "Russo-Japanese War Begins",
+        "description": "War breaks out between Japan and Russia, leading to enlistment of thousands of Jewish soldiers."
+      },
+      "node_type": "EVENT",
+      "passage": "Russo-Japanese War Begins"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1904,
+        "date_detail": "1904",
+        "title_en": "Library Collection Efforts",
+        "description": "At age twenty-four, the Rayatz writes to relatives in Jerusalem asking them to search for rare books and manuscripts."
+      },
+      "node_type": "EVENT",
+      "passage": "Library Collection Efforts"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1905,
+        "date_detail": "1905",
+        "title_en": "Matzah for Soldiers Initiative",
+        "description": "The Rashab launches an initiative to provide matzah and Passover supplies to Jewish soldiers on the Far East front."
+      },
+      "node_type": "EVENT",
+      "passage": "Matzah for Soldiers Initiative"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1905,
+        "date_detail": "Summer 1905",
+        "title_en": "Covert Meeting in St. Petersburg",
+        "description": "The Rayatz participates in a covert meeting of prominent rabbinic leaders to create strategy against Russian pogroms."
+      },
+      "node_type": "EVENT",
+      "passage": "Covert Meeting in St. Petersburg"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1905,
+        "date_detail": "1905",
+        "title_en": "Diplomatic Mission to Western Europe",
+        "description": "The Rayatz is sent to Western Europe to persuade statesmen and bankers to apply economic pressure on Russia."
+      },
+      "node_type": "EVENT",
+      "passage": "Diplomatic Mission to Western Europe"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1906,
+        "date_detail": "March 1906",
+        "title_en": "Poalei Tzion Attack on Yeshivah",
+        "description": "Members of Poalei Tzion march into the yeshivah. Days later, 200 return with weapons, throw stones, and shoot at the yeshivah."
+      },
+      "node_type": "EVENT",
+      "passage": "Poalei Tzion Attack on Yeshivah"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1906,
+        "date_detail": "Summer 1906 (Approximate)",
+        "title_en": "Raid on Rashab's Summer Home",
+        "description": "Poalei Tzion raids the Rashab's summer home in Bolivke, brandishing revolvers while the Rayatz's daughters are present."
+      },
+      "node_type": "EVENT",
+      "passage": "Raid on Rashab's Summer Home"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1906,
+        "date_detail": "December 1906",
+        "title_en": "Arrest for Riots Investigation",
+        "description": "The Rayatz is investigated and arrested due to the riots in Lubavitch, though he proves they were not part of the yeshivah."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest for Riots Investigation"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1906,
+        "date_detail": "1906",
+        "title_en": "Arrest in St. Petersburg",
+        "description": "The Rayatz is arrested in St. Petersburg due to efforts to exempt rabbis from military service."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest in St. Petersburg"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1908,
+        "date_detail": "1908",
+        "title_en": "Purchase of Beit Romano",
+        "description": "The Rashab successfully purchases Beit Romano, a large property in Hebron, laying foundation to establish Toras Emes."
+      },
+      "node_type": "EVENT",
+      "passage": "Purchase of Beit Romano"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1908,
+        "date_detail": "October 1908",
+        "title_en": "Confidential Rabbinic Meeting",
+        "description": "The Rashab organizes a confidential meeting of allied rabbis to strategize for upcoming elections and a national rabbinic conference."
+      },
+      "node_type": "EVENT",
+      "passage": "Confidential Rabbinic Meeting"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1909,
+        "date_detail": "May 1909",
+        "title_en": "Pre-Conference Meeting in Vilna",
+        "description": "Twenty-five leading rabbis convene in Vilna. The Rayatz serves as secretary."
+      },
+      "node_type": "EVENT",
+      "passage": "Pre-Conference Meeting in Vilna"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1909,
+        "date_detail": "1909",
+        "title_en": "Travel to Germany",
+        "description": "The Rayatz travels to Germany to confer with Jewish communal leaders."
+      },
+      "node_type": "EVENT",
+      "passage": "Travel to Germany"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1910,
+        "date_detail": "1910",
+        "title_en": "Lubavitch Population",
+        "description": "The town of Lubavitch has 3,376 residents, including 2,325 Jews."
+      },
+      "node_type": "EVENT",
+      "passage": "Lubavitch Population"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1910,
+        "date_detail": "1910",
+        "title_en": "National Rabbinical Conference",
+        "description": "A national Rabbinical Conference is held in St. Petersburg. The Rayatz assists his father throughout."
+      },
+      "node_type": "EVENT",
+      "passage": "National Rabbinical Conference"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1910,
+        "date_detail": "1910",
+        "title_en": "Imprisonment Regarding Military Exemptions",
+        "description": "The Rayatz is imprisoned in St. Petersburg for efforts to exempt young men from military service."
+      },
+      "node_type": "EVENT",
+      "passage": "Imprisonment Regarding Military Exemptions"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1910,
+        "date_detail": "1910",
+        "title_en": "Passing of Rabbi Yitzchak Dovber of Liadi",
+        "description": "Rabbi Yitzchak Dovber of Liadi passes away."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of Rabbi Yitzchak Dovber of Liadi"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1911,
+        "date_detail": "1911",
+        "title_en": "Students Sent to Hebron",
+        "description": "The Rashab sends a group of outstanding students, led by Rabbi Zalman Havlin, to establish Toras Emes in Hebron."
+      },
+      "node_type": "EVENT",
+      "passage": "Students Sent to Hebron"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1911,
+        "date_detail": "1911",
+        "title_en": "Toras Emes Purpose Letter",
+        "description": "The Rayatz outlines the purpose of the Hebron yeshivah in a letter to Rabbi Havlin."
+      },
+      "node_type": "EVENT",
+      "passage": "Toras Emes Purpose Letter"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1911,
+        "date_detail": "1911",
+        "title_en": "First of Four Arrests (1911-1916)",
+        "description": "The Rayatz experiences the first of four arrests that would occur between 1911 and 1916."
+      },
+      "node_type": "EVENT",
+      "passage": "First of Four Arrests (1911-1916)"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1912,
+        "date_detail": "1912",
+        "title_en": "Founding of World Agudath Israel",
+        "description": "World Agudath Israel is established at a conference in Katowice, Poland."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of World Agudath Israel"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1912,
+        "date_detail": "1912",
+        "title_en": "Founding of Young Israel Movement",
+        "description": "The Young Israel movement is founded."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Young Israel Movement"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1912,
+        "date_detail": "1912",
+        "title_en": "Synagogue in Kobe, Japan",
+        "description": "A synagogue is established by the small Jewish community in Kobe, Japan."
+      },
+      "node_type": "EVENT",
+      "passage": "Synagogue in Kobe, Japan"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1913,
+        "date_detail": "1913",
+        "title_en": "Beilis Affair Begins",
+        "description": "The Beilis affair begins, accusing Mendel Beilis of ritual murder in Kiev."
+      },
+      "node_type": "EVENT",
+      "passage": "Beilis Affair Begins"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1913,
+        "date_detail": "1913",
+        "title_en": "Dispatching Oscar Gruzenberg",
+        "description": "The Rashab dispatches the Rayatz to enlist prominent attorney Oscar Gruzenberg for Beilis's defense."
+      },
+      "node_type": "EVENT",
+      "passage": "Dispatching Oscar Gruzenberg"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1913,
+        "date_detail": "1913",
+        "title_en": "Appointment of Rabbi Dr. Yosef Hertz",
+        "description": "Rabbi Dr. Yosef Hertz is appointed the chief rabbi of Britain."
+      },
+      "node_type": "EVENT",
+      "passage": "Appointment of Rabbi Dr. Yosef Hertz"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1914,
+        "date_detail": "1914",
+        "title_en": "World War I Begins",
+        "description": "World War I breaks out, and Germany declares war on Russia."
+      },
+      "node_type": "EVENT",
+      "passage": "World War I Begins"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1914,
+        "date_detail": "1914",
+        "title_en": "Passing of Rebbetzin Rivkah",
+        "description": "The Rebbe Rayatz's grandmother, Rebbetzin Rivkah Schneersohn, passes away."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of Rebbetzin Rivkah"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1914,
+        "date_detail": "1914",
+        "title_en": "Founding of Mizrachi",
+        "description": "The religious Zionist organization Mizrachi is launched."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Mizrachi"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1914,
+        "date_detail": "1914",
+        "title_en": "Establishment of the JDC",
+        "description": "The American Joint Distribution Committee is established to help Jews overseas."
+      },
+      "node_type": "EVENT",
+      "passage": "Establishment of the JDC"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1914,
+        "date_detail": "1914",
+        "title_en": "Released Time Program Begins",
+        "description": "The Released Time program for religious instruction begins in Indiana."
+      },
+      "node_type": "EVENT",
+      "passage": "Released Time Program Begins"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1914,
+        "date_detail": "1914",
+        "title_en": "Henry Morgenthau Visits Hebron",
+        "description": "Henry Morgenthau, the Jewish US ambassador to the Turkish Empire, is permitted to visit the Tomb of the Patriarchs."
+      },
+      "node_type": "EVENT",
+      "passage": "Henry Morgenthau Visits Hebron"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1915,
+        "date_detail": "1915",
+        "title_en": "Germany Invades Russia",
+        "description": "Germany invades Russia."
+      },
+      "node_type": "EVENT",
+      "passage": "Germany Invades Russia"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1915,
+        "date_detail": "Late October 1915",
+        "title_en": "Departure from Lubavitch",
+        "description": "The Rashab and Rayatz depart Lubavitch with their families due to the advancing German army, ending 102 years of Chabad in Lubavitch."
+      },
+      "node_type": "EVENT",
+      "passage": "Departure from Lubavitch"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1916,
+        "date_detail": "1916",
+        "title_en": "Second Imprisonment in St. Petersburg",
+        "description": "The Rayatz is imprisoned in St. Petersburg a second time regarding military exemptions."
+      },
+      "node_type": "EVENT",
+      "passage": "Second Imprisonment in St. Petersburg"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1916,
+        "date_detail": "1916",
+        "title_en": "Establishment of Yeshivah in Kutaisi",
+        "description": "Jewish community leaders in Kutaisi ask the Rashab for help, and he dispatches rabbis to establish a yeshivah for Sephardic Jews."
+      },
+      "node_type": "EVENT",
+      "passage": "Establishment of Yeshivah in Kutaisi"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1917,
+        "date_detail": "1917",
+        "title_en": "Bolshevik Revolution",
+        "description": "The Bolshevik Revolution takes place in Russia. Czar Nicholas II abdicates and is eventually executed, ending the Pale of Settlement."
+      },
+      "node_type": "EVENT",
+      "passage": "Bolshevik Revolution"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1917,
+        "date_detail": "1917",
+        "title_en": "Establishment of Yevesektzia",
+        "description": "The Yevesektzia (Jewish section of Communist Party) is established to combat religious tradition."
+      },
+      "node_type": "EVENT",
+      "passage": "Establishment of Yevesektzia"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1917,
+        "date_detail": "1917",
+        "title_en": "Establishment of Cheka",
+        "description": "The Communist government establishes the Cheka secret police."
+      },
+      "node_type": "EVENT",
+      "passage": "Establishment of Cheka"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1918,
+        "date_detail": "1918",
+        "title_en": "Simon Yakovshvili Arrives in Rostov",
+        "description": "Simon Yakovshvili stops in Rostov for Rosh HaShanah, meets the Rashab, and decides to stay to study Torah."
+      },
+      "node_type": "EVENT",
+      "passage": "Simon Yakovshvili Arrives in Rostov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1918,
+        "date_detail": "1918",
+        "title_en": "Agricultural Colonies Conference",
+        "description": "Semyon Dimenstein advocates settling Jews in agricultural colonies during conferences."
+      },
+      "node_type": "EVENT",
+      "passage": "Agricultural Colonies Conference"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1918,
+        "date_detail": "1918",
+        "title_en": "Founding of Yeshivah Torah Vodaath",
+        "description": "Yeshivah Torah Vodaath is founded in Williamsburg, Brooklyn."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Yeshivah Torah Vodaath"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1919,
+        "date_detail": "1919",
+        "title_en": "Grigory Lulov Joins Cheka",
+        "description": "Grigory Lulov joins the Cheka secret police."
+      },
+      "node_type": "EVENT",
+      "passage": "Grigory Lulov Joins Cheka"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1919,
+        "date_detail": "June 1919",
+        "title_en": "Jewish Educational Council Conference",
+        "description": "The Yevesektzia holds a conference in Moscow, establishing the First Jewish Educational Council which bans Hebrew and Bible from schools."
+      },
+      "node_type": "EVENT",
+      "passage": "Jewish Educational Council Conference"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1919,
+        "date_detail": "1919",
+        "title_en": "Founding of Hebrew Theological College Chicago",
+        "description": "The Hebrew Theological College is founded in Chicago."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Hebrew Theological College Chicago"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "January 1920",
+        "title_en": "Bolsheviks Take Control of Rostov",
+        "description": "Bolsheviks take control of Rostov, prompting the Rashab to curtail public activities."
+      },
+      "node_type": "EVENT",
+      "passage": "Bolsheviks Take Control of Rostov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "Late February 1920",
+        "title_en": "Prediction of 'Dark Clouds'",
+        "description": "The Rashab summons the Rayatz, predicting 'dark clouds' for 22 years under Communism, prophesying the regime's eventual collapse."
+      },
+      "node_type": "EVENT",
+      "passage": "Prediction of 'Dark Clouds'"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "March (Purim) 1920",
+        "title_en": "Purim Farbrengen During Police Visit",
+        "description": "A farbrengen at the Rashab's home is interrupted by Bolshevik police; the officers leave after the Rashab delivers a maamar."
+      },
+      "node_type": "EVENT",
+      "passage": "Purim Farbrengen During Police Visit"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "March 1920",
+        "title_en": "Rashab Falls Ill with Typhoid",
+        "description": "Shortly after Purim, the Rashab falls ill with typhoid."
+      },
+      "node_type": "EVENT",
+      "passage": "Rashab Falls Ill with Typhoid"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "March 21, 1920 (2 Nisan)",
+        "title_en": "Passing of the Rashab",
+        "description": "The Rashab passes away in Rostov at the age of 59."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of the Rashab"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "March 1920",
+        "title_en": "Rayatz Accepts Leadership",
+        "description": "The Rayatz accepts the position of the Sixth Lubavitcher Rebbe, reciting a maamar to Chasidim."
+      },
+      "node_type": "EVENT",
+      "passage": "Rayatz Accepts Leadership"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "July 1920",
+        "title_en": "Arrest by Cheka",
+        "description": "The Rayatz is arrested by Cheka officers, interrogated about Judaism, and subsequently released."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest by Cheka"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "Winter 1920",
+        "title_en": "Relocation to Rostov",
+        "description": "Yeshivas Tomchei Temimim relocates from Kremenchuk to Rostov due to extreme famine."
+      },
+      "node_type": "EVENT",
+      "passage": "Relocation to Rostov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1920,
+        "date_detail": "November 1920",
+        "title_en": "Typhus Epidemic in Rostov",
+        "description": "A typhus epidemic intensifies in Rostov, causing the Rebbe, his mother, and daughters to fall ill."
+      },
+      "node_type": "EVENT",
+      "passage": "Typhus Epidemic in Rostov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1921,
+        "date_detail": "February 1921",
+        "title_en": "Show Trial Against Yeshivah",
+        "description": "The Yevesektzia stages a show trial against the Lubavitch yeshivah in Rostov, demanding its closure."
+      },
+      "node_type": "EVENT",
+      "passage": "Show Trial Against Yeshivah"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1921,
+        "date_detail": "June 1921",
+        "title_en": "Wedding of Chana Gurary",
+        "description": "The Rebbe's oldest daughter, Chana, marries Rabbi Shmaryahu Gurary in Rostov."
+      },
+      "node_type": "EVENT",
+      "passage": "Wedding of Chana Gurary"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1921,
+        "date_detail": "1921",
+        "title_en": "Warsaw Branch Opens",
+        "description": "News arrives of a new branch of the yeshivah opening in Warsaw."
+      },
+      "node_type": "EVENT",
+      "passage": "Warsaw Branch Opens"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1922,
+        "date_detail": "Summer 1922",
+        "title_en": "Relocation to Poltava",
+        "description": "To escape famine and scrutiny, Yeshivah Tomchei Temimim relocates to Poltava."
+      },
+      "node_type": "EVENT",
+      "passage": "Relocation to Poltava"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1922,
+        "date_detail": "1922",
+        "title_en": "Rabbinical Committee Established",
+        "description": "The Rebbe establishes the Rabbinical Committee to advocate for religious rights under Soviet law."
+      },
+      "node_type": "EVENT",
+      "passage": "Rabbinical Committee Established"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1923,
+        "date_detail": "Summer 1923",
+        "title_en": "Ramash Meets Chaya Mushka",
+        "description": "The Ramash meets his future wife, Chaya Mushka, for the first time in Kislovodsk."
+      },
+      "node_type": "EVENT",
+      "passage": "Ramash Meets Chaya Mushka"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1923,
+        "date_detail": "November (19 Kislev) 1923",
+        "title_en": "Call for Emissaries",
+        "description": "The Rebbe asks for volunteers to act as emissaries to establish secret places of Jewish study across the country."
+      },
+      "node_type": "EVENT",
+      "passage": "Call for Emissaries"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1924,
+        "date_detail": "Winter 1924",
+        "title_en": "Secret Covenant",
+        "description": "In Moscow, the Rebbe formalizes a 'secret covenant' with nine trusted Chasidim, swearing an oath of self-sacrifice for Jewish education."
+      },
+      "node_type": "EVENT",
+      "passage": "Secret Covenant"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1924,
+        "date_detail": "May 1924",
+        "title_en": "Flight to Leningrad",
+        "description": "Facing imminent threat of arrest, the Rebbe is forced to flee Rostov and relocates to Leningrad."
+      },
+      "node_type": "EVENT",
+      "passage": "Flight to Leningrad"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1924,
+        "date_detail": "1924",
+        "title_en": "Founding of Agudas Chassidei Chabad in US",
+        "description": "Agudas Chassidei Chabad is established in the United States."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Agudas Chassidei Chabad in US"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1925,
+        "date_detail": "Summer 1925",
+        "title_en": "Opposition to National Conference",
+        "description": "Lev Gurewicz attempts to enlist the Rebbe to support a national conference. The Rebbe opposes it as a Yevesektzia-backed plot."
+      },
+      "node_type": "EVENT",
+      "passage": "Opposition to National Conference"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1925,
+        "date_detail": "1925",
+        "title_en": "Library Acquisition",
+        "description": "The Rebbe acquires a massive private library collection containing thousands of rare volumes."
+      },
+      "node_type": "EVENT",
+      "passage": "Library Acquisition"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1926,
+        "date_detail": "1926",
+        "title_en": "Underground Network Success",
+        "description": "A confidential JDC report reveals 15,000 children are being educated in secret schools."
+      },
+      "node_type": "EVENT",
+      "passage": "Underground Network Success"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1926,
+        "date_detail": "October 1926",
+        "title_en": "Rabbinical Conference in Korosten",
+        "description": "A rabbinical conference occurs in Korosten. The Rebbe sends an emissary to steer the agenda toward tradition."
+      },
+      "node_type": "EVENT",
+      "passage": "Rabbinical Conference in Korosten"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "February 1927",
+        "title_en": "Narrow Escape from GPU Agents",
+        "description": "The Rebbe narrowly evades Yevesektzia agents on a train and in his hotel, saved by a sympathetic GPU official."
+      },
+      "node_type": "EVENT",
+      "passage": "Narrow Escape from GPU Agents"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "February 1927",
+        "title_en": "Arrest of Secretary",
+        "description": "The Rebbe's secretary, Rabbi Elchonon Morozov, is arrested and jailed."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest of Secretary"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "March (Purim) 1927",
+        "title_en": "Fiery Farbrengen",
+        "description": "The Rebbe leads a fiery farbrengen, urging Chasidim to defy the government and be willing to cast themselves into flames."
+      },
+      "node_type": "EVENT",
+      "passage": "Fiery Farbrengen"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "June 15, 1927",
+        "title_en": "Arrest and Death Sentence",
+        "description": "Just after midnight, the Rebbe is arrested by GPU officers and taken to Shpalerka prison, sentenced to death by firing squad."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest and Death Sentence"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "June-July 1927",
+        "title_en": "International Outcry and Commutation",
+        "description": "Massive international outcry forces the Soviets to commute his sentence to three-year exile in Kostroma."
+      },
+      "node_type": "EVENT",
+      "passage": "International Outcry and Commutation"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "July 12, 1927 (12 Tamuz)",
+        "title_en": "Release from Exile",
+        "description": "The Rebbe is informed of his release from exile and returns to Leningrad two days later."
+      },
+      "node_type": "EVENT",
+      "passage": "Release from Exile"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "Summer/Fall 1927",
+        "title_en": "Hiding in Malakhovka",
+        "description": "The Rebbe hides in Malakhovka outside Moscow while exit visas are secured."
+      },
+      "node_type": "EVENT",
+      "passage": "Hiding in Malakhovka"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "October (Simchat Torah) 1927",
+        "title_en": "Final Holiday in Russia",
+        "description": "The Rebbe celebrates his final holiday in Russia, surrounded by thousands of weeping Chasidim."
+      },
+      "node_type": "EVENT",
+      "passage": "Final Holiday in Russia"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1927,
+        "date_detail": "October 21, 1927",
+        "title_en": "Departure from Russia",
+        "description": "The Rebbe departs Russia by train with his historic library, arriving to a hero's welcome in Riga."
+      },
+      "node_type": "EVENT",
+      "passage": "Departure from Russia"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1928,
+        "date_detail": "Summer 1928",
+        "title_en": "First Maamar in Exile",
+        "description": "The Rebbe publishes his first maamar since leaving Russia, printed in Yiddish to broaden dissemination."
+      },
+      "node_type": "EVENT",
+      "passage": "First Maamar in Exile"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1928,
+        "date_detail": "November 27, 1928 (14 Kislev)",
+        "title_en": "Royal Wedding",
+        "description": "The 'Royal Wedding' of the Rebbe's daughter Chaya Mushka to the Ramash takes place at the yeshivah in Warsaw."
+      },
+      "node_type": "EVENT",
+      "passage": "Royal Wedding"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1929,
+        "date_detail": "Early 1929",
+        "title_en": "Matzah Shipping Campaign",
+        "description": "The Rebbe orchestrates an international campaign to ship 140,000 kilos of matzah into the Soviet Union."
+      },
+      "node_type": "EVENT",
+      "passage": "Matzah Shipping Campaign"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1929,
+        "date_detail": "July 1929",
+        "title_en": "Journey to Eretz Yisrael",
+        "description": "The Rebbe embarks on a year-long journey, first traveling to Eretz Yisrael."
+      },
+      "node_type": "EVENT",
+      "passage": "Journey to Eretz Yisrael"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1929,
+        "date_detail": "August 1929",
+        "title_en": "Visit to Jerusalem and Hebron",
+        "description": "He visits Jerusalem, meets Chief Rabbis Kook and Sonnenfeld, visits Hebron and Me'arat HaMakhpelah."
+      },
+      "node_type": "EVENT",
+      "passage": "Visit to Jerusalem and Hebron"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1929,
+        "date_detail": "September 17, 1929",
+        "title_en": "Arrival in New York Harbor",
+        "description": "The Rebbe arrives in New York Harbor to a crowd of thousands."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrival in New York Harbor"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1929,
+        "date_detail": "Fall 1929",
+        "title_en": "Declaration: America is No Different",
+        "description": "Celebrating the High Holidays in Brooklyn, he declares his transformative vision: 'America iz nisht aderesh'."
+      },
+      "node_type": "EVENT",
+      "passage": "Declaration: America is No Different"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "January 1930",
+        "title_en": "Meeting with Justice Brandeis",
+        "description": "The Rebbe travels to Washington to meet with Supreme Court Justice Louis Brandeis about aiding Soviet Jews."
+      },
+      "node_type": "EVENT",
+      "passage": "Meeting with Justice Brandeis"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "February 1930",
+        "title_en": "Arrest of Correspondents",
+        "description": "Sixteen Jewish leaders are arrested in Minsk for corresponding with the Rebbe."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest of Correspondents"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "May 1930",
+        "title_en": "Visit to St. Louis",
+        "description": "The Rebbe visits St. Louis, Missouri, where thousands welcome him and he inspires a mikveh campaign."
+      },
+      "node_type": "EVENT",
+      "passage": "Visit to St. Louis"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "July 1930",
+        "title_en": "Meeting with President Hoover",
+        "description": "The Rebbe meets with US President Herbert Hoover at the White House."
+      },
+      "node_type": "EVENT",
+      "passage": "Meeting with President Hoover"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "July 17, 1930",
+        "title_en": "Departure from the US",
+        "description": "The Rebbe departs the US for Europe."
+      },
+      "node_type": "EVENT",
+      "passage": "Departure from the US"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "August-September 1930",
+        "title_en": "Recuperation in Marienbad",
+        "description": "The Rebbe recovers in Marienbad, meeting with the Belzer and Gerrer Rebbes."
+      },
+      "node_type": "EVENT",
+      "passage": "Recuperation in Marienbad"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1930,
+        "date_detail": "Autumn 1930",
+        "title_en": "Opposition to Communist Youth Club",
+        "description": "The Rebbe confronts members of a Communist youth club plotting to disrupt Simchat Torah."
+      },
+      "node_type": "EVENT",
+      "passage": "Opposition to Communist Youth Club"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1931,
+        "date_detail": "February-March 1931",
+        "title_en": "Visit to Rakshik",
+        "description": "The Rebbe visits Rakshik, Lithuania, to give local Chasidim an opportunity to visit him."
+      },
+      "node_type": "EVENT",
+      "passage": "Visit to Rakshik"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1931,
+        "date_detail": "Summer 1931",
+        "title_en": "Visit to Warsaw",
+        "description": "The Rebbe travels to Warsaw to survey the yeshivah and meets with students from Lodz and Vilnius."
+      },
+      "node_type": "EVENT",
+      "passage": "Visit to Warsaw"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1932,
+        "date_detail": "January 1932",
+        "title_en": "Letter to the Ramash",
+        "description": "The Rebbe writes a lengthy letter to the Ramash detailing Chabad's intellectual and spiritual focus."
+      },
+      "node_type": "EVENT",
+      "passage": "Letter to the Ramash"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1932,
+        "date_detail": "June 14, 1932",
+        "title_en": "Wedding of Sheina Schneersohn",
+        "description": "The Rebbe celebrates the marriage of his youngest daughter Sheina to Rabbi Mendel Horenstein."
+      },
+      "node_type": "EVENT",
+      "passage": "Wedding of Sheina Schneersohn"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1933,
+        "date_detail": "January-March 1933",
+        "title_en": "Medical Treatment in Berlin",
+        "description": "The Rebbe spends two months in Berlin for medical care, accompanied by the Ramash."
+      },
+      "node_type": "EVENT",
+      "passage": "Medical Treatment in Berlin"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1933,
+        "date_detail": "Spring 1933",
+        "title_en": "Ramash and Chaya Mushka Flee Berlin",
+        "description": "Fleeing the Nazi threat, the Ramash and Chaya Mushka leave Berlin and resettle in Paris."
+      },
+      "node_type": "EVENT",
+      "passage": "Ramash and Chaya Mushka Flee Berlin"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1933,
+        "date_detail": "September 1933",
+        "title_en": "Permanent Relocation to Warsaw",
+        "description": "After securing Latvian citizenship, the Rebbe permanently relocates to Warsaw, Poland."
+      },
+      "node_type": "EVENT",
+      "passage": "Permanent Relocation to Warsaw"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1933,
+        "date_detail": "Late 1933",
+        "title_en": "Emissary to New York",
+        "description": "Rabbi Yitzchak Horowitz arrives in New York as the Rebbe's emissary to strengthen Chabad in America."
+      },
+      "node_type": "EVENT",
+      "passage": "Emissary to New York"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1934,
+        "date_detail": "1934",
+        "title_en": "School Reform in Latvia",
+        "description": "Rabbi Chaim Mordechai Aizek Hodakov is appointed chief inspector and begins reforming the curriculum."
+      },
+      "node_type": "EVENT",
+      "passage": "School Reform in Latvia"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1934,
+        "date_detail": "November 13, 1934",
+        "title_en": "MS Diagnosis",
+        "description": "Seeking treatment for illness, the Rebbe travels to Vienna where Dr. Max Gerson diagnoses multiple sclerosis."
+      },
+      "node_type": "EVENT",
+      "passage": "MS Diagnosis"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1935,
+        "date_detail": "September 19, 1935",
+        "title_en": "Relocation to Otwock",
+        "description": "Due to health needs, the Rebbe relocates permanently to Otwock, Poland."
+      },
+      "node_type": "EVENT",
+      "passage": "Relocation to Otwock"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1935,
+        "date_detail": "1935",
+        "title_en": "Founding of Achot Hatemimim",
+        "description": "The journal Hatomim is founded and the women's organization is created."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Achot Hatemimim"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1936,
+        "date_detail": "1936",
+        "title_en": "Raid on Package Smuggling Operation",
+        "description": "Latvian police arrest four Chabad Chasidim running the Rebbe's covert package-smuggling operation."
+      },
+      "node_type": "EVENT",
+      "passage": "Raid on Package Smuggling Operation"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1937,
+        "date_detail": "August 1937",
+        "title_en": "Arrest of Simon Yakovshvili",
+        "description": "Simon Yakovshvili is arrested by secret police, tortured, and sentenced to death before commutation."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrest of Simon Yakovshvili"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1938,
+        "date_detail": "March 1938",
+        "title_en": "Departure from Austria",
+        "description": "The Rebbe departs Austria for Paris just three days before Germany annexes Austria."
+      },
+      "node_type": "EVENT",
+      "passage": "Departure from Austria"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1938,
+        "date_detail": "1938",
+        "title_en": "US Students Enroll",
+        "description": "Students from the US begin enrolling in the Rebbe's yeshivah in Otwock."
+      },
+      "node_type": "EVENT",
+      "passage": "US Students Enroll"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1938,
+        "date_detail": "1938",
+        "title_en": "Execution of Elchonon Morozov",
+        "description": "The Rebbe's secretary is captured and executed by firing squad."
+      },
+      "node_type": "EVENT",
+      "passage": "Execution of Elchonon Morozov"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1939,
+        "date_detail": "September 1, 1939",
+        "title_en": "Germany Invades Poland",
+        "description": "Germany invades Poland and World War II begins. Otwock is bombed."
+      },
+      "node_type": "EVENT",
+      "passage": "Germany Invades Poland"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1939,
+        "date_detail": "September 5, 1939",
+        "title_en": "Evacuation to Warsaw",
+        "description": "The Rebbe and family are evacuated to Warsaw in a Latvian Embassy vehicle."
+      },
+      "node_type": "EVENT",
+      "passage": "Evacuation to Warsaw"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1939,
+        "date_detail": "December 18, 1939",
+        "title_en": "Escape to Riga",
+        "description": "Admiral Wilhelm Canaris rescues the Rebbe and family; they arrive safely in Riga."
+      },
+      "node_type": "EVENT",
+      "passage": "Escape to Riga"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "February 13, 1940",
+        "title_en": "US Visas Granted",
+        "description": "The US Consulate in Riga issues visas to the Rebbe and his entourage."
+      },
+      "node_type": "EVENT",
+      "passage": "US Visas Granted"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "March 4, 1940 (24 Adar Alef)",
+        "title_en": "Departure from Riga",
+        "description": "The Rebbe departs Riga by plane to Stockholm."
+      },
+      "node_type": "EVENT",
+      "passage": "Departure from Riga"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "March 7, 1940 (27 Adar Alef)",
+        "title_en": "Boarding the SS Drottningholm",
+        "description": "The Rebbe boards the SS Drottningholm in Gothenburg, Sweden."
+      },
+      "node_type": "EVENT",
+      "passage": "Boarding the SS Drottningholm"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "March 18-19, 1940",
+        "title_en": "Arrival in New York Harbor",
+        "description": "The Drottningholm arrives in New York Harbor. The Rebbe famously declares 'America iz nisht aderesh'."
+      },
+      "node_type": "EVENT",
+      "passage": "Arrival in New York Harbor"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "March 19, 1940 (9 Adar Bet)",
+        "title_en": "Opening of American Yeshivah",
+        "description": "The day after arrival, the Rebbe announces the opening of Yeshivas Tomchei Temimim in America."
+      },
+      "node_type": "EVENT",
+      "passage": "Opening of American Yeshivah"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "April 1940",
+        "title_en": "Released Time Program Approved",
+        "description": "NY Governor signs statute approving the Released Time program. The Rebbe immediately harnesses this."
+      },
+      "node_type": "EVENT",
+      "passage": "Released Time Program Approved"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "August 16, 1940 (12 Av)",
+        "title_en": "Purchase of 770 Eastern Parkway",
+        "description": "Agudas Chassidei Chabad purchases 770 Eastern Parkway as the Rebbe's permanent residence."
+      },
+      "node_type": "EVENT",
+      "passage": "Purchase of 770 Eastern Parkway"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1940,
+        "date_detail": "September 1940",
+        "title_en": "Move into 770",
+        "description": "The Rebbe moves into his permanent headquarters at 770 Eastern Parkway in Crown Heights."
+      },
+      "node_type": "EVENT",
+      "passage": "Move into 770"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1941,
+        "date_detail": "June 12, 1941",
+        "title_en": "Ramash and Chaya Mushka Flee Paris",
+        "description": "After fleeing Paris to Vichy, they board a ship in Lisbon."
+      },
+      "node_type": "EVENT",
+      "passage": "Ramash and Chaya Mushka Flee Paris"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1941,
+        "date_detail": "June 23, 1941",
+        "title_en": "Safe Arrival in New York",
+        "description": "The Ramash and Chaya Mushka arrive safely in New York."
+      },
+      "node_type": "EVENT",
+      "passage": "Safe Arrival in New York"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1941,
+        "date_detail": "December 7, 1941",
+        "title_en": "Pearl Harbor Attack",
+        "description": "As Pearl Harbor is attacked, Rabbi Mottel Altein is traveling by train to establish a Hebrew school."
+      },
+      "node_type": "EVENT",
+      "passage": "Pearl Harbor Attack"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1942,
+        "date_detail": "March 1943",
+        "title_en": "Anguished Letter about Holocaust",
+        "description": "The Rebbe writes an anguished letter lamenting the silence regarding the Holocaust."
+      },
+      "node_type": "EVENT",
+      "passage": "Anguished Letter about Holocaust"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1942,
+        "date_detail": "September 13, 1942",
+        "title_en": "Murder of Sheina Horenstein",
+        "description": "The Rebbe's youngest daughter is murdered in the Treblinka death camp."
+      },
+      "node_type": "EVENT",
+      "passage": "Murder of Sheina Horenstein"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1942,
+        "date_detail": "November 5, 1942",
+        "title_en": "Murder of Mendel Horenstein",
+        "description": "The Rebbe's son-in-law is murdered in Treblinka."
+      },
+      "node_type": "EVENT",
+      "passage": "Murder of Mendel Horenstein"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1943,
+        "date_detail": "December 12, 1943",
+        "title_en": "Montreal Yeshivah Building Dedicated",
+        "description": "A dedicated building is purchased for the growing Chabad yeshivah in Montreal."
+      },
+      "node_type": "EVENT",
+      "passage": "Montreal Yeshivah Building Dedicated"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1944,
+        "date_detail": "1944",
+        "title_en": "Passing of Ramash's Father",
+        "description": "The Ramash's father, Rabbi Levi Yitzchak Schneerson, passes away in exile in Kazakhstan."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of Ramash's Father"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1944,
+        "date_detail": "November 12, 1944",
+        "title_en": "Heart Attack After Riga Report",
+        "description": "The Rebbe suffers a heart attack after receiving a report on the Nazi massacre of Jews in Riga."
+      },
+      "node_type": "EVENT",
+      "passage": "Heart Attack After Riga Report"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1945,
+        "date_detail": "September 1945",
+        "title_en": "Relief Office in Paris",
+        "description": "A Chabad relief office is established in Paris to assist refugees."
+      },
+      "node_type": "EVENT",
+      "passage": "Relief Office in Paris"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1946,
+        "date_detail": "April/May 1946",
+        "title_en": "The Great Escape Begins",
+        "description": "Chabad Chasidim begin secretly crossing the border from Lvov to Poland using forged Polish passports."
+      },
+      "node_type": "EVENT",
+      "passage": "The Great Escape Begins"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1946,
+        "date_detail": "Summer 1946",
+        "title_en": "Reunion with Mother",
+        "description": "The Ramash travels to Paris to reunite with his mother after 20 years of separation."
+      },
+      "node_type": "EVENT",
+      "passage": "Reunion with Mother"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1946,
+        "date_detail": "December 2, 1946",
+        "title_en": "Massive Transport Crosses Border",
+        "description": "A massive transport of 232 Chasidim successfully crosses the Russian border. The Rebbe senses their crossing spiritually."
+      },
+      "node_type": "EVENT",
+      "passage": "Massive Transport Crosses Border"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1947,
+        "date_detail": "Early 1947",
+        "title_en": "End of Great Escape",
+        "description": "The Great Escape ends when Soviet authorities arrest escape organizers in Lvov."
+      },
+      "node_type": "EVENT",
+      "passage": "End of Great Escape"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1948,
+        "date_detail": "1948",
+        "title_en": "Founding of Kfar Chabad",
+        "description": "Following the establishment of the State of Israel, the Rebbe directs the founding of Kfar Chabad."
+      },
+      "node_type": "EVENT",
+      "passage": "Founding of Kfar Chabad"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1949,
+        "date_detail": "January 1949",
+        "title_en": "Israel's First Elections",
+        "description": "Israel holds its first elections. The Rebbe instructs Chasidim to participate and vote."
+      },
+      "node_type": "EVENT",
+      "passage": "Israel's First Elections"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1949,
+        "date_detail": "March 17, 1949 (Adar 5709)",
+        "title_en": "US Citizenship Granted",
+        "description": "The Rebbe and his family are granted US citizenship at 770 Eastern Parkway."
+      },
+      "node_type": "EVENT",
+      "passage": "US Citizenship Granted"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1949,
+        "date_detail": "October 1949",
+        "title_en": "Plan for North African Education",
+        "description": "The Rebbe meets with Yitzchak Levy to plan sending teachers to North Africa."
+      },
+      "node_type": "EVENT",
+      "passage": "Plan for North African Education"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1950,
+        "date_detail": "January 1950",
+        "title_en": "Final Active Period",
+        "description": "In days leading up to his passing, the Rebbe is highly active, dispatching letters globally and holding yechidut."
+      },
+      "node_type": "EVENT",
+      "passage": "Final Active Period"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1950,
+        "date_detail": "January 28, 1950 (10 Shevat 5710)",
+        "title_en": "Passing of the Rayatz",
+        "description": "At 7:45 a.m. on Shabbat morning, the Rebbe suffers a final heart attack and passes away at 7:50 a.m."
+      },
+      "node_type": "EVENT",
+      "passage": "Passing of the Rayatz"
+    },
+    {
+      "extracted_data": {
+        "year_ce": 1950,
+        "date_detail": "January 29, 1950 (11 Shevat 5710)",
+        "title_en": "Funeral of the Rayatz",
+        "description": "Thousands crowd Eastern Parkway for the Rebbe's funeral. He is interred at Old Montefiore Cemetery in Queens."
+      },
+      "node_type": "EVENT",
+      "passage": "Funeral of the Rayatz"
     }
   ]
 }
