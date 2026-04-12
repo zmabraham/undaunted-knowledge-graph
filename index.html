@@ -477,9 +477,19 @@
             // Create vertical timeline
             let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
 
-            // Add era markers
+            // Add era markers (positioned at actual decade positions)
             for (let y = 1880; y <= 1950; y += 10) {
-                const pixels = (y - startYear) * pixelsPerYear;
+                let pixels = (y - startYear) * pixelsPerYear;
+
+                // For zoomed in view, account for overlap adjustments
+                if (currentZoomLevel === 'in') {
+                    // Find the position of the first event at or after this decade
+                    const decadeEvent = calculatedPositions.find(p => p.year >= y);
+                    if (decadeEvent && decadeEvent.year === y) {
+                        pixels = decadeEvent.pixels;
+                    }
+                }
+
                 eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -10px;">${y}</div>`;
             }
 
