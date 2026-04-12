@@ -493,33 +493,33 @@
             // Create vertical timeline
             let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
 
-            // Add era markers (positioned at actual decade positions)
+            // Add era markers (positioned proportionally at decade marks)
             for (let y = 1880; y <= 1950; y += 10) {
-                let pixels = (y - startYear) * pixelsPerYear;
-
-                // For zoomed in view, use actual event position if available at this decade mark
-                // For zoomed out view, also check if there's a key event at this year
-                if (yearToPosition.has(y)) {
-                    pixels = yearToPosition.get(y);
-                }
-
+                const pixels = (y - startYear) * pixelsPerYear;
                 eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -10px;">${y}</div>`;
             }
 
+            // Sort calculatedPositions back by original index for consistent rendering
+            calculatedPositions.sort((a, b) => a.index - b.index);
+
             // Add events in chronological order
-            allEvents.forEach((event, index) => {
-                const year = event.data.year_ce;
+            calculatedPositions.forEach((positionData, renderIndex) => {
+                const event = positionData.event;
+                const year = positionData.year;
+                const topPixels = positionData.pixels;
+                const isKeyEvent = positionData.isKeyEvent;
+
                 const title = event.data.title_en || event.name;
                 const description = event.data.description || '';
                 const dateDetail = event.data.date_detail || '';
 
-                // Find the calculated position for this event
-                const positionData = calculatedPositions.find(p => p.index === index);
-                const topPixels = positionData ? positionData.pixels : 0;
-                const isKeyEvent = positionData ? positionData.isKeyEvent : false;
+                // Alternate left/right based on original index
+                const side = positionData.index % 2 === 0 ? 'left' : 'right';
 
-                // Alternate left/right
-                const side = index % 2 === 0 ? 'left' : 'right';
+                // For zoomed out view, cards appear below dots without vertical centering
+                const cardStyle = currentZoomLevel === 'out'
+                    ? `top: ${topPixels + 10}px;`
+                    : `top: ${topPixels}px; transform: translateY(-50%);`;
 
                 // For zoomed out view, cards appear below dots without vertical centering
                 const cardStyle = currentZoomLevel === 'out'
