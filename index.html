@@ -378,12 +378,31 @@
             // Calculate final timeline height
             const finalTimelineHeight = Math.max(timelineHeight, calculatedPositions[calculatedPositions.length - 1].pixels + 200);
 
+            // Build a map of year to final adjusted position
+            const yearToAdjustedPosition = new Map();
+            calculatedPositions.forEach(p => {
+                // Store the adjusted position for this year
+                yearToAdjustedPosition.set(p.year, p.pixels);
+            });
+
             // Create vertical timeline
             let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
 
-            // Add era markers (positioned proportionally at decade marks)
+            // Add era markers - position each at the nearest event's adjusted position
             for (let y = 1880; y <= 1950; y += 10) {
-                const pixels = (y - startYear) * pixelsPerYear;
+                // Find the event(s) closest to this era year
+                let closestEvent = null;
+                let closestDistance = Infinity;
+
+                for (const [eventYear, pixels] of yearToAdjustedPosition) {
+                    const distance = Math.abs(eventYear - y);
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestEvent = pixels;
+                    }
+                }
+
+                const pixels = closestEvent !== null ? closestEvent : (y - startYear) * pixelsPerYear;
                 eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -12px;">${y}</div>`;
             }
 
