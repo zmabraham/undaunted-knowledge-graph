@@ -140,6 +140,10 @@
             background: #667eea;
         }
 
+        .zoomed-out .event-card::before {
+            top: 0.5rem;
+        }
+
         .event-card.left::before {
             right: -2rem;
         }
@@ -191,11 +195,13 @@
 
         .zoomed-out .event-card.key-event {
             display: block;
+            transform: none !important;
+            top: auto !important;
         }
 
         .zoomed-out .timeline-wrapper {
-            height: 100vh !important;
-            max-height: 800px;
+            height: calc(100vh - 200px) !important;
+            max-height: 600px;
         }
 
         /* Tooltip for zoomed out view */
@@ -468,6 +474,11 @@
                 // Alternate left/right
                 const side = index % 2 === 0 ? 'left' : 'right';
 
+                // For zoomed out view, cards appear below dots without vertical centering
+                const cardStyle = currentZoomLevel === 'out'
+                    ? `top: ${topPixels + 10}px;`
+                    : `top: ${topPixels}px; transform: translateY(-50%);`;
+
                 eventsHtml += `
                     <div class="timeline-dot" style="top: ${topPixels}px;">
                         <div class="dot-tooltip">
@@ -476,7 +487,7 @@
                             ${description ? `<div class="dot-tooltip-desc">${description.substring(0, 100)}${description.length > 100 ? '...' : ''}</div>` : ''}
                         </div>
                     </div>
-                    <div class="event-card ${side} ${isKeyEvent ? 'key-event' : ''}" style="top: ${topPixels}px; transform: translateY(-50%);">
+                    <div class="event-card ${side} ${isKeyEvent ? 'key-event' : ''}" style="${cardStyle}">
                         <div class="event-year">${year}${dateDetail ? ' • ' + dateDetail : ''}</div>
                         <div class="event-title">${title}</div>
                         ${description ? `<div class="event-desc">${description}</div>` : ''}
