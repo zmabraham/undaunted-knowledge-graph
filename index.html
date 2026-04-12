@@ -46,113 +46,115 @@
         }
 
         .timeline-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .timeline-track {
             position: relative;
-            height: 80px;
+            height: 300px;
+            margin: 3rem 0;
             background: rgba(255, 255, 255, 0.02);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 1rem;
         }
 
         .timeline-line {
             position: absolute;
             top: 50%;
-            left: 2%;
-            right: 2%;
+            left: 3%;
+            right: 3%;
             height: 2px;
             background: linear-gradient(to right, #667eea, #764ba2);
             transform: translateY(-50%);
         }
 
-        .timeline-dot {
+        .timeline-event {
             position: absolute;
             top: 50%;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #f59e0b;
-            border: 3px solid #1a1a2e;
             transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.2s;
             z-index: 10;
         }
 
-        .timeline-dot::after {
-            content: '';
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #f59e0b;
+            border: 3px solid #1a1a2e;
+            transition: all 0.2s;
+        }
+
+        .timeline-event:hover .timeline-dot {
+            transform: scale(1.5);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+        }
+
+        .timeline-event:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tooltip {
             position: absolute;
-            top: 50%;
+            bottom: 30px;
             left: 50%;
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(to bottom, #667eea 0%, transparent 100%);
             transform: translateX(-50%);
-            opacity: 0.3;
-        }
-
-        .era-markers {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2%;
-            margin-bottom: 2rem;
-            font-size: 0.7rem;
-            color: #52525b;
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .event-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(30, 30, 50, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            padding: 1rem;
+            padding: 0.75rem 1rem;
+            min-width: 200px;
+            max-width: 300px;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.2s;
-            position: relative;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
         }
 
-        .event-card::before {
-            content: '';
-            position: absolute;
-            top: -2rem;
-            left: 50%;
-            width: 2px;
-            height: 2rem;
-            background: linear-gradient(to top, #667eea, transparent);
-            transform: translateX(-50%);
-        }
-
-        .event-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .event-year {
-            font-size: 0.7rem;
+        .tooltip-year {
+            font-size: 0.75rem;
             color: #667eea;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .event-title {
-            font-size: 0.95rem;
+        .tooltip-title {
+            font-size: 0.9rem;
             font-weight: 600;
             color: #f4f4f5;
             margin-bottom: 0.5rem;
             line-height: 1.3;
         }
 
-        .event-desc {
+        .tooltip-desc {
             font-size: 0.75rem;
             color: #a1a1aa;
             line-height: 1.4;
+        }
+
+        .era-markers {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3%;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: #71717a;
+        }
+
+        .decade-markers {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3%;
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: #52525b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 0.5rem;
         }
 
         .loading {
@@ -176,8 +178,14 @@
         }
 
         @media (max-width: 768px) {
-            .events-grid {
-                grid-template-columns: 1fr;
+            .timeline-track {
+                height: 200px;
+            }
+
+            .tooltip {
+                min-width: 150px;
+                max-width: 200px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -239,45 +247,57 @@
                 // Update stats
                 stats.innerHTML = `<strong>${events.length}</strong> major events from <strong>${events[0].data.year_ce}</strong> to <strong>${events[events.length - 1].data.year_ce}</strong> (${totalYears} years)`;
 
-                // Create timeline
+                // Create proportional timeline
                 let eventsHtml = '<div class="timeline-container"><div class="timeline-track"><div class="timeline-line"></div>';
 
-                // Add dots to timeline
                 events.forEach(event => {
                     const year = event.data.year_ce;
-                    const position = 2 + ((year - startYear) / totalYears) * 96;
-                    eventsHtml += `<div class="timeline-dot" style="left: ${position}%;"></div>`;
+                    const title = event.data.title_en || event.name;
+                    const description = event.data.description || '';
+                    const hebrewDate = event.data.date_detail || '';
+
+                    // Calculate position (0-100%) based on year
+                    const position = ((year - startYear) / totalYears) * 100;
+
+                    // Determine vertical position (alternating top/bottom)
+                    const index = events.indexOf(event);
+                    const isTop = index % 2 === 0;
+                    const verticalPos = isTop ? '25%' : '75%';
+
+                    eventsHtml += `
+                        <div class="timeline-event" style="left: ${position}%; top: ${verticalPos};">
+                            <div class="timeline-dot"></div>
+                            <div class="tooltip">
+                                <div class="tooltip-year">${year}${hebrewDate ? ' • ' + hebrewDate : ''}</div>
+                                <div class="tooltip-title">${title}</div>
+                                ${description ? `<div class="tooltip-desc">${description.substring(0, 150)}${description.length > 150 ? '...' : ''}</div>` : ''}
+                            </div>
+                        </div>
+                    `;
                 });
 
                 eventsHtml += '</div>';
 
                 // Era markers
                 eventsHtml += '<div class="era-markers">';
+                eventsHtml += '<span>1880</span>';
+                eventsHtml += '<span>1890</span>';
+                eventsHtml += '<span>1900</span>';
+                eventsHtml += '<span>1910</span>';
+                eventsHtml += '<span>1920</span>';
+                eventsHtml += '<span>1930</span>';
+                eventsHtml += '<span>1940</span>';
+                eventsHtml += '<span>1950</span>';
+                eventsHtml += '</div>';
+
+                // Decade markers
+                eventsHtml += '<div class="decade-markers">';
                 for (let y = 1880; y <= 1950; y += 10) {
-                    const pos = 2 + ((y - startYear) / totalYears) * 96;
-                    eventsHtml += `<span style="position: absolute; left: ${pos}%; transform: translateX(-50%);">${y}</span>`;
+                    eventsHtml += `<span>${y}</span>`;
                 }
                 eventsHtml += '</div>';
 
-                // Events grid
-                eventsHtml += '<div class="events-grid">';
-
-                events.forEach(event => {
-                    const year = event.data.year_ce;
-                    const title = event.data.title_en || event.name;
-                    const description = event.data.description || '';
-                    const dateDetail = event.data.date_detail || '';
-
-                    eventsHtml += `
-                        <div class="event-card">
-                            <div class="event-year">${year}${dateDetail ? ' • ' + dateDetail : ''}</div>
-                            <div class="event-title">${title}</div>
-                            ${description ? `<div class="event-desc">${description}</div>` : ''}
-                        </div>
-                    `;
-                });
-
-                eventsHtml += '</div></div>';
+                eventsHtml += '</div>';
 
                 app.innerHTML = eventsHtml;
 
