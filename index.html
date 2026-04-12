@@ -53,6 +53,7 @@
 
         .timeline-wrapper {
             position: relative;
+            padding-bottom: 200px;
         }
 
         .timeline-track {
@@ -265,43 +266,51 @@
                 // Update stats
                 stats.innerHTML = `<strong>${events.length}</strong> major events from <strong>${events[0].data.year_ce}</strong> to <strong>${events[events.length - 1].data.year_ce}</strong> (${totalYears} years)`;
 
-                // Calculate positions and prevent overlaps
-                const minCardHeight = 100; // Minimum space between cards
-                const calculatedPositions = [];
+                // Calculate pixel positions with proper spacing
+                const pixelsPerYear = 100; // 100 pixels per year
+                const minCardSpacing = 120; // Minimum pixels between cards
+                const timelineHeight = totalYears * pixelsPerYear;
 
-                events.forEach((event, index) => {
+                // Calculate positions
+                const calculatedPositions = events.map((event, index) => {
                     const year = event.data.year_ce;
-                    const proportionalPosition = ((year - startYear) / totalYears) * 100;
-
-                    calculatedPositions.push({
+                    const proportionalPixels = (year - startYear) * pixelsPerYear;
+                    return {
                         event: event,
                         index: index,
-                        proportionalPosition: proportionalPosition,
-                        finalPosition: proportionalPosition
-                    });
+                        pixels: proportionalPixels,
+                        year: year
+                    };
                 });
 
-                // Adjust positions to prevent overlaps
-                calculatedPositions.sort((a, b) => a.proportionalPosition - b.proportionalPosition);
+                // Adjust positions to prevent overlaps while maintaining proportionality
+                calculatedPositions.sort((a, b) => a.pixels - b.pixels);
 
                 for (let i = 1; i < calculatedPositions.length; i++) {
                     const current = calculatedPositions[i];
                     const previous = calculatedPositions[i - 1];
 
-                    const minPosition = previous.finalPosition + (minCardHeight / 40); // Approximate percentage
+                    const minPixels = previous.pixels + minCardSpacing;
 
-                    if (current.finalPosition < minPosition) {
-                        current.finalPosition = minPosition;
+                    if (current.pixels < minPixels) {
+                        // Shift this event and all subsequent events
+                        const shift = minPixels - current.pixels;
+                        for (let j = i; j < calculatedPositions.length; j++) {
+                            calculatedPositions[j].pixels += shift;
+                        }
                     }
                 }
 
+                // Calculate final timeline height
+                const finalTimelineHeight = Math.max(timelineHeight, calculatedPositions[calculatedPositions.length - 1].pixels + 200);
+
                 // Create vertical timeline
-                let eventsHtml = '<div class="timeline-container"><div class="timeline-wrapper" style="padding-bottom: 100px;"><div class="timeline-track"></div>';
+                let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
 
                 // Add era markers
                 for (let y = 1880; y <= 1950; y += 10) {
-                    const position = ((y - startYear) / totalYears) * 100;
-                    eventsHtml += `<div class="era-markers" style="top: ${position}%; margin-top: -10px;">${y}</div>`;
+                    const pixels = (y - startYear) * pixelsPerYear;
+                    eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -10px;">${y}</div>`;
                 }
 
                 // Add events in chronological order
@@ -313,14 +322,14 @@
 
                     // Find the calculated position for this event
                     const positionData = calculatedPositions.find(p => p.index === index);
-                    const position = positionData ? positionData.finalPosition : 0;
+                    const topPixels = positionData ? positionData.pixels : 0;
 
                     // Alternate left/right
                     const side = index % 2 === 0 ? 'left' : 'right';
 
                     eventsHtml += `
-                        <div class="timeline-dot" style="top: ${position}%;"></div>
-                        <div class="event-card ${side}" style="top: ${position}%; transform: translateY(-50%);">
+                        <div class="timeline-dot" style="top: ${topPixels}px;"></div>
+                        <div class="event-card ${side}" style="top: ${topPixels}px; transform: translateY(-50%);">
                             <div class="event-year">${year}${dateDetail ? ' • ' + dateDetail : ''}</div>
                             <div class="event-title">${title}</div>
                             ${description ? `<div class="event-desc">${description}</div>` : ''}
