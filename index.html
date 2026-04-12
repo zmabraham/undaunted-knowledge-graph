@@ -495,8 +495,8 @@
             for (let y = 1880; y <= 1950; y += 10) {
                 let pixels = (y - startYear) * pixelsPerYear;
 
-                // Use actual event position if available at this decade mark
-                if (yearToPosition.has(y)) {
+                // For zoomed in view, use actual event position if available at this decade mark
+                if (currentZoomLevel === 'in' && yearToPosition.has(y)) {
                     pixels = yearToPosition.get(y);
                 }
 
