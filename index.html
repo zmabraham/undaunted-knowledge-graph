@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undaunted Knowledge Graph</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Undaunted - Timeline</title>
     <style>
         * {
             margin: 0;
@@ -17,27 +16,16 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #e4e4e7;
             min-height: 100vh;
+            padding: 2rem;
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
         .header h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 2rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -45,223 +33,18 @@
         }
 
         .header p {
-            font-size: 0.9rem;
             color: #a1a1aa;
-            margin-top: 0.25rem;
+            margin-top: 0.5rem;
         }
 
-        .view-toggle {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .view-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            color: #e4e4e7;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .view-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .view-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: 280px 1fr 320px;
-            gap: 1rem;
-            padding: 1rem;
-            height: calc(100vh - 100px);
-        }
-
-        .sidebar {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1rem;
-            overflow-y: auto;
-        }
-
-        .sidebar h2 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #f4f4f5;
-        }
-
-        .filter-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .filter-section label {
-            display: block;
-            font-size: 0.85rem;
-            color: #a1a1aa;
-            margin-bottom: 0.5rem;
-        }
-
-        .type-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .type-btn {
-            padding: 0.4rem 0.6rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            color: #e4e4e7;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .type-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .type-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent;
-        }
-
-        .stats {
-            font-size: 0.85rem;
-            color: #a1a1aa;
-        }
-
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .main-container {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        #timeline, #graph {
-            width: 100%;
-            height: 100%;
-        }
-
-        .details-panel {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1rem;
-            overflow-y: auto;
-        }
-
-        .details-panel h2 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #f4f4f5;
-        }
-
-        .entity-details {
-            font-size: 0.85rem;
-        }
-
-        .entity-type {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .entity-type.PERSON { background: #3b82f6; color: white; }
-        .entity-type.PLACE { background: #10b981; color: white; }
-        .entity-type.EVENT { background: #f59e0b; color: white; }
-        .entity-type.INSTITUTION { background: #8b5cf6; color: white; }
-        .entity-type.COMMUNITY { background: #ec4899; color: white; }
-        .entity-type.CONCEPT { background: #14b8a6; color: white; }
-        .entity-type.TEACHING { background: #f97316; color: white; }
-
-        .detail-row {
-            display: flex;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .detail-label {
-            font-weight: 600;
-            color: #a1a1aa;
-            min-width: 90px;
-            font-size: 0.8rem;
-        }
-
-        .detail-value {
-            color: #e4e4e7;
-            flex: 1;
-            word-break: break-word;
-            font-size: 0.8rem;
-        }
-
-        .passage {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.6rem;
-            border-radius: 8px;
-            font-style: italic;
-            font-size: 0.75rem;
-            color: #a1a1aa;
-            margin-top: 0.75rem;
-            line-height: 1.5;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 0.6rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            color: #e4e4e7;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .search-box::placeholder {
-            color: #71717a;
-        }
-
-        .search-box:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        /* Timeline Styles */
         .timeline-container {
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            padding: 2rem;
-        }
-
-        .timeline {
-            position: relative;
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
         }
 
-        .timeline::before {
+        .timeline-container::before {
             content: '';
             position: absolute;
             left: 50%;
@@ -272,39 +55,11 @@
             border-radius: 2px;
         }
 
-        .timeline-era {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .era-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            border-radius: 20px;
-            display: inline-block;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .era-header h3 {
-            font-size: 1.1rem;
-            color: #f4f4f5;
-        }
-
-        .era-header span {
-            font-size: 0.8rem;
-            color: #a1a1aa;
-        }
-
         .timeline-event {
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             width: 50%;
-            padding-right: 2rem;
+            padding: 0 2rem;
         }
 
         .timeline-event:nth-child(odd) {
@@ -314,8 +69,6 @@
 
         .timeline-event:nth-child(even) {
             left: 50%;
-            padding-right: 0;
-            padding-left: 2rem;
             text-align: left;
         }
 
@@ -349,7 +102,7 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 1rem;
+            padding: 1.25rem;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -361,183 +114,54 @@
         }
 
         .event-year {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #667eea;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
         .event-title {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #f4f4f5;
             margin-bottom: 0.5rem;
         }
 
         .event-description {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #a1a1aa;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        .event-participants {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin-top: 0.5rem;
-        }
-
-        .participant-tag {
-            padding: 0.2rem 0.5rem;
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 4px;
-            font-size: 0.7rem;
-            color: #60a5fa;
-        }
-
-        .related-entities {
-            margin-top: 1rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .related-entities h4 {
-            font-size: 0.75rem;
+        .stats {
+            text-align: center;
+            margin-bottom: 2rem;
             color: #a1a1aa;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .related-entity {
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            margin: 0.1rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .related-entity:hover {
-            filter: brightness(1.2);
-        }
-
-        /* Graph view styles */
-        #graph {
-            display: none;
-        }
-
-        .node {
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .node:hover {
-            filter: brightness(1.2);
-        }
-
-        .link {
-            stroke-opacity: 0.25;
-        }
-
-        .link:hover {
-            stroke-opacity: 0.6;
-        }
-
-        .link-label {
-            font-size: 9px;
-            fill: #71717a;
-            pointer-events: none;
-        }
-
-        .zoom-controls {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            display: none;
-            gap: 0.5rem;
-        }
-
-        .zoom-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            color: #e4e4e7;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .zoom-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .legend {
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-            display: none;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.7rem;
+        .loading {
+            text-align: center;
+            padding: 3rem;
             color: #a1a1aa;
-        }
-
-        .legend-color {
-            width: 10px;
-            height: 10px;
-            border-radius: 2px;
         }
 
         .loading-spinner {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border: 3px solid rgba(255, 255, 255, 0.1);
             border-top-color: #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        .relationships-section {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .relationship-item {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 0.5rem;
-            border-radius: 6px;
-            margin-bottom: 0.5rem;
-            font-size: 0.75rem;
-        }
-
-        .relationship-item .rel-type {
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        @media (max-width: 1200px) {
-            .container {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto 450px auto;
-            }
-
-            .timeline::before {
+        @media (max-width: 768px) {
+            .timeline-container::before {
                 left: 20px;
             }
 
@@ -556,759 +180,93 @@
             .timeline-event-dot {
                 left: 12px !important;
             }
-
-            .era-header {
-                left: 0;
-                transform: none;
-            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="header-top">
-            <div>
-                <h1>Undaunted Knowledge Graph</h1>
-                <p>Interactive timeline of events from "Undaunted"</p>
-            </div>
-            <div class="view-toggle">
-                <button class="view-btn active" onclick="showTimeline()">Timeline</button>
-                <button class="view-btn" onclick="showGraph()">Graph</button>
-            </div>
-        </div>
+        <h1>Undaunted</h1>
+        <p>A Chronological Timeline of Events</p>
     </div>
 
-    <div class="container">
-        <div class="sidebar">
-            <h2>Status</h2>
-            <div id="statusPanel" style="font-size: 0.75rem; color: #a1a1aa; margin-bottom: 1rem;">
-                <div>Initializing...</div>
-            </div>
-
-            <h2>Filters</h2>
-
-            <div class="filter-section">
-                <label>Search</label>
-                <input type="text" class="search-box" id="searchInput" placeholder="Search events...">
-            </div>
-
-            <div class="filter-section">
-                <label>Time Period</label>
-                <div class="type-buttons" id="eraFilters"></div>
-            </div>
-
-            <h2 style="margin-top: 1.5rem;">Statistics</h2>
-            <div class="stats" id="stats"></div>
-        </div>
-
-        <div class="main-container">
-            <div id="timeline"><div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #a1a1aa;">
-                <div class="loading-spinner"></div>
-                <span style="margin-left: 1rem;">Loading timeline...</span>
-            </div></div>
-            <div id="graph"></div>
-
-            <div class="zoom-controls" id="zoomControls">
-                <button class="zoom-btn" onclick="zoomIn()">+</button>
-                <button class="zoom-btn" onclick="zoomOut()">−</button>
-                <button class="zoom-btn" onclick="resetZoom()">⟲</button>
-            </div>
-            <div class="legend" id="legend"></div>
-        </div>
-
-        <div class="details-panel">
-            <h2>Event Details</h2>
-            <div id="entityDetails">
-                <p style="color: #71717a; font-style: italic; font-size: 0.85rem;">Click on an event to view details and related entities</p>
-            </div>
+    <div id="app">
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <div>Loading timeline...</div>
         </div>
     </div>
 
     <script>
-        const typeColors = {
-            PERSON: '#3b82f6',
-            PLACE: '#10b981',
-            EVENT: '#f59e0b',
-            INSTITUTION: '#8b5cf6',
-            COMMUNITY: '#ec4899',
-            CONCEPT: '#14b8a6',
-            TEACHING: '#f97316'
-        };
-
-        let rawData = [];
-        let nodes = [];
-        let links = [];
-        let events = [];
-        let simulation;
-        let svg, g, zoom;
-        let activeEras = new Set(['all']);
-        let linkElements, nodeElements, labelElements, linkLabelElements;
-        let currentView = 'timeline';
-
-        const eras = [
-            { name: 'All', minYear: 0, maxYear: 9999 },
-            { name: '19th Century', minYear: 1800, maxYear: 1899 },
-            { name: 'Early 1900s', minYear: 1900, maxYear: 1920 },
-            { name: '1920-1940', minYear: 1920, maxYear: 1940 },
-            { name: '1940-1960', minYear: 1940, maxYear: 1960 },
-            { name: '1960-1980', minYear: 1960, maxYear: 1980 },
-            { name: '1980-2000', minYear: 1980, maxYear: 2000 },
-            { name: '21st Century', minYear: 2000, maxYear: 2099 }
-        ];
-
-        function updateStatus(message) {
-            const panel = document.getElementById('statusPanel');
-            if (panel) panel.innerHTML = message;
-        }
-
-        async function loadData() {
-            console.log('Loading data...');
-            updateStatus('Loading data...');
+        async function loadTimeline() {
+            const app = document.getElementById('app');
 
             try {
                 const response = await fetch('undaunted_data.json');
-                console.log('Response received:', response.status);
-                updateStatus('Response: ' + response.status + '<br>Parsing JSON...');
+                const data = await response.json();
 
-                rawData = await response.json();
-                console.log('Data loaded. Extractions:', rawData.extractions?.length || 0);
-                updateStatus('Loaded ' + (rawData.extractions?.length || 0) + ' extractions<br>Processing...');
-
-                processData();
-            } catch (error) {
-                console.error('Error loading data:', error);
-                updateStatus('<span style="color: #ef4444;">Error: ' + error.message + '</span>');
-                document.getElementById('timeline').innerHTML = '<div style="padding: 2rem; text-align: center; color: #ef4444;">Error loading data. Please refresh the page.</div>';
-                rawData = { extractions: [] };
-                processData();
-            }
-        }
-
-        function processData() {
-            try {
-                const extractions = rawData.extractions || [];
-                console.log('processData: Starting with', extractions.length, 'extractions');
-
+                const extractions = data.extractions || [];
                 const nodeMap = new Map();
-                const idCounter = { person: 0, place: 0, event: 0, institution: 0, community: 0, concept: 0, teaching: 0 };
-                const linkSet = new Set();
 
-                // First pass: create all nodes
+                // Create unique nodes
                 extractions.forEach((ex, idx) => {
                     const type = ex.node_type.toLowerCase();
-                    const data = ex.extracted_data;
-                    const name = data.name_en || data.name || data.title_en || `Entity ${idx}`;
+                    const extractedData = ex.extracted_data;
+                    const name = extractedData.name_en || extractedData.name || extractedData.title_en || `Entity ${idx}`;
 
-                    const typeKey = type === 'teaching' ? 'teaching' : type;
-                    const id = `${type}_${idCounter[typeKey]++}_${name.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)}`;
-
-                    if (!nodeMap.has(id)) {
-                        nodeMap.set(id, {
-                            id: id,
+                    const key = name + type;
+                    if (!nodeMap.has(key)) {
+                        nodeMap.set(key, {
                             name: name,
                             type: ex.node_type,
-                            data: data,
-                            passage: ex.passage,
-                            related_entities: []
+                            data: extractedData,
+                            passage: ex.passage
                         });
                     }
                 });
 
-                nodes = Array.from(nodeMap.values());
-                console.log('processData: Created', nodes.length, 'nodes');
+                const nodes = Array.from(nodeMap.values());
+                const events = nodes
+                    .filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number')
+                    .sort((a, b) => a.data.year_ce - b.data.year_ce);
 
-                // Extract events for timeline
-                events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
-                events.sort((a, b) => a.data.year_ce - b.data.year_ce);
-                console.log('Events extracted for timeline:', events.length);
+                if (events.length === 0) {
+                    app.innerHTML = '<div class="loading">No events found with dates</div>';
+                    return;
+                }
 
-                // Make events accessible from console for debugging
-                window.debugEvents = events;
-                window.debugNodes = nodes;
-                console.log('Debug: Access events via window.debugEvents, nodes via window.debugNodes');
+                // Render timeline
+                let html = '<div class="stats">' + events.length + ' events from ' +
+                    events[0].data.year_ce + ' to ' + events[events.length - 1].data.year_ce + '</div>';
+                html += '<div class="timeline-container">';
 
-                updateStatus('Found ' + events.length + ' events<br>' +
-                            'Total nodes: ' + nodes.length + '<br>' +
-                            'Initializing timeline...');
-
-            // Second pass: extract relationships from passages
-            extractions.forEach((ex, idx) => {
-                const passage = ex.passage;
-                const data = ex.extracted_data;
-                const name = data.name_en || data.name || data.title_en;
-
-                // Find the main entity for this extraction
-                const mainEntity = nodes.find(n =>
-                    (n.data.name_en === name || n.name === name) && n.type === ex.node_type
-                );
-
-                if (!mainEntity) return;
-
-                // Extract other entity names from the passage
-                nodes.forEach(otherNode => {
-                    if (otherNode.id === mainEntity.id) return;
-
-                    const otherName = otherNode.data.name_en || otherNode.name;
-
-                    // Check if other entity is mentioned in this passage
-                    if (passage.includes(otherName) || passage.includes(otherNode.name)) {
-                        // Determine relationship type based on entity types
-                        const relType = determineRelationshipType(mainEntity, otherNode, passage);
-
-                        if (relType) {
-                            const linkId = `${mainEntity.id}-${otherNode.id}-${relType}`;
-                            if (!linkSet.has(linkId)) {
-                                linkSet.add(linkId);
-                                links.push({
-                                    source: mainEntity.id,
-                                    target: otherNode.id,
-                                    type: relType,
-                                    id: linkId
-                                });
-
-                                // Track bidirectional relationships
-                                if (!mainEntity.related_entities.includes(otherNode.id)) {
-                                    mainEntity.related_entities.push(otherNode.id);
-                                }
-                            }
-                        }
-                    }
-                });
-
-                // Extract specific relationships from data fields
-                extractSpecificRelationships(mainEntity, nodeMap, linkSet);
-            });
-
-                // Initialize views
-                initTimeline();
-                initGraph();
-                updateStats();
-                initFilters();
-                initLegend();
-            } catch (error) {
-                console.error('Error in processData:', error);
-                updateStatus('<span style="color: #ef4444;">Error processing data: ' + error.message + '</span>');
-            }
-        }
-
-        function determineRelationshipType(source, target, passage) {
-            const sourceType = source.type;
-            const targetType = target.type;
-
-            if (sourceType === 'PERSON' && targetType === 'PERSON') {
-                if (passage.includes('student of') || passage.includes('taught')) return 'teacher_student';
-                if (passage.includes('son of') || passage.includes('father')) return 'father_son';
-                if (passage.includes('colleague') || passage.includes('fellow')) return 'colleague';
-                return 'associated';
-            }
-
-            if (sourceType === 'PERSON' && targetType === 'PLACE') {
-                if (source.data.birth_place === target.name) return 'born_in';
-                if (source.data.death_place === target.name) return 'died_in';
-                return 'connected_to';
-            }
-
-            if (sourceType === 'PERSON' && targetType === 'INSTITUTION') {
-                if (passage.includes('director of') || passage.includes('led')) return 'led';
-                if (passage.includes('founded')) return 'founder';
-                return 'associated';
-            }
-
-            if (sourceType === 'PERSON' && targetType === 'EVENT') {
-                if (passage.includes('participated')) return 'participated_in';
-                return 'connected_to';
-            }
-
-            if (sourceType === 'EVENT' && targetType === 'PERSON') {
-                return 'involved';
-            }
-
-            return 'related';
-        }
-
-        function extractSpecificRelationships(entity, nodeMap, linkSet) {
-            const data = entity.data;
-
-            if (data.birth_place) {
-                const target = nodes.find(n => n.name === data.birth_place || n.data.name_en === data.birth_place);
-                if (target) addLink(entity.id, target.id, 'born_in', linkSet);
-            }
-
-            if (data.death_place) {
-                const target = nodes.find(n => n.name === data.death_place || n.data.name_en === data.death_place);
-                if (target) addLink(entity.id, target.id, 'died_in', linkSet);
-            }
-
-            // Handle participants - make sure it's an array
-            if (data.participants) {
-                const participants = Array.isArray(data.participants) ? data.participants : [data.participants];
-                participants.forEach(participant => {
-                    const target = nodes.find(n => n.name === participant || n.data.name_en === participant);
-                    if (target) addLink(entity.id, target.id, 'participated_with', linkSet);
-                });
-            }
-        }
-
-        function addLink(sourceId, targetId, type, linkSet) {
-            const linkId = `${sourceId}-${targetId}-${type}`;
-            if (!linkSet.has(linkId)) {
-                linkSet.add(linkId);
-                links.push({ source: sourceId, target: targetId, type: type, id: linkId });
-            }
-        }
-
-        function initTimeline() {
-            console.log('initTimeline called');
-            const container = document.getElementById('timeline');
-            if (!container) {
-                console.error('Timeline container not found!');
-                updateStatus('<span style="color: #ef4444;">Error: Timeline container not found</span>');
-                return;
-            }
-            console.log('Timeline container found, creating content...');
-
-            container.innerHTML = '<div class="timeline-container"><div class="timeline" id="timelineContent"></div></div>';
-            updateStatus('Timeline content created<br>Rendering events...');
-
-            renderTimeline();
-        }
-
-        function renderTimeline() {
-            const content = document.getElementById('timelineContent');
-            if (!content) {
-                console.error('timelineContent element not found');
-                updateStatus('<span style="color: #ef4444;">Error: timelineContent not found</span>');
-                return;
-            }
-
-            console.log('Rendering timeline with events:', events.length, 'Active eras:', [...activeEras]);
-
-            if (events.length === 0) {
-                content.innerHTML = '<div style="padding: 2rem; text-align: center; color: #ef4444;">No events found with dates. Check console for details.</div>';
-                updateStatus('<span style="color: #ef4444;">No events found!</span>');
-                return;
-            }
-
-            // Filter by era
-            let filteredEvents = events;
-            if (!activeEras.has('all')) {
-                filteredEvents = events.filter(e => {
-                    const year = e.data.year_ce;
-                    return [...activeEras].some(era => {
-                        const eraData = eras.find(e => e.name === era);
-                        return eraData && year >= eraData.minYear && year <= eraData.maxYear;
-                    });
-                });
-            }
-
-            // Group events by era
-            const groupedEvents = {};
-            filteredEvents.forEach(event => {
-                const year = event.data.year_ce;
-                let eraName = 'Other';
-
-                if (year < 1900) eraName = '19th Century';
-                else if (year < 1920) eraName = 'Early 1900s';
-                else if (year < 1940) eraName = '1920-1940';
-                else if (year < 1960) eraName = '1940-1960';
-                else if (year < 1980) eraName = '1960-1980';
-                else if (year < 2000) eraName = '1980-2000';
-                else eraName = '21st Century';
-
-                if (!groupedEvents[eraName]) groupedEvents[eraName] = [];
-                groupedEvents[eraName].push(event);
-            });
-
-            let html = '';
-
-            Object.entries(groupedEvents).forEach(([eraName, eraEvents]) => {
-                const eraData = eras.find(e => e.name === eraName);
-
-                html += `<div class="timeline-era">
-                    <div class="era-header">
-                        <h3>${eraName}</h3>
-                        <span>${eraEvents.length} events</span>
-                    </div>
-                `;
-
-                eraEvents.forEach((event, idx) => {
+                events.forEach(event => {
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
-                    const participants = event.data.participants || [];
                     const hebrewDate = event.data.date_hebrew || '';
-
-                    // Find related entities
-                    const relatedLinks = links.filter(l => l.source.id === event.id || l.target.id === event.id);
-                    const relatedEntityIds = relatedLinks.map(l =>
-                        l.source.id === event.id ? l.target.id : l.source.id
-                    );
 
                     html += `
                         <div class="timeline-event">
-                            <div class="timeline-event-dot" onclick="showEventDetails('${event.id}')"></div>
-                            <div class="event-card" onclick="showEventDetails('${event.id}')">
+                            <div class="timeline-event-dot"></div>
+                            <div class="event-card">
                                 <div class="event-year">${year}${hebrewDate ? ' • ' + hebrewDate : ''}</div>
                                 <div class="event-title">${title}</div>
                                 ${description ? `<div class="event-description">${description}</div>` : ''}
-                                ${participants.length > 0 ? `
-                                    <div class="event-participants">
-                                        ${participants.map(p => `<span class="participant-tag">${p}</span>`).join('')}
-                                    </div>
-                                ` : ''}
-                                ${relatedEntityIds.length > 0 ? `
-                                    <div class="related-entities">
-                                        <h4>Connected to ${relatedEntityIds.length} entities</h4>
-                                        ${relatedEntityIds.slice(0, 3).map(id => {
-                                            const entity = nodes.find(n => n.id === id);
-                                            if (!entity) return '';
-                                            return `<span class="related-entity" style="background: ${typeColors[entity.type]}40; border-color: ${typeColors[entity.type]}60; color: ${typeColors[entity.type]}">${entity.name}</span>`;
-                                        }).join('')}
-                                        ${relatedEntityIds.length > 3 ? `<span style="font-size: 0.7rem; color: #71717a;">+${relatedEntityIds.length - 3} more</span>` : ''}
-                                    </div>
-                                ` : ''}
                             </div>
                         </div>
                     `;
                 });
 
                 html += '</div>';
-            });
+                app.innerHTML = html;
 
-            content.innerHTML = html;
-
-            // Update status with success message
-            updateStatus('Timeline loaded!<br>Showing ' + filteredEvents.length + ' events<br>' +
-                        'from year ' + filteredEvents[0]?.data.year_ce + ' to ' +
-                        filteredEvents[filteredEvents.length-1]?.data.year_ce);
-        }
-
-        function showEventDetails(eventId) {
-            const event = nodes.find(n => n.id === eventId);
-            if (!event) return;
-
-            const detailsPanel = document.getElementById('entityDetails');
-
-            let html = `<span class="entity-type EVENT">EVENT</span>`;
-            html += `<h3 style="margin-bottom: 0.75rem; color: #f4f4f5; font-size: 1.1rem;">${event.data.title_en || event.name}</h3>`;
-
-            // Display event data
-            if (event.data.year_ce) {
-                html += `<div class="detail-row">
-                    <span class="detail-label">Year:</span>
-                    <span class="detail-value">${event.data.year_ce}</span>
-                </div>`;
+            } catch (error) {
+                app.innerHTML = '<div class="loading" style="color: #ef4444;">Error loading timeline: ' + error.message + '</div>';
+                console.error(error);
             }
-            if (event.data.date_hebrew) {
-                html += `<div class="detail-row">
-                    <span class="detail-label">Hebrew Date:</span>
-                    <span class="detail-value">${event.data.date_hebrew}</span>
-                </div>`;
-            }
-            if (event.data.event_type) {
-                html += `<div class="detail-row">
-                    <span class="detail-label">Type:</span>
-                    <span class="detail-value">${event.data.event_type}</span>
-                </div>`;
-            }
-            if (event.data.description) {
-                html += `<div class="detail-row">
-                    <span class="detail-label">Description:</span>
-                    <span class="detail-value">${event.data.description}</span>
-                </div>`;
-            }
-            if (event.data.place) {
-                html += `<div class="detail-row">
-                    <span class="detail-label">Place:</span>
-                    <span class="detail-value">${event.data.place}</span>
-                </div>`;
-            }
-
-            // Show participants
-            if (event.data.participants) {
-                const participants = Array.isArray(event.data.participants) ? event.data.participants : [event.data.participants];
-                if (participants.length > 0) {
-                    html += `<div style="margin-top: 1rem;">
-                        <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Participants</h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
-                            ${participants.map(p => {
-                                const person = nodes.find(n => n.name === p || n.data.name_en === p);
-                                const color = person ? typeColors[person.type] : '#6b7280';
-                                return `<span style="padding: 0.2rem 0.5rem; background: ${color}20; border: 1px solid ${color}40; border-radius: 4px; font-size: 0.75rem; color: ${color};">${p}</span>`;
-                            }).join('')}
-                        </div>
-                </div>`;
-            }
-
-            // Show relationships
-            const relatedLinks = links.filter(l => l.source.id === event.id || l.target.id === event.id);
-            if (relatedLinks.length > 0) {
-                html += `<div class="relationships-section">
-                    <h4 style="font-size: 0.8rem; color: #a1a1aa; margin-bottom: 0.5rem;">Related Entities (${relatedLinks.length})</h4>`;
-
-                relatedLinks.slice(0, 8).forEach(link => {
-                    const relatedId = link.source.id === event.id ? link.target.id : link.source.id;
-                    const relatedNode = nodes.find(n => n.id === relatedId);
-                    if (relatedNode) {
-                        html += `<div class="relationship-item">
-                            <span class="rel-type">${link.type}:</span>
-                            <span style="color: ${typeColors[relatedNode.type]}">${relatedNode.name}</span>
-                            <span style="color: #71717a; font-size: 0.7rem;">(${relatedNode.type})</span>
-                        </div>`;
-                    }
-                });
-
-                if (relatedLinks.length > 8) {
-                    html += `<div style="color: #71717a; font-size: 0.75rem; font-style: italic;">...and ${relatedLinks.length - 8} more</div>`;
-                }
-                html += `</div>`;
-            }
-
-            if (event.passage) {
-                html += `<div class="passage">"${event.passage.substring(0, 300)}..."</div>`;
-            }
-
-            detailsPanel.innerHTML = html;
         }
 
-        function initGraph() {
-            const container = document.getElementById('graph');
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            svg = d3.select('#graph')
-                .append('svg')
-                .attr('width', width)
-                .attr('height', height);
-
-            zoom = d3.zoom()
-                .scaleExtent([0.1, 4])
-                .on('zoom', (event) => {
-                    g.attr('transform', event.transform);
-                });
-
-            svg.call(zoom);
-
-            g = svg.append('g');
-
-            simulation = d3.forceSimulation(nodes)
-                .force('link', d3.forceLink(links).id(d => d.id).distance(80))
-                .force('charge', d3.forceManyBody().strength(-150))
-                .force('center', d3.forceCenter(width / 2, height / 2))
-                .force('collision', d3.forceCollide().radius(15));
-
-            // Create links group
-            const linkGroup = g.append('g').attr('class', 'links');
-
-            linkElements = linkGroup.selectAll('line')
-                .data(links)
-                .join('line')
-                .attr('class', 'link')
-                .attr('stroke', '#666')
-                .attr('stroke-width', 1.5)
-                .attr('stroke-opacity', 0.3);
-
-            linkLabelElements = linkGroup.selectAll('text')
-                .data(links)
-                .join('text')
-                .attr('class', 'link-label')
-                .text(d => d.type)
-                .attr('font-size', '8px')
-                .attr('fill', '#71717a')
-                .attr('text-anchor', 'middle')
-                .style('opacity', 0);
-
-            nodeElements = g.append('g')
-                .selectAll('circle')
-                .data(nodes)
-                .join('circle')
-                .attr('class', 'node')
-                .attr('r', d => getNodeSize(d.type))
-                .attr('fill', d => typeColors[d.type] || '#666')
-                .attr('stroke', '#fff')
-                .attr('stroke-width', 2)
-                .on('click', showGraphDetails)
-                .call(d3.drag()
-                    .on('start', dragstarted)
-                    .on('drag', dragged)
-                    .on('end', dragended));
-
-            labelElements = g.append('g')
-                .selectAll('text')
-                .data(nodes)
-                .join('text')
-                .text(d => d.name.length > 15 ? d.name.substring(0, 15) + '...' : d.name)
-                .attr('font-size', '9px')
-                .attr('fill', '#e4e4e7')
-                .attr('text-anchor', 'middle')
-                .attr('dy', d => getNodeSize(d.type) + 12)
-                .style('pointer-events', 'none');
-
-            simulation.on('tick', () => {
-                linkElements
-                    .attr('x1', d => d.source.x)
-                    .attr('y1', d => d.source.y)
-                    .attr('x2', d => d.target.x)
-                    .attr('y2', d => d.target.y);
-
-                linkLabelElements
-                    .attr('x', d => (d.source.x + d.target.x) / 2)
-                    .attr('y', d => (d.source.y + d.target.y) / 2);
-
-                nodeElements
-                    .attr('cx', d => d.x)
-                    .attr('cy', d => d.y);
-
-                labelElements
-                    .attr('x', d => d.x)
-                    .attr('y', d => d.y);
-            });
-        }
-
-        function getNodeSize(type) {
-            const sizes = { PERSON: 12, PLACE: 10, EVENT: 8, INSTITUTION: 10, COMMUNITY: 11, CONCEPT: 6, TEACHING: 8 };
-            return sizes[type] || 10;
-        }
-
-        function showGraphDetails(event, d) {
-            showEventDetails(d.id);
-        }
-
-        function dragstarted(event, d) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
-        }
-
-        function dragged(event, d) {
-            d.fx = event.x;
-            d.fy = event.y;
-        }
-
-        function dragended(event, d) {
-            if (!event.active) simulation.alphaTarget(0);
-            d.fx = null;
-            d.fy = null;
-        }
-
-        function showTimeline() {
-            currentView = 'timeline';
-            document.getElementById('timeline').style.display = 'block';
-            document.getElementById('graph').style.display = 'none';
-            document.getElementById('zoomControls').style.display = 'none';
-            document.getElementById('legend').style.display = 'none';
-            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.view-btn:nth-child(1)').classList.add('active');
-        }
-
-        function showGraph() {
-            currentView = 'graph';
-            document.getElementById('timeline').style.display = 'none';
-            document.getElementById('graph').style.display = 'block';
-            document.getElementById('zoomControls').style.display = 'flex';
-            document.getElementById('legend').style.display = 'flex';
-            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.view-btn:nth-child(2)').classList.add('active');
-        }
-
-        function updateStats() {
-            const stats = { nodes: {} };
-
-            nodes.forEach(n => {
-                stats.nodes[n.type] = (stats.nodes[n.type] || 0) + 1;
-            });
-
-            let html = '<div class="stat-item"><span>Total Events</span><span>' + events.length + '</span></div>';
-            html += '<div class="stat-item"><span>Time Span</span><span>' + (events[0]?.data.year_ce || '?') + '–' + (events[events.length-1]?.data.year_ce || '?') + '</span></div>';
-            html += '<div class="stat-item" style="margin-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem;"><span>All Entities</span><span>' + nodes.length + '</span></div>';
-
-            Object.entries(stats.nodes).sort((a, b) => b[1] - a[1]).forEach(([type, count]) => {
-                html += `<div class="stat-item"><span>${type}</span><span>${count}</span></div>`;
-            });
-
-            document.getElementById('stats').innerHTML = html;
-        }
-
-        function initFilters() {
-            const container = document.getElementById('eraFilters');
-
-            eras.forEach(era => {
-                const btn = document.createElement('button');
-                btn.className = 'type-btn active';
-                btn.textContent = era.name;
-                btn.onclick = () => toggleEra(era.name, btn);
-                container.appendChild(btn);
-            });
-
-            // Search functionality
-            document.getElementById('searchInput').addEventListener('input', function(e) {
-                const query = e.target.value.toLowerCase();
-
-                if (query.length < 2) {
-                    document.querySelectorAll('.event-card').forEach(el => el.style.opacity = '1');
-                    return;
-                }
-
-                document.querySelectorAll('.event-card').forEach(el => {
-                    el.style.opacity = el.textContent.toLowerCase().includes(query) ? '1' : '0.3';
-                });
-            });
-        }
-
-        function toggleEra(era, btn) {
-            if (era === 'All') {
-                activeEras.clear();
-                activeEras.add('all');
-                document.querySelectorAll('#eraFilters .type-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            } else {
-                activeEras.delete('all');
-                document.querySelector('#eraFilters .type-btn:first-child').classList.remove('active');
-
-                if (activeEras.has(era)) {
-                    if (activeEras.size > 1) {
-                        activeEras.delete(era);
-                        btn.classList.remove('active');
-                    }
-                } else {
-                    activeEras.add(era);
-                    btn.classList.add('active');
-                }
-
-                if (activeEras.size === 0) {
-                    activeEras.add('all');
-                    document.querySelector('#eraFilters .type-btn:first-child').classList.add('active');
-                }
-            }
-
-            renderTimeline();
-        }
-
-        function initLegend() {
-            const container = document.getElementById('legend');
-
-            Object.entries(typeColors).forEach(([type, color]) => {
-                const item = document.createElement('div');
-                item.className = 'legend-item';
-                item.innerHTML = `<div class="legend-color" style="background: ${color}"></div>${type}`;
-                container.appendChild(item);
-            });
-        }
-
-        function zoomIn() {
-            svg.transition().call(zoom.scaleBy, 1.3);
-        }
-
-        function zoomOut() {
-            svg.transition().call(zoom.scaleBy, 0.7);
-        }
-
-        function resetZoom() {
-            svg.transition().call(zoom.transform, d3.zoomIdentity);
-        }
-
-        // Initialize
-        loadData();
+        loadTimeline();
     </script>
 </body>
 </html>
