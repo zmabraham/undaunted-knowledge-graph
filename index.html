@@ -446,6 +446,14 @@
             // Sort by position for overlap detection
             calculatedPositions.sort((a, b) => a.pixels - b.pixels);
 
+            // Create a map from year to final position for era markers
+            const yearToPosition = new Map();
+            calculatedPositions.forEach(p => {
+                if (!yearToPosition.has(p.year)) {
+                    yearToPosition.set(p.year, p.pixels);
+                }
+            });
+
             // Adjust positions to prevent overlap
             if (currentZoomLevel === 'in') {
                 for (let i = 1; i < calculatedPositions.length; i++) {
@@ -455,6 +463,9 @@
                     if (current.pixels - previous.pixels < cardHeight) {
                         current.pixels = previous.pixels + cardHeight;
                     }
+
+                    // Update year position map with final position
+                    yearToPosition.set(current.year, current.pixels);
                 }
             } else {
                 // For zoomed out, prevent overlap only for key events
@@ -466,6 +477,9 @@
                     if (current.pixels - previous.pixels < 60) {
                         current.pixels = previous.pixels + 60;
                     }
+
+                    // Update year position map with final position
+                    yearToPosition.set(current.year, current.pixels);
                 }
             }
 
@@ -481,13 +495,9 @@
             for (let y = 1880; y <= 1950; y += 10) {
                 let pixels = (y - startYear) * pixelsPerYear;
 
-                // For zoomed in view, account for overlap adjustments
-                if (currentZoomLevel === 'in') {
-                    // Find the position of the first event at or after this decade
-                    const decadeEvent = calculatedPositions.find(p => p.year >= y);
-                    if (decadeEvent && decadeEvent.year === y) {
-                        pixels = decadeEvent.pixels;
-                    }
+                // Use actual event position if available at this decade mark
+                if (yearToPosition.has(y)) {
+                    pixels = yearToPosition.get(y);
                 }
 
                 eventsHtml += `<div class="era-markers" style="top: ${pixels}px; margin-top: -10px;">${y}</div>`;
