@@ -195,8 +195,6 @@
 
         .zoomed-out .event-card.key-event {
             display: block;
-            transform: none !important;
-            top: auto !important;
         }
 
         .zoomed-out .timeline-wrapper {
@@ -434,21 +432,22 @@
             // Sort by position for overlap detection
             calculatedPositions.sort((a, b) => a.pixels - b.pixels);
 
-            // Adjust positions to prevent overlap
-            for (let i = 1; i < calculatedPositions.length; i++) {
-                const current = calculatedPositions[i];
-                const previous = calculatedPositions[i - 1];
+            // Adjust positions to prevent overlap (only for zoomed in view)
+            if (currentZoomLevel === 'in') {
+                for (let i = 1; i < calculatedPositions.length; i++) {
+                    const current = calculatedPositions[i];
+                    const previous = calculatedPositions[i - 1];
 
-                if (current.pixels - previous.pixels < cardHeight) {
-                    current.pixels = previous.pixels + cardHeight;
+                    if (current.pixels - previous.pixels < cardHeight) {
+                        current.pixels = previous.pixels + cardHeight;
+                    }
                 }
             }
 
             // Calculate final timeline height
-            const finalTimelineHeight = Math.max(
-                timelineHeight,
-                calculatedPositions[calculatedPositions.length - 1].pixels + 200
-            );
+            const finalTimelineHeight = currentZoomLevel === 'out'
+                ? timelineHeight
+                : Math.max(timelineHeight, calculatedPositions[calculatedPositions.length - 1].pixels + 200);
 
             // Create vertical timeline
             let eventsHtml = `<div class="timeline-container"><div class="timeline-wrapper" style="height: ${finalTimelineHeight}px;"><div class="timeline-track"></div>`;
