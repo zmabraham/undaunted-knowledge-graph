@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Test</title>
+</head>
+<body>
+    <h1>Simple Timeline Test</h1>
+    <div id="status">Loading...</div>
+    <div id="timeline"></div>
+
+    <script>
+        const statusEl = document.getElementById('status');
+        const timelineEl = document.getElementById('timeline');
+
+        async function test() {
+            try {
+                statusEl.innerHTML = 'Fetching data...';
+                const response = await fetch('undaunted_data.json');
+                statusEl.innerHTML += '<br>Response: ' + response.status;
+
+                const data = await response.json();
+                statusEl.innerHTML += '<br>Data loaded: ' + data.extractions.length + ' extractions';
+
+                const extractions = data.extractions;
+                const nodeMap = new Map();
+
+                extractions.forEach((ex, idx) => {
+                    const type = ex.node_type.toLowerCase();
+                    const extracted_data = ex.extracted_data;
+                    const name = extracted_data.name_en || extracted_data.name || extracted_data.title_en || `Entity ${idx}`;
+
+                    if (!nodeMap.has(name + type)) {
+                        nodeMap.set(name + type, {
+                            name: name,
+                            type: ex.node_type,
+                            data: extracted_data
+                        });
+                    }
+                });
+
+                const nodes = Array.from(nodeMap.values());
+                statusEl.innerHTML += '<br>Created ' + nodes.length + ' nodes';
+
+                const events = nodes.filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number');
+                events.sort((a, b) => a.data.year_ce - b.data.year_ce);
+
+                statusEl.innerHTML += '<br>Found ' + events.length + ' events with dates';
+
+                if (events.length === 0) {
+                    timelineEl.innerHTML = '<p style="color: red;">No events found!</p>';
+                    return;
+                }
+
+                let html = '<h2>Events Timeline</h2><ul>';
+                events.forEach(e => {
+                    html += '<li>' + e.data.year_ce + ': ' + (e.data.title_en || e.name) + '</li>';
+                });
+                html += '</ul>';
+
+                timelineEl.innerHTML = html;
+                statusEl.innerHTML += '<br><strong>Done!</strong>';
+
+            } catch (error) {
+                statusEl.innerHTML += '<br><strong>Error:</strong> ' + error.message;
+                console.error(error);
+            }
+        }
+
+        test();
+    </script>
+</body>
+</html>
