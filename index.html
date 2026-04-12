@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undaunted - Timeline</title>
+    <title>Undaunted - Complete Timeline</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +16,7 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #e4e4e7;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
 
         .header {
@@ -35,6 +35,46 @@
         .header p {
             color: #a1a1aa;
             margin-top: 0.5rem;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+
+        .stats strong {
+            color: #667eea;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #a1a1aa;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.confirmed {
+            background: #f59e0b;
+        }
+
+        .legend-dot.estimated {
+            background: #8b5cf6;
         }
 
         .timeline-container {
@@ -76,13 +116,20 @@
             position: absolute;
             width: 16px;
             height: 16px;
-            background: #f59e0b;
             border: 3px solid #1a1a2e;
             border-radius: 50%;
             top: 5px;
             z-index: 1;
             cursor: pointer;
             transition: all 0.2s;
+        }
+
+        .timeline-event-dot.confirmed {
+            background: #f59e0b;
+        }
+
+        .timeline-event-dot.estimated {
+            background: #8b5cf6;
         }
 
         .timeline-event:nth-child(odd) .timeline-event-dot {
@@ -120,6 +167,10 @@
             margin-bottom: 0.25rem;
         }
 
+        .event-year.estimated {
+            color: #8b5cf6;
+        }
+
         .event-title {
             font-size: 1rem;
             font-weight: 600;
@@ -133,11 +184,14 @@
             line-height: 1.5;
         }
 
-        .stats {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #a1a1aa;
-            font-size: 0.9rem;
+        .estimated-badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
         }
 
         .loading {
@@ -185,8 +239,21 @@
 </head>
 <body>
     <div class="header">
-        <h1>Undaunted</h1>
-        <p>A Chronological Timeline of Events</p>
+        <h1>Undaunted - Complete Timeline</h1>
+        <p>All 78 Events from the Book</p>
+    </div>
+
+    <div class="stats" id="stats">Loading...</div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-dot confirmed"></div>
+            <span>Confirmed Date</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot estimated"></div>
+            <span>Estimated Date</span>
+        </div>
     </div>
 
     <div id="app">
@@ -199,9 +266,10 @@
     <script>
         async function loadTimeline() {
             const app = document.getElementById('app');
+            const stats = document.getElementById('stats');
 
             try {
-                const response = await fetch('undaunted_data.json');
+                const response = await fetch('undaunted_data_full.json');
                 const data = await response.json();
 
                 const extractions = data.extractions || [];
@@ -225,31 +293,42 @@
                 });
 
                 const nodes = Array.from(nodeMap.values());
+
+                // Get ALL events (with dates)
                 const events = nodes
                     .filter(n => n.type === 'EVENT' && typeof n.data.year_ce === 'number')
                     .sort((a, b) => a.data.year_ce - b.data.year_ce);
 
                 if (events.length === 0) {
-                    app.innerHTML = '<div class="loading">No events found with dates</div>';
+                    app.innerHTML = '<div class="loading">No events found</div>';
                     return;
                 }
 
+                // Count confirmed vs estimated
+                const confirmed = events.filter(e => !e.data.estimated).length;
+                const estimated = events.filter(e => e.data.estimated).length;
+
+                // Update stats
+                stats.innerHTML = `<strong>${events.length}</strong> events (${confirmed} confirmed, ${estimated} estimated) from ` +
+                    events[0].data.year_ce + ' to ' + events[events.length - 1].data.year_ce;
+
                 // Render timeline
-                let html = '<div class="stats">' + events.length + ' events from ' +
-                    events[0].data.year_ce + ' to ' + events[events.length - 1].data.year_ce + '</div>';
-                html += '<div class="timeline-container">';
+                let html = '<div class="timeline-container">';
 
                 events.forEach(event => {
                     const year = event.data.year_ce;
                     const title = event.data.title_en || event.name;
                     const description = event.data.description || '';
                     const hebrewDate = event.data.date_hebrew || '';
+                    const isEstimated = event.data.estimated || false;
 
                     html += `
                         <div class="timeline-event">
-                            <div class="timeline-event-dot"></div>
+                            <div class="timeline-event-dot ${isEstimated ? 'estimated' : 'confirmed'}"></div>
                             <div class="event-card">
-                                <div class="event-year">${year}${hebrewDate ? ' • ' + hebrewDate : ''}</div>
+                                <div class="event-year ${isEstimated ? 'estimated' : ''}">
+                                    ${year}${hebrewDate ? ' • ' + hebrewDate : ''}${isEstimated ? '<span class="estimated-badge">Estimated</span>' : ''}
+                                </div>
                                 <div class="event-title">${title}</div>
                                 ${description ? `<div class="event-description">${description}</div>` : ''}
                             </div>
